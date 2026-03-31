@@ -1,0 +1,36 @@
+  <div class="top-bar">
+            <div class="top-bar-inner flex align-items-center justify-content-between">
+                <div class="tf-tb-left">
+                    <ul class="list-topbar-item flex align-items-center">
+                        <li class="top-bar-item ">
+                            <i class="icon-location-dot"></i>
+                            <a href="#" target="_blank">55 Main Street, San Francisco, California, USA</a>
+                        </li>
+                        <li class="top-bar-item">
+                            <i class="icon-email"></i>
+                            <a href="mailto:example@gmail.com">themesflat@gmail.com</a>
+                        </li>
+                        <li class="top-bar-item">
+                            <i class="icon-phone"></i>
+                            <a href="tel:+1123456889">+1 (123) 456 889</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tf-tb-right flex align-items-center">
+
+                    <ul class="list-support flex align-items-center">
+                        <li class="support-item"><a href="#">Help</a></li>
+                        <li class="support-item"><a href="#">Support</a></li>
+                        <li class="support-item"><a href="#">Faqs</a></li>
+                    </ul>
+
+                    <ul class="post-social">
+                        <li><a href="#" class="icon-social"><i class="icon-fb"></i></a></li>
+                        <li><a href="#" class="icon-social"><i class="icon-X"></i></a></li>
+                        <li><a href="#" class="icon-social"><i class="icon-linkedin"></i></a></li>
+                        <li><a href="#" class="icon-social"><i class="icon-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
