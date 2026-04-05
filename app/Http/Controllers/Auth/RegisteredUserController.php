@@ -76,8 +76,8 @@ class RegisteredUserController extends Controller
 
             DB::commit();
 
-            $email_subject = 'Welcome to BigHit - Verify Your Email';
-            $email_content = 'Use the OTP provided to confirm your email and join the BigHit community!';
+            $email_subject = 'Welcome to Lonstack Community - Verify Your Email';
+            $email_content = 'Use the OTP provided to confirm your email and join the Lonstack community!';
 
             // Send verification email
             Mail::to($user->email)->send(new VerificationMail($user, $email_subject, $email_content, $otp));
@@ -200,7 +200,7 @@ class RegisteredUserController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('OTP verification failed: ' . $e->getMessage());
-            return redirect()->route('email.verify', ['token' => $token])
+            return redirect()->route('email.verify.otp', ['token' => $token])
                 ->with('error', 'Verification failed. Please try again.');
         }
     }
@@ -231,13 +231,13 @@ class RegisteredUserController extends Controller
 
             DB::beginTransaction();
 
-            $otp = sprintf('%04d', random_int(0, 9999));
+            $otp = sprintf('%06d', random_int(0, 999999));
 
             $user->email_verification_otp = $otp;
             $user->email_verification_token_expires_at     = Carbon::now()->addMinutes(2);
             $user->save();
 
-            $email_subject = 'Welcome to BigHit - Verify Your Email';
+            $email_subject = 'Welcome to Lonstack - Verify Your Email';
             $email_content = 'Use the OTP provided to confirm your email and join the BigHit community!';
 
             // Mail inside transaction — if it throws, we rollback

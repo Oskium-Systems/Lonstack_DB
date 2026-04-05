@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
         if (Auth::check()) {
             $user = Auth::user();
 
-            if ($user->role === 'user') {
+             if ($user->role === 'user') {
                 return redirect()->route('user.dashboard');
             }
 
