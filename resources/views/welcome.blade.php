@@ -369,18 +369,16 @@
                                         </div>
                                         <div class="right">
                                             <div class="desc lh-30">
-                                                Our mission is to revolutionize the digital landscape delivering
-                                                innovative software solutions to empower businesses to achieve their
-                                                full potential
+                                             Our mission is to empower businesses worldwide by building innovative and scalable digital solutions that drive efficiency, accelerate growth, and unlock long-term value in an evolving digital economy.
                                             </div>
                                             <div class="list-benefit">
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Premier Tech Innovations</span>
+                                                    <span class="fw-5">Next-Generation Technology Solutions</span>
                                                 </div>
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Nexus Tech Systems</span>
+                                                    <span class="fw-5">Enterprise-Grade Digital Systems</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -401,18 +399,16 @@
                                         </div>
                                         <div class="right">
                                             <div class="desc lh-30">
-                                                Our mission is to revolutionize the digital landscape delivering
-                                                innovative software solutions to empower businesses to achieve their
-                                                full potential
+                                              Our vision is to design and scale intelligent digital ecosystems that empower organizations worldwide to operate with greater efficiency, security, and innovation in a rapidly evolving technological landscape
                                             </div>
                                             <div class="list-benefit">
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Premier Tech Innovations</span>
+                                                    <span class="fw-5">Intelligent Digital Ecosystems</span>
                                                 </div>
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Nexus Tech Systems</span>
+                                                    <span class="fw-5">Enterprise-Grade Innovation Systems</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -433,18 +429,17 @@
                                         </div>
                                         <div class="right">
                                             <div class="desc lh-30">
-                                                Our mission is to revolutionize the digital landscape delivering
-                                                innovative software solutions to empower businesses to achieve their
-                                                full potential
+                                               Our philosophy is built on innovation, scalability, and trust. We believe technology should not only solve problems but also create sustainable digital ecosystems that enable long-term growth, efficiency, and transformation for businesses worldwide.
+                                           
                                             </div>
                                             <div class="list-benefit">
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Premier Tech Innovations</span>
+                                                    <span class="fw-5">Human-Centered Digital Design</span>
                                                 </div>
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Nexus Tech Systems</span>
+                                                    <span class="fw-5">Security, Trust & Transparency</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -465,18 +460,16 @@
                                         </div>
                                         <div class="right">
                                             <div class="desc lh-30">
-                                                Our mission is to revolutionize the digital landscape delivering
-                                                innovative software solutions to empower businesses to achieve their
-                                                full potential
+                                               Our strategy is centered on designing scalable digital ecosystems that integrate engineering excellence, automation, and intelligence-driven decision-making to accelerate sustainable business growth.
                                             </div>
                                             <div class="list-benefit">
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Premier Tech Innovations</span>
+                                                    <span class="fw-5">Scalable Digital Ecosystem Design</span>
                                                 </div>
                                                 <div class="benefit-item">
                                                     <i class="icon-star-of-life"></i>
-                                                    <span class="fw-5">Nexus Tech Systems</span>
+                                                    <span class="fw-5">Intelligence-Driven Automation</span>
                                                 </div>
                                             </div>
                                         </div>

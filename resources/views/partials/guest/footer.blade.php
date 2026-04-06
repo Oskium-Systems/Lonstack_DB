@@ -290,14 +290,13 @@
                         </a>
                         <div class="list-bottom flex align-items-center justify-content-between flex-wrap rg-15 g-30">
                             <span class="text-center lh-30">
-                                © 2025 <a href="#" class="fw-7">Teckko</a> - IT Services. All rights
-                                reserved.
+                                © {{ date('Y') }} <a href="{{ url('/') }}" class="fw-7">Lonstack Software</a>. All rights reserved. 
+        Delivering innovative digital solutions worldwide.
                             </span>
                             <ul class="flex align-items-center justify-content-center flex-wrap rg-15">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><a href="about-us.html">About</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ route('terms-of-service') }}">Terms of Service</a></li>
+                                <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+                                {{-- <li><a href="{{ route('cookies') }}">Cookies</a></li> --}}
                             </ul>
                         </div>
                     </div>

@@ -31,4 +31,19 @@ class PageController extends Controller
     {
         return view('pages.contact-us');
     }
+
+     public function policy()
+    {
+        return view('pages.privacy-policy');
+    }
+
+      public function terms()
+    {
+        return view('pages.terms-of-service');
+    }
+
+      public function cookies()
+    {
+        return view('pages.cookies');
+    }
 }
