@@ -14,7 +14,12 @@ Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms-of-service');
 Route::get('/cookies', [PageController::class, 'cookies'])->name('cookies');
 
-
+// Company menu routes
+Route::get('/career', [PageController::class, 'career'])->name('career');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/press', [PageController::class, 'press'])->name('press');
+Route::get('/testimonials', [PageController::class, 'testimonials'])->name('testimonials');
+Route::get('/awards', [PageController::class, 'awards'])->name('awards');
 
 
 Route::get('/dashboard', function () {

@@ -34,6 +34,11 @@
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
+    <!-- Tabler Icon CSS -->
+    <link rel="stylesheet" href="{{ asset('dashboard_assets/plugins/tabler-icons/tabler-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard_assets/css/feather.css') }}">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
     <!-- Icon -->
     <link rel="stylesheet" type="text/css" href="icons/icomoon/style.css" />
 
@@ -71,7 +76,7 @@
         @include('partials.guest.header')
         <!-- /.header -->
 
-      
+
 
 
         <!-- Main-content -->
@@ -120,6 +125,9 @@
     <script src="js/odometer.min.js"></script>
     <script src="js/jquery-validate.js"></script>
     <script src="js/textanimation.js"></script>
+    <!-- Feather Icon JS -->
+    <script src="{{asset('dashboard_assets/js/feather.min.js')}}" type="bba39571e659c7cea8b06dff-text/javascript"></script>
+
 
     <script type="text/javascript" src="js/main.js"></script>
     <script src="js/sibforms.js" defer></script>
