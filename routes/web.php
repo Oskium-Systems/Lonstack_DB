@@ -11,7 +11,12 @@ Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact-us');
 
-
+// Company menu routes
+Route::get('/career', [PageController::class, 'career'])->name('career');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/press', [PageController::class, 'press'])->name('press');
+Route::get('/testimonials', [PageController::class, 'testimonials'])->name('testimonials');
+Route::get('/awards', [PageController::class, 'awards'])->name('awards');
 
 
 Route::get('/dashboard', function () {
