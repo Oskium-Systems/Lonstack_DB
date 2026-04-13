@@ -59,7 +59,7 @@
                     <div class="loader">
                     </div>
                     <div class="icon">
-                        <img src="image/logo/favicon.png" alt="logo">
+                        <img src="{{ asset('image/logo/favicon.png') }}" alt="logo">
                     </div>
                 </div>
             </div>

@@ -5290,7 +5290,7 @@ a.mapboxgl-ctrl-logo {
 }
 .page-title .page-title-content .title {
     color: var(--white);
-    margin-bottom: 42px;
+    /* margin-bottom: 42px; */
 }
 .page-title.p-pricing .page-title-content {
     padding-top: 86px;
