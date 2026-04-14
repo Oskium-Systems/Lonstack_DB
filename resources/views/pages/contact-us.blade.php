@@ -8,7 +8,7 @@
                     Contact Us
                 </h1>
                 <div class="breadkcum">
-                    <a href="index.html" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
+                    <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
                     <span class="dot"></span>
                     <span class="page-breadkcum body-2 fw-7 split-text effect-right"> Contact Us</span>
                 </div>
@@ -33,12 +33,6 @@
                                 Let’s Talk For
                                 <span class="fw-3">Next Projects</span>
                             </h2>
-                            <div class="desc text-animation">
-                                <p class="lh-30">
-                                    Sed ut perspiciatis unde omnin natus totam
-                                    rem aperiam eaque inventore veritatis
-                                </p>
-                            </div>
                         </div>
                         <div class="contact-list mb-30">
                             <div class="title body-2 fw-7 title-animation">Main Office</div>
@@ -145,9 +139,7 @@
         <div class="section-map">
             <div class="tf-container">
                 <div class="wg-map tf-spacing-2">
-                    <div class="box-map">
-                        <div id="map" class="map map-1"></div>
-                    </div>
+
                 </div>
             </div>
         </div>

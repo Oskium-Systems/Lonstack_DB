@@ -8,7 +8,7 @@
                     About Us
                 </h1>
                 <div class="breadkcum">
-                    <a href="index.html" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
+                    <a href="{{ route('about') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
                     <span class="dot"></span>
                     <span class="page-breadkcum body-2 fw-7 split-text effect-right"> About Us</span>
                 </div>
