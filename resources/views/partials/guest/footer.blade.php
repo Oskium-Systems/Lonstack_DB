@@ -55,6 +55,10 @@
                         </a>
                     </div>
 
+                    <p class="text mb-20" style="max-width: 480px; line-height: 1.7;">
+                        At LonStack, we are committed to delivering excellence through technology. Our team of experts partners with businesses to craft intelligent, reliable, and scalable digital experiences that stand the test of time.
+                    </p>
+
                     <form class="form-newsletter form-footer">
                         <div class="title fs-32 fw-7">
                             Subscribe <span class="fw-4">Newsletter</span>
@@ -139,7 +143,7 @@
                     </div>
 
                     <p class="text">
-                        By subscribing, you're accept <a href="#" class="fw-7">Privacy Policy</a>
+                        By subscribing, you're accept <a href="{{route('privacy-policy')}}" class="fw-7">Privacy Policy</a>
                     </p>
                 </div>
 
@@ -197,9 +201,9 @@
                     </span>
                     <ul class="flex align-items-center justify-content-center flex-wrap rg-15">
                         <li><a href="{{ route('about') }}">About</a></li>
-                        <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                        <li><a href="{{ route('blogs') }}">Blog</a></li>
-                        <li><a href="{{ route('contact-us') }}">Contact</a></li>
+                        <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
+                        <li><a href="{{ route('terms-of-service') }}">Terms of Service</a></li>
+                        <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>

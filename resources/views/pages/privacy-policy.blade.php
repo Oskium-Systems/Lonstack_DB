@@ -32,7 +32,7 @@
                 <h2 class="fw-6">1. Introduction</h2>
 
                 <p class="lh-30">
-                    Lonstack Software ("we", "our", "us"), based in Awka, Nigeria, is committed to protecting your privacy.
+                    LonStack Software ("we", "our", "us"), based in Awka, Nigeria, is committed to protecting your privacy.
                     This Privacy Policy explains how we collect, use, and safeguard your personal information when you interact with our website.
                 </p>
 

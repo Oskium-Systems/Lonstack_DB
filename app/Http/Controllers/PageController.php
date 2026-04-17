@@ -32,6 +32,16 @@ class PageController extends Controller
         return view('pages.portfolio');
     }
 
+      public function terms()
+    {
+        return view('pages.terms-of-service');
+    }
+
+       public function policy()
+    {
+        return view('pages.privacy-policy');
+    }
+
     // ─── Company
     public function career()
     {

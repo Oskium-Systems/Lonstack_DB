@@ -1,16 +1,14 @@
  <div class="offcanvas offcanvas-end offcanvasMegamenu" id="canvnasMegamenu">
             <div class="heading flex justify-content-between">
-                <div class="logo-megamenu">
-                    <img src="image/logo/logo.svg" alt="">
+                <div class="logo-megamenu w-10">
+                    <img src="{{ asset('image/logo/logo.png') }}" alt="" style="height: 65px; width: auto;">
                 </div>
                 <a class="tf-close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="icon-close"></i>
                 </a>
             </div>
             <div class="desc lh-30">
-                We provide comprehensive IT services, including web design, software development, and technology
-                solutions to help businesses with digital transformation, operational efficiency, and sustainable
-                growth.
+               At LonStack, we are committed to delivering excellence through technology. Our team of experts partners with businesses to craft intelligent, reliable, and scalable digital experiences that stand the test of time.
             </div>
 
             <div class="contact-mega-menu meag-menu-item">

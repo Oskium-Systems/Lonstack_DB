@@ -43,7 +43,7 @@
                 <h2 class="fw-6">1. Introduction</h2>
 
                 <p class="lh-30">
-                    These Terms of Service (“Terms”) govern your access to and use of the Lonstack Software website and services.
+                    These Terms of Service (“Terms”) govern your access to and use of the LonStack Software website and services.
                     By using our website, you agree to these Terms. If you do not agree, you must discontinue use immediately.
                 </p>
             </div>
@@ -91,7 +91,7 @@
                 <h2 class="fw-6">5. Services</h2>
 
                 <p class="lh-30">
-                    Lonstack Software provides digital services including:
+                    LonStack Software provides digital services including:
                 </p>
 
                 <ul class="lh-30 mt-10">

@@ -11,6 +11,8 @@ Route::get('/services', [PageController::class, 'services'])->name('services');
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact-us');
 Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
+Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms-of-service');
+Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
 
 // Company menu
 Route::get('/career', [PageController::class, 'career'])->name('career');

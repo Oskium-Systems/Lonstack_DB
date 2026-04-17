@@ -29,7 +29,7 @@
                 <div class="col-12">
                     <div class="top-page-title">
                         <div class="sub-title body-2 fw-5 split-text effect-right">
-                            Welcome to Tekko Software
+                            Welcome to LonStack Software
                         </div>
                         <h1 class="title fw-6 lh-85 split-text effect-right">
                             NextGen Software Innovators
@@ -200,7 +200,7 @@
                                     <text>
                                         <textPath href="#textPathCircle" startOffset="0" textLength="690"
                                             lengthAdjust="spacing">
-                                            - Digital - Software - Solutions - Agency&nbsp;
+                                            - Digital - Software - Solutions&nbsp;
                                         </textPath>
                                     </text>
                                 </svg>
@@ -210,7 +210,7 @@
                     <div class="right">
                         <div class="heading-section mb-30">
                             <div class="sub-title body-2 fw-7 mb-17 title-animation">
-                                We Are Teckko Company
+                                We Are Lonstack Software Company
                             </div>
                             <h2 class="title fw-6 title-animation">
                                 Innovate Soft Solutions to
@@ -226,7 +226,7 @@
                                 </p>
                             </div>
                             <div class="title-animation">
-                                <a href="about-us.html" class="tf-btn no-bg text-underline">
+                                <a href="{{route('about')}}" class="tf-btn no-bg text-underline">
                                     <span>Learn More Us</span>
                                     <i class="icon-arrow-right"></i>
                                 </a>
@@ -257,8 +257,8 @@
                                 data-src="image/section/img-section-counting-1.jpg" alt="" class="lazyload">
                         </div>
                         <div class="box-logo tf-animate-2">
-                            <img src="image/logo/favi.svg" alt="">
-                            <h4 class="title">Teckko</h4>
+                            <img src="image/logo/favicon.png" alt="">
+                            <h4 class="title">LonStack</h4>
                         </div>
                         <div class="box-avatar tf-animate-3">
                             <div class="text">
@@ -297,7 +297,7 @@
                             </div>
                             <h2 class="title fw-6 title-animation">
                                 Premier Tech Innovations
-                                <span class="fw-3">Teckko Software Agency</span>
+                                <span class="fw-3">LonStack Software</span>
                             </h2>
                         </div>
                         <div class="wg-counter flex g-30">
