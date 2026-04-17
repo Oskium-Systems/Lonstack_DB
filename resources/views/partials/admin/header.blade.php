@@ -4,10 +4,10 @@
          <!-- Logo -->
          <div class="header-left active ">
              <a href="/" class="logo logo-normal">
-                 <img src="assets/imgs/logo/logo-white.svg" alt="Img">
+                 <img src="{{ asset('image/logo/logo-black.png') }}" alt="Img">
              </a>
              <a href="/" class="logo logo-white">
-                 <img src="assets/imgs/logo/logo-white.svg" alt="Img">
+                 <img src="{{ asset('image/logo/logo-black.png') }}" alt="Img">
              </a>
 
          </div>
@@ -130,14 +130,17 @@
              </li> --}}
              <!-- /Notifications -->
 
+
+
              <li class="nav-item nav-item-box">
-                 <a href=""><i class="ti ti-settings"></i></a>
+                 <a href="{{ route('admin.settings.index') }}"><i class="ti ti-settings"></i></a>
              </li>
              <li class="nav-item dropdown has-arrow main-drop profile-nav">
                  <a href="javascript:void(0);" class="nav-link userset" data-bs-toggle="dropdown">
                      <span class="user-info p-0">
                          <span class="user-letter" style="overflow: hidden; border-radius: 1px;">
-                             <img src="{{ auth()->user()->profileImageUrl() }}" style="width: 100%; height: 100%; object-fit: cover;" alt="Img" class="img-fluid">
+                             <img src="{{ auth()->user()->profileImageUrl() }}"
+                                 style="width: 100%; height: 100%; object-fit: cover;" alt="Img" class="img-fluid">
                          </span>
                      </span>
                  </a>
@@ -149,11 +152,11 @@
                              <p>{{ ucfirst(auth()->user()->role) }}</p>
                          </div>
                      </div>
-                     <a class="dropdown-item" href="">
+                     <a class="dropdown-item" href="{{ route('admin.profile.index') }}">
                          <i class="ti ti-user-circle me-2"></i>
                          MyProfile
                      </a>
-                     <a class="dropdown-item" href="">
+                     <a class="dropdown-item" href="{{ route('admin.settings.index') }}">
                          <i class="ti ti-settings-2 me-2"></i>
                          Settings
                      </a>
@@ -175,16 +178,17 @@
              <a href="javascript:void(0);" class="nav-link userset" data-bs-toggle="dropdown" aria-expanded="false">
                  <span class="user-info p-0">
                      <span class="user-letter" style="overflow: hidden; border-radius: 1px;">
-                         <img src="{{ auth()->user()->profileImageUrl() }}" style="width: 100%; height: 100%; object-fit: cover;" alt="Profile"
+                         <img src="{{ auth()->user()->profileImageUrl() }}"
+                             style="width: 100%; height: 100%; object-fit: cover;" alt="Profile"
                              class="img-fluid rounded-circle">
                      </span>
                  </span>
              </a>
              <div class="dropdown-menu dropdown-menu-right">
-                 <a class="dropdown-item text-white" href="">
+                 <a class="dropdown-item text-white" href="{{ route('admin.profile.index') }}">
                      <i class="fas fa-user me-2"></i>My Profile
                  </a>
-                 <a class="dropdown-item text-white" href="">
+                 <a class="dropdown-item text-white" href="{{ route('admin.settings.index') }}">
                      <i class="fas fa-cog me-2"></i>Settings
                  </a>
                  <div class="dropdown-divider"></div>
@@ -196,5 +200,3 @@
          </div>
      </div>
  </div>
-
-

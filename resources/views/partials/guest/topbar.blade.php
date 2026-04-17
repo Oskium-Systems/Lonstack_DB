@@ -1,36 +1,45 @@
-  <div class="top-bar">
-            <div class="top-bar-inner flex align-items-center justify-content-between">
-                <div class="tf-tb-left">
-                    <ul class="list-topbar-item flex align-items-center">
-                        <li class="top-bar-item ">
-                            <i class="icon-location-dot"></i>
-                            <a href="#" target="_blank">55 Main Street, San Francisco, California, USA</a>
-                        </li>
-                        <li class="top-bar-item">
-                            <i class="icon-email"></i>
-                            <a href="mailto:example@gmail.com">themesflat@gmail.com</a>
-                        </li>
-                        <li class="top-bar-item">
-                            <i class="icon-phone"></i>
-                            <a href="tel:+1123456889">+1 (123) 456 889</a>
-                        </li>
-                    </ul>
-                </div>
+@php $settings = \App\Models\Setting::current(); @endphp
 
-                <div class="tf-tb-right flex align-items-center">
-
-                    <ul class="list-support flex align-items-center">
-                        <li class="support-item"><a href="#">Help</a></li>
-                        <li class="support-item"><a href="#">Support</a></li>
-                        <li class="support-item"><a href="#">Faqs</a></li>
-                    </ul>
-
-                    <ul class="post-social">
-                        <li><a href="#" class="icon-social"><i class="icon-fb"></i></a></li>
-                        <li><a href="#" class="icon-social"><i class="icon-X"></i></a></li>
-                        <li><a href="#" class="icon-social"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#" class="icon-social"><i class="icon-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+<div class="top-bar">
+    <div class="top-bar-inner flex align-items-center justify-content-between">
+        <div class="tf-tb-left">
+            <ul class="list-topbar-item flex align-items-center">
+                @if($settings->company_address)
+                <li class="top-bar-item">
+                    <i class="icon-location-dot"></i>
+                    <a href="#">{{ $settings->company_address }}</a>
+                </li>
+                @endif
+                @if($settings->support_email)
+                <li class="top-bar-item">
+                    <i class="icon-email"></i>
+                    <a href="mailto:{{ $settings->support_email }}">{{ $settings->support_email }}</a>
+                </li>
+                @endif
+                @if($settings->company_phone)
+                <li class="top-bar-item">
+                    <i class="icon-phone"></i>
+                    <a href="tel:{{ $settings->company_phone }}">{{ $settings->company_phone }}</a>
+                </li>
+                @endif
+            </ul>
         </div>
+
+        <div class="tf-tb-right flex align-items-center">
+            <ul class="post-social">
+                @if($settings->site_fb)
+                    <li><a href="{{ $settings->site_fb }}" target="_blank" class="icon-social"><i class="icon-fb"></i></a></li>
+                @endif
+                @if($settings->site_twitter)
+                    <li><a href="{{ $settings->site_twitter }}" target="_blank" class="icon-social"><i class="icon-X"></i></a></li>
+                @endif
+                @if($settings->site_linkedin)
+                    <li><a href="{{ $settings->site_linkedin }}" target="_blank" class="icon-social"><i class="icon-linkedin"></i></a></li>
+                @endif
+                @if($settings->site_youtube)
+                    <li><a href="{{ $settings->site_youtube }}" target="_blank" class="icon-social"><i class="icon-youtube"></i></a></li>
+                @endif
+            </ul>
+        </div>
+    </div>
+</div>

@@ -18687,7 +18687,7 @@ body.mini-sidebar.expand-menu
     border-bottom: 1px solid #e6eaed;
 }
 .sidebar .sidebar-logo .logo img {
-    width: 130px;
+    max-width: 130px;
 }
 .sidebar .sidebar-logo .logo-small {
     display: none;
