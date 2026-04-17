@@ -19,17 +19,10 @@ class PageController extends Controller
     {
         return view('pages.services');
     }
-    public function blogs()
-    {
-        return view('pages.blogs');
-    }
+ 
     public function contact()
     {
         return view('pages.contact-us');
-    }
-    public function portfolio()
-    {
-        return view('pages.portfolio');
     }
 
       public function terms()
@@ -40,6 +33,28 @@ class PageController extends Controller
        public function policy()
     {
         return view('pages.privacy-policy');
+    }
+
+    //Portfolio
+      public function portfolio()
+    {
+        return view('pages.portfolio.portfolio');
+    }
+
+        public function portfolioDetails()
+    {
+        return view('pages.portfolio.portfolio-details');
+    }
+
+    //Blogs
+       public function blogs()
+    {
+        return view('pages.blogs.blogs');
+    }
+
+       public function blogDetails()
+    {
+        return view('pages.blogs.blog-details');
     }
 
     // ─── Company

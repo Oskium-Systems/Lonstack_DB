@@ -8,11 +8,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/services', [PageController::class, 'services'])->name('services');
-Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact-us');
-Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms-of-service');
 Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+
+//portfolio
+Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
+Route::get('/portfolio-details', [PageController::class, 'portfolioDetails'])->name('portfolio-details');
+
+//blogs
+Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
+Route::get('/blog-details', [PageController::class, 'blogDetails'])->name('blog-details');
 
 // Company menu
 Route::get('/career', [PageController::class, 'career'])->name('career');

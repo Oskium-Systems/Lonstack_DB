@@ -52,72 +52,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -131,72 +131,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -210,72 +210,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -289,72 +289,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -368,72 +368,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -447,72 +447,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -526,72 +526,72 @@
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-2.jpg" data-src="image/project-item/project-item-2.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Mobile Application Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Mobile Application Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-3.jpg" data-src="image/project-item/project-item-3.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">UI/UX Design</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-4.jpg" data-src="image/project-item/project-item-4.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">UI/UX Design</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Contemporary Art</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Contemporary Art</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-5.jpg" data-src="image/project-item/project-item-5.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Software Development</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">App For Rent A Car</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">App For Rent A Car</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-6.jpg" data-src="image/project-item/project-item-6.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Business</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Business Analysis</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Business Analysis</a></h3>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="project-gird-item project-item">
-                                        <a href="porfolio-details.html" class="image">
+                                        <a href="{{ route('portfolio-details') }}" class="image">
                                             <img src="image/project-item/project-item-7.jpg" data-src="image/project-item/project-item-7.jpg" alt="" class="lazyload">
                                         </a>
                                         <div class="item-content">
                                             <div class="sub-title body-2 fw-7">Technology</div>
-                                            <h3 class="title-project"><a href="porfolio-details.html">Data Recovery</a></h3>
+                                            <h3 class="title-project"><a href="{{ route('portfolio-details') }}">Data Recovery</a></h3>
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
  <div class="offcanvas offcanvas-end offcanvasMegamenu" id="canvnasMegamenu">
             <div class="heading flex justify-content-between">
-                <div class="logo-megamenu w-10">
+                <div class="logo-megamenu">
                     <img src="{{ asset('image/logo/logo.png') }}" alt="" style="height: 65px; width: auto;">
                 </div>
                 <a class="tf-close-btn" data-bs-dismiss="offcanvas" aria-label="Close">

@@ -1374,22 +1374,22 @@
                             <div class="post-content">
                                 <div class="top-post">
                                     <div class="post-meta">
-                                        <a href="blog-details.html" class="text-medium">05 June 2025</a> <span
+                                        <a href="{{ route('blog-details') }}" class="text-medium">05 June 2025</a> <span
                                             class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="blog-details.html">The Future of Software
+                                    <h5 class="title fw-5"><a href="{{ route('blog-details') }}">The Future of Software
                                             Development Emerging and Technologies</a></h5>
                                 </div>
                                 <div class="bottom-post">
                                     <div class="desc lh-30">We undertake is a testament to our dedication to
                                         quality</div>
-                                    <a href="blog-details.html" class="tf-btn-readmore style-open">
+                                    <a href="{{ route('blog-details') }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="blog-details.html" class="image">
+                            <a href="{{ route('blog-details') }}" class="image">
                                 <img src="image/blog/post-list-4.jpg" data-src="image/blog/post-list-4.jpg"
                                     alt="" class="lazyload">
                             </a>
@@ -1404,19 +1404,19 @@
                                             class="line"></span> <a href="#"
                                             class="text-medium">Comment(5)</a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="blog-details.html">Mastering Agile: Best
+                                    <h5 class="title fw-5"><a href="{{ route('blog-details') }}">Mastering Agile: Best
                                             Practices for Efficient Software Development</a></h5>
                                 </div>
                                 <div class="bottom-post">
                                     <div class="desc lh-30">We undertake is a testament to our dedication to
                                         quality</div>
-                                    <a href="blog-details.html" class="tf-btn-readmore style-open">
+                                    <a href="{{ route('blog-details') }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="blog-details.html" class="image">
+                            <a href="{{ route('blog-details') }}" class="image">
                                 <img src="image/blog/post-list-5.jpg" data-src="image/blog/post-list-5.jpg"
                                     alt="" class="lazyload">
                             </a>

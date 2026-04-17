@@ -49,7 +49,7 @@
 
 </head>
 
-<body class="counter-scroll">
+<body class="counter-scroll @yield('body-class')">
 
     <!-- .preload -->
     <div id="loading">
