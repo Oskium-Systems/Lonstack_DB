@@ -1,25 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="account-content">
 
         <div class="login-wrapper bg-img">
 
             <div class="login-content authent-content">
 
-                <form method="POST" action="{{ route('login') }}" data-submit-spinner
-                    data-spinner-text="Processing...">
+                <form method="POST" action="{{ route('login') }}" data-submit-spinner data-spinner-text="Processing...">
                     @csrf
 
                     <div class="login-userset">
 
-                        <div class="login-logo logo-normal">
-                            <img src="assets/img/logo.svg" alt="img" />
-                        </div>
+                        <a href="{{ route('home') }}">
+                            <div class="login-logo logo-normal">
+                                <img src="{{ asset('image/logo/logo-black.png') }}" alt="img" />
+                            </div>
+                        </a>
 
-                        <a href="" class="login-logo logo-white">
-                            <img src="assets/img/logo-white.svg" alt="Img" />
+
+                        <a href="{{ route('home') }}" class="login-logo logo-white">
+                            <img src="{{ asset('image/logo/logo-black.png') }}" alt="Img" />
                         </a>
 
                         <div class="login-userheading">
@@ -36,16 +37,9 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value="{{ old('email') }}"
-                                    class="form-control border-end-0"
-                                    placeholder="Enter your email"
-                                    autofocus
-                                    autocomplete="username"
-                                />
+                                <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                    class="form-control border-end-0" placeholder="Enter your email" autofocus
+                                    autocomplete="username" />
                                 <span class="input-group-text border-start-0">
                                     <i class="ti ti-mail"></i>
                                 </span>
@@ -62,13 +56,8 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="pass-group">
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    class="pass-input form-control"
-                                    placeholder="Enter your password"
-                                />
+                                <input type="password" id="password" name="password" class="pass-input form-control"
+                                    placeholder="Enter your password" />
                                 <span class="ti toggle-password ti-eye-off text-gray-9"></span>
                             </div>
                             @error('password')
@@ -82,21 +71,17 @@
                                 <div class="col-12 d-flex align-items-center justify-content-between">
                                     <div class="custom-control custom-checkbox">
                                         <label class="checkboxs ps-4 mb-0 pb-0 line-height-1 fs-16 text-gray-6">
-                                            <input
-                                                type="checkbox"
-                                                id="remember_me"
-                                                name="remember"
-                                                class="form-control"
-                                                {{ old('remember') ? 'checked' : '' }}
-                                            />
+                                            <input type="checkbox" id="remember_me" name="remember" class="form-control"
+                                                {{ old('remember') ? 'checked' : '' }} />
                                             <span class="checkmarks"></span>
                                             Remember me
                                         </label>
                                     </div>
                                     <div class="text-end">
-                                            <a class="text-orange fs-16 fw-medium" href="{{ route('forgot-password.request') }}">
-                                                Forgot Password?
-                                            </a>
+                                        <a class="text-orange fs-16 fw-medium"
+                                            href="{{ route('forgot-password.request') }}">
+                                            Forgot Password?
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -123,5 +108,4 @@
             </div>
         </div>
     </div>
-
 @endsection

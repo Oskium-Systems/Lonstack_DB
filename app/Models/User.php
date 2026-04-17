@@ -57,8 +57,12 @@ class User extends Authenticatable
 
 
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 
-    // In User model
+
     public function profileImageUrl()
     {
         return $this->profile && $this->profile->profile_image

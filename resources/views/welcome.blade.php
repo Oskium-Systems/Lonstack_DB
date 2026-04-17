@@ -496,7 +496,12 @@
 
         </section>
 
+
+
+
         <section class="section-services tf-spacing-2">
+
+            {{-- Background mask --}}
             <div class="mask mask-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none">
                     <circle cx="400" cy="400" r="325" stroke="url(#a3)" stroke-width="150" />
@@ -508,87 +513,26 @@
                     </defs>
                 </svg>
             </div>
+
+            {{-- Marquee ticker --}}
             <div class="section-top">
                 <div class="tf-marquee">
                     <div class="marquee-wrapper">
                         <div class="initial-child-container">
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
-                            <div class="big-text">
-                                Explore <span class="text-stroke">Popular</span> Services
-                            </div>
+                            @for ($i = 0; $i < 12; $i++)
+                                <div class="big-text">
+                                    Explore <span class="text-stroke">Popular</span> Services
+                                    <span class="marquee-dot">&#8226;</span>
+                                </div>
+                            @endfor
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="tf-container">
+
+                {{-- Section heading --}}
                 <div class="row">
                     <div class="col-12">
                         <div class="heading-section mb-60 text-center">
@@ -596,107 +540,139 @@
                                 Our Popular Services
                             </div>
                             <h2 class="title fw-6 title-animation">
-                                We Run All kinds Of IT Services
+                                We Run All Kinds Of IT Services
                                 <br><span class="fw-3">that vow Your Success</span>
                             </h2>
                         </div>
                     </div>
                 </div>
+
+                {{-- Services grid --}}
                 <div class="row">
                     <div class="col-12">
-                        <div class="swiper tf-swiper sw-services sw-border"
-                            data-swiper='{
-                                "slidesPerView": 1,
-                                "spaceBetween": 0,
-                                "speed": 800,
-                                "pagination": { "el": ".sw-pagination-services", "clickable": true },
-                                "breakpoints": {
-                                    "550": { "slidesPerView": 2, "slidesPerGroup": 1},
-                                    "1200": { "slidesPerView": 3, "slidesPerGroup": 1}
-                                    }
-                                }'>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="services-item hover-image px-md-15 style-1">
-                                        <div class="icon">
-                                            <i class="icon-custom-software"></i>
-                                        </div>
-                                        <h6 class="lh-30 fw-6"><a href="services-details.html" class="title-service">
-                                                Custom Software Development</a></h6>
-                                        <div class="desc lh-30">
-                                            We specialize delivering bespoke software application perfectly
-                                            perational.
-                                        </div>
-                                        <a href="services-details.html" class="image">
-                                            <img src="image/services-item/services-1.jpg"
-                                                data-src="image/services-item/services-1.jpg" alt=""
-                                                class="lazyload">
-                                        </a>
-                                        <div class="bottom-item">
-                                            <a href="services-details.html" class="tf-btn-readmore">
-                                                <span class="plus">+</span>
-                                                <span class="text">Read More</span>
-                                            </a>
-                                        </div>
+                        <div class="srv-new-grid">
+
+                            {{-- ── FEATURED CARD ── --}}
+                            <div class="srv-featured-card">
+                                <div class="srv-featured-inner">
+                                    <div class="srv-featured-icon">
+                                        <i class="icon-custom-software"></i>
                                     </div>
+                                    <div class="srv-featured-badge">Featured Service</div>
+                                    <h4 class="srv-featured-title">
+                                        Blockchain<br>Development
+                                        <span class="badge-hot">HOT 🔥</span>
+                                    </h4>
+                                    <p class="srv-featured-desc">
+                                        Robust and efficient blockchain software across various industries.
+                                        From smart contracts to full DeFi platforms — your most powerful
+                                        service delivered end-to-end.
+                                    </p>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="services-item hover-image px-md-15 style-1">
-                                        <div class="icon">
-                                            <i class="icon-outsourcing"></i>
-                                        </div>
-                                        <h6 class="lh-30 fw-6"><a href="services-details.html"
-                                                class="title-service">Outsourcing Development</a></h6>
-                                        <div class="desc lh-30">
-                                            We specialize delivering bespoke software application perfectly
-                                            perational.
-                                        </div>
-                                        <a href="services-details.html" class="image">
-                                            <img src="image/services-item/services-2.jpg"
-                                                data-src="image/services-item/services-2.jpg" alt=""
-                                                class="lazyload">
-                                        </a>
-                                        <div class="bottom-item">
-                                            <a href="services-details.html" class="tf-btn-readmore">
-                                                <span class="plus">+</span>
-                                                <span class="text">Read More</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="services-item hover-image px-md-15 style-1">
-                                        <div class="icon">
-                                            <i class="icon-software-product"></i>
-                                        </div>
-                                        <h6 class="lh-30 fw-6"><a href="services-details.html"
-                                                class="title-service">Software Product Development</a></h6>
-                                        <div class="desc lh-30">
-                                            We specialize delivering bespoke software application perfectly
-                                            perational.
-                                        </div>
-                                        <a href="services-details.html" class="image">
-                                            <img src="image/services-item/services-3.jpg"
-                                                data-src="image/services-item/services-3.jpg" alt=""
-                                                class="lazyload">
-                                        </a>
-                                        <div class="bottom-item">
-                                            <a href="services-details.html" class="tf-btn-readmore">
-                                                <span class="plus">+</span>
-                                                <span class="text">Read More</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                <div class="srv-featured-footer">
+                                    <a href="{{ route('services.blockchain') }}" class="tf-btn tf-btn--sm">
+                                        <span>Get Started</span>
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                    <a href="{{ route('services.blockchain') }}" class="srv-view-all-link">
+                                        View all Web3 <i class="icon-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sw-pagination-services sw-pagination d-xl-none mt-15 justify-content-center">
-                        </div>
 
+                            {{-- ── TOP-RIGHT 2×2 GRID ── --}}
+                            <div class="srv-mini-grid">
+
+                                <div class="srv-mini-card">
+                                    <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+                                    <h6 class="srv-mini-title">
+                                        Crypto Exchange Dev
+                                        <span class="badge-hot">HOT 🔥</span>
+                                    </h6>
+                                    <p class="srv-mini-desc">Seamless transactions to buy, sell, and trade cryptocurrencies
+                                    </p>
+                                    <a href="{{ route('services.crypto-exchange') }}" class="tf-btn-readmore mt-auto">
+                                        <span class="plus">+</span><span class="text">Read More</span>
+                                    </a>
+                                </div>
+
+                                <div class="srv-mini-card">
+                                    <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
+                                    <h6 class="srv-mini-title">
+                                        Mobile App Dev
+                                        <span class="badge-hot">HOT 🔥</span>
+                                    </h6>
+                                    <p class="srv-mini-desc">High-performing apps for iOS and Android</p>
+                                    <a href="{{ route('services.mobile-app') }}" class="tf-btn-readmore mt-auto">
+                                        <span class="plus">+</span><span class="text">Read More</span>
+                                    </a>
+                                </div>
+
+                                <div class="srv-mini-card">
+                                    <div class="srv-mini-icon"><i class="icon-custom-software"></i></div>
+                                    <h6 class="srv-mini-title">
+                                        AI Development
+                                    </h6>
+                                    <p class="srv-mini-desc">Custom AI to automate and transform your business</p>
+                                    <a href="{{ route('services.ai-development') }}" class="tf-btn-readmore mt-auto">
+                                        <span class="plus">+</span><span class="text">Read More</span>
+                                    </a>
+                                </div>
+
+                                <div class="srv-mini-card">
+                                    <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+                                    <h6 class="srv-mini-title">
+                                        Custom Software Dev
+                                        <span class="badge-hot">HOT 🔥</span>
+                                    </h6>
+                                    <p class="srv-mini-desc">Tailor-made solutions for all your business needs</p>
+                                    <a href="{{ route('services.custom-software') }}" class="tf-btn-readmore mt-auto">
+                                        <span class="plus">+</span><span class="text">Read More</span>
+                                    </a>
+                                </div>
+
+                            </div>{{-- /.srv-mini-grid --}}
+
+                            {{-- ── BOTTOM ROW (3 cards, full width) ── --}}
+                            <div class="srv-bottom-card">
+                                <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
+                                <h6 class="srv-mini-title">Data Analytics</h6>
+                                <p class="srv-mini-desc">Transform raw data into actionable business insights</p>
+                                <a href="{{ route('services.data-analytics') }}" class="tf-btn-readmore mt-auto">
+                                    <span class="plus">+</span><span class="text">Read More</span>
+                                </a>
+                            </div>
+
+                            <div class="srv-bottom-card">
+                                <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+                                <h6 class="srv-mini-title">Staff Augmentation</h6>
+                                <p class="srv-mini-desc">Scale your team on demand with skilled developers integrated into
+                                    your workflow</p>
+                                <a href="{{ route('services.staff-augmentation') }}" class="tf-btn-readmore mt-auto">
+                                    <span class="plus">+</span><span class="text">Read More</span>
+                                </a>
+                            </div>
+
+                            <div class="srv-bottom-card">
+                                <div class="srv-mini-icon"><i class="icon-custom-software"></i></div>
+                                <h6 class="srv-mini-title">
+                                    Prediction Market Dev
+                                    <span class="badge-new">NEW</span>
+                                </h6>
+                                <p class="srv-mini-desc">Full-cycle prediction market software for crypto</p>
+                                <a href="{{ route('services.prediction-market') }}" class="tf-btn-readmore mt-auto">
+                                    <span class="plus">+</span><span class="text">Read More</span>
+                                </a>
+                            </div>
+
+                        </div>{{-- /.srv-new-grid --}}
                     </div>
                 </div>
-            </div>
+
+            </div>{{-- /.tf-container --}}
         </section>
+
+
 
         <div class="wg-cta tf-spacing-2 alert alert-dismissible fade show" role="alert">
             <div class="tf-container">
@@ -1408,8 +1384,7 @@
                                 <div class="top-post">
                                     <div class="post-meta">
                                         <a href="blog-details.html" class="text-medium">05 June 2025</a> <span
-                                            class="line"></span> <a href="#"
-                                            class="text-medium">Comment(5)</a>
+                                            class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
                                     </div>
                                     <h5 class="title fw-5"><a href="blog-details.html">Mastering Agile: Best
                                             Practices for Efficient Software Development</a></h5>

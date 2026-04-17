@@ -14,7 +14,9 @@
     <meta name="robots" content="index, follow">
     <title> {{ $pageTitle ?? 'Admin Dashboard' }} </title>
 
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon">
+
+    <link rel="shortcut icon" href="image/logo/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="image/logo/favicon.png" />
 
     <script src="{{asset('dashboard_assets/js/theme-script.js')}}" type=""></script>
 
@@ -46,7 +48,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard_assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('dashboard_assets/css/cutom.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard_assets/custom.css') }}">
 
     <!-- iziToast CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard_assets/css/iziToast.min.css') }}">
@@ -178,54 +180,54 @@
             if (window.iziToastInitialized) return;
             window.iziToastInitialized = true;
 
-            @if (session('success'))
-                iziToast.success({
-                    message: @json(session('success')),
-                    position: 'topRight',
-                    timeout: 5000,
-                    pauseOnHover: true,
-                    progressBar: true,
-                    animateInside: true,
-                    transitionIn: 'flipInX',
-                    transitionOut: 'flipOutX',
-                    resetOnHover: true,
-                });
-            @elseif (session('error'))
-                iziToast.error({
-                    message: @json(session('error')),
-                    position: 'topRight',
-                    timeout: 5000,
-                    pauseOnHover: true,
-                    progressBar: true,
-                    animateInside: true,
-                    transitionIn: 'flipInX',
-                    transitionOut: 'flipOutX',
-                    resetOnHover: true,
-                });
-            @elseif (session('info'))
-                iziToast.info({
-                    message: @json(session('info')),
-                    position: 'topRight',
-                    timeout: 5000,
-                    pauseOnHover: true,
-                    progressBar: true,
-                    animateInside: true,
-                    transitionIn: 'flipInX',
-                    transitionOut: 'flipOutX',
-                    resetOnHover: true,
-                });
-            @elseif (session('warning'))
-                iziToast.warning({
-                    message: @json(session('warning')),
-                    position: 'topRight',
-                    timeout: 5000,
-                    pauseOnHover: true,
-                    progressBar: true,
-                    animateInside: true,
-                    transitionIn: 'flipInX',
-                    transitionOut: 'flipOutX',
-                    resetOnHover: true,
-                });
+            @if(session('success'))
+            iziToast.success({
+                message: @json(session('success')),
+                position: 'topRight',
+                timeout: 5000,
+                pauseOnHover: true,
+                progressBar: true,
+                animateInside: true,
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                resetOnHover: true,
+            });
+            @elseif(session('error'))
+            iziToast.error({
+                message: @json(session('error')),
+                position: 'topRight',
+                timeout: 5000,
+                pauseOnHover: true,
+                progressBar: true,
+                animateInside: true,
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                resetOnHover: true,
+            });
+            @elseif(session('info'))
+            iziToast.info({
+                message: @json(session('info')),
+                position: 'topRight',
+                timeout: 5000,
+                pauseOnHover: true,
+                progressBar: true,
+                animateInside: true,
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                resetOnHover: true,
+            });
+            @elseif(session('warning'))
+            iziToast.warning({
+                message: @json(session('warning')),
+                position: 'topRight',
+                timeout: 5000,
+                pauseOnHover: true,
+                progressBar: true,
+                animateInside: true,
+                transitionIn: 'flipInX',
+                transitionOut: 'flipOutX',
+                resetOnHover: true,
+            });
             @endif
         });
     </script>

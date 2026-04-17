@@ -46,7 +46,7 @@
     <link rel="shortcut icon" href="image/logo/favicon.png" />
     <link rel="apple-touch-icon-precomposed" href="image/logo/favicon.png" />
 
-
+    @stack('styles')
 </head>
 
 <body class="counter-scroll">
@@ -151,8 +151,10 @@
 
         var AUTOHIDE = Boolean(0);
     </script>
-    <!-- /Javascript -->
 
+    <!-- /Javascript -->
+    
+    @stack('scripts')
 
 </body>
 

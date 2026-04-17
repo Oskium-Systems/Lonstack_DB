@@ -34,10 +34,10 @@
     margin-bottom: 0.1rem !important;
 }
 
-.form-control {
+/* .form-control {
     height: 150px !important;
     background: red !important;
-}
+} */
 
 .login-wrapper .login-content .form-login .btn-login {
     height: 50px;
@@ -161,3 +161,18 @@
 /* .custom-input{
     background: red !important;
 } */
+
+/* ── Sidebar active item — brand primary #43baff light tint ── */
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a {
+    background: rgba(67, 186, 255, 0.1) !important;
+    border-radius: 5px !important;
+    color: #43baff !important;
+}
+
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a span,
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a i,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a span,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a i {
+    color: #43baff !important;
+}
