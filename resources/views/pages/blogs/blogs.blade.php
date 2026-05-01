@@ -11,7 +11,7 @@
                 <div class="breadkcum">
                     <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
                     <span class="dot"></span>
-                    <span class="page-breadkcum body-2 fw-7 split-text effect-right"> Blog Standard</span>
+                    <span class="page-breadkcum body-2 fw-7 split-text effect-right">Blog Standard</span>
                 </div>
             </div>
         </div>
@@ -19,478 +19,164 @@
     <!-- /.page-title -->
 
     <!-- Main-content -->
-        <div class="main-content">
-            <div class="list-post-gird tf-spacing-2">
-                <div class="tf-container">
-                    <div class="row rg-30">
-                        <div class="col-xl-8">
-                            <button id="filterShop" class="fillter-btn style-fixed d-xl-none">
-                                <i class="icon-sidebar"></i>
-                            </button>
-                            <div class="tf-grid-2 loadmore-item">
-                                <div class="fl-item">
+    <div class="main-content">
+        <div class="list-post-gird tf-spacing-2">
+            <div class="tf-container">
+                <div class="row rg-30">
 
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-1.jpg" data-src="image/blog/blog-grid-1.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
+                    <!-- Blog Grid -->
+                    <div class="col-xl-8">
+                        <button id="filterShop" class="fillter-btn style-fixed d-xl-none">
+                            <i class="icon-sidebar"></i>
+                        </button>
+
+                        <div class="tf-grid-2 loadmore-item">
+                            @forelse ($blogs as $blog)
+                            <div class="fl-item">
+                                <div class="tf-post-grid hover-image">
+                                    <div class="top">
+                                        <a href="{{ route('blog-details', $blog->slug) }}" class="image">
+                                            @if ($blog->image)
+                                                <img src="{{ asset('storage/' . $blog->image) }}"
+                                                     alt="{{ $blog->title }}" class="lazyload">
+                                            @else
+                                                <img src="image/blog/blog-grid-1.jpg"
+                                                     alt="{{ $blog->title }}" class="lazyload">
+                                            @endif
+                                        </a>
+                                        <div class="post-content px-md-15">
+                                            @if ($blog->category)
+                                            <div class="category-post">
+                                                <a href="#" class="item">{{ $blog->category->name }}</a>
                                             </div>
-                                        </div>
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
+                                            @endif
+                                            <h6 class="title lh-32">
+                                                <a href="{{ route('blog-details', $blog->slug) }}" class="line-clamp-3">
+                                                    {{ $blog->title }}
+                                                </a>
+                                            </h6>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-5.jpg" data-src="image/blog/blog-grid-5.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-2.jpg" data-src="image/blog/blog-grid-2.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-6.jpg" data-src="image/blog/blog-grid-6.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-3.jpg" data-src="image/blog/blog-grid-3.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-7.jpg" data-src="image/blog/blog-grid-7.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-4.jpg" data-src="image/blog/blog-grid-4.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-8.jpg" data-src="image/blog/blog-grid-8.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-1.jpg" data-src="image/blog/blog-grid-1.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-5.jpg" data-src="image/blog/blog-grid-5.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-2.jpg" data-src="image/blog/blog-grid-2.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Tips For Conducting to Usability Studies With Participants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="fl-item">
-
-                                    <div class="tf-post-grid hover-image ">
-                                        <div class="top">
-                                            <a href="{{ route('blog-details') }}" class="image">
-                                                <img src="image/blog/blog-grid-6.jpg" data-src="image/blog/blog-grid-6.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                            </a>
-                                            <div class="post-content px-md-15">
-                                                <div class="category-post">
-                                                    <a href="#" class="item">Design</a>
-                                                    <a href="#" class="item">Figma</a>
-                                                </div>
-                                                <h6 class="title lh-32">
-                                                    <a href="{{ route('blog-details') }}" class="line-clamp-3">
-                                                        Online Environment Work For Older Users systems ways Tips Usability Studies Pants
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="bottom-item px-md-15">
-                                            <i class="icon-email"></i>
-                                            <span>December 25, 2025</span>
-                                        </div>
+                                    <div class="bottom-item px-md-15">
+                                        <i class="icon-email"></i>
+                                        <span>
+                                            {{ ($blog->published_at ?? $blog->created_at)->format('F d, Y') }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-xl-4">
-                            <div class="tf-sidebar sidebar-filter right">
-                                <div class="header-fillter flex justify-content-between align-items-center d-xl-none mb-30">
-                                    <h3 class="title">
-                                        Fillter
-                                    </h3>
-                                    <span class="icon-close close-filter"></span>
-                                </div>
-                                <div class="sidebar-item sidebar-search">
-
-                                    <h5 class="title-content fw-5">
-                                        Search
-                                    </h5>
-
-                                    <form action="#" class="form-search-siderbar">
-                                        <fieldset>
-                                            <input type="text" placeholder="Keywords">
-                                            <a href="#" class="tf-btn-search"><i class="icon-magnifying-glass"></i></a>
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                                <div class="sidebar-item sidebar-content sidebar-categories mb-40">
-                                    <h5 class="title-content fw-5">
-                                        Category
-                                    </h5>
-                                    <ul class="list">
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Web Design</a>
-                                        </li>
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Mobile Apps Design</a>
-                                        </li>
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Brand Identity Design</a>
-                                        </li>
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Motion Graphic Design</a>
-                                        </li>
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Web Development</a>
-                                        </li>
-                                        <li class="item">
-                                            <i class="icon-arrow-right"></i>
-                                            <a href="#" class="body-2 fw-5">Digital Marketing</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="sidebar-item sidebar-content sidebar-recent-posts">
-                                    <h4 class="title-content fw-5">
-                                        Latest News
-                                    </h4>
-                                    <div class="tf-post-list style-small hover-img">
-                                        <a href="{{ route('blog-details') }}" class="image">
-                                            <img src="image/blog/post-list-1.jpg" data-src="image/blog/post-list-1.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                        </a>
-                                        <div class="post-content">
-                                            <div class="post-date">
-                                                <i class="icon-email"></i>
-                                                <span>Dec 12, 2025</span>
-                                            </div>
-                                            <a href="#" class="body-2">
-                                                Tips For Conducting Studie
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tf-post-list style-small hover-img">
-                                        <a href="{{ route('blog-details') }}" class="image">
-                                            <img src="image/blog/post-list-2.jpg" data-src="image/blog/post-list-2.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                        </a>
-                                        <div class="post-content">
-                                            <div class="post-date">
-                                                <i class="icon-email"></i>
-                                                <span>Dec 12, 2025</span>
-                                            </div>
-                                            <a href="#" class="body-2">
-                                                Usability With Participants
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tf-post-list style-small hover-img">
-                                        <a href="{{ route('blog-details') }}" class="image">
-                                            <img src="image/blog/post-list-3.jpg" data-src="image/blog/post-list-3.jpg" alt="" class=" ls-is-cached lazyloaded">
-                                        </a>
-                                        <div class="post-content">
-                                            <div class="post-date">
-                                                <i class="icon-email"></i>
-                                                <span>Dec 12, 2025</span>
-                                            </div>
-                                            <a href="#" class="body-2">
-                                                Online Environment Work
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-item sidebar-tags mb-50">
-                                    <h4 class="title-content fw-5">
-                                        Popular Tags
-                                    </h4>
-                                    <div class="tabs-list">
-                                        <a href="#" class="tabs-item fw-5">Design </a>
-                                        <a href="#" class="tabs-item fw-5">Figma</a>
-                                        <a href="#" class="tabs-item fw-5">Apps</a>
-                                        <a href="#" class="tabs-item fw-5">Branding</a>
-                                        <a href="#" class="tabs-item fw-5">Development</a>
-                                        <a href="#" class="tabs-item fw-5">Digital</a>
-                                        <a href="#" class="tabs-item fw-5">Mobile Apps</a>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-banner box-item">
-                                    <div class="box-content px-sm-15">
-                                        <p class="sub-title">
-                                            Get A Quote
-                                        </p>
-                                        <h4 class="title">Looking For Creative Web Designer</h4>
-                                        <a href="#" class="tf-btn">
-                                            <span>Hire Me</span>
-                                            <i class="icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                            @empty
+                            <div class="col-12 text-center py-5">
+                                <p>No blog posts available yet.</p>
                             </div>
+                            @endforelse
                         </div>
-
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="bottom-btn text-center view-more-button">
-                                <button class="tf-btn mx-auto btn-loadmore">
-                                    <span>View More News </span>
-                                    <i class="icon-arrow-right"></i>
-                                </button>
+                    <!-- /.Blog Grid -->
+
+                    <!-- Sidebar -->
+                    <div class="col-xl-4">
+                        <div class="tf-sidebar sidebar-filter right">
+                            <div class="header-fillter flex justify-content-between align-items-center d-xl-none mb-30">
+                                <h3 class="title">Filter</h3>
+                                <span class="icon-close close-filter"></span>
+                            </div>
+
+                            <!-- Search -->
+                            <div class="sidebar-item sidebar-search">
+                                <h5 class="title-content fw-5">Search</h5>
+                                <form action="{{ route('blogs') }}" method="GET" class="form-search-siderbar">
+                                    <fieldset>
+                                        <input type="text" name="q" placeholder="Keywords"
+                                               value="{{ request('q') }}">
+                                        <button type="submit" class="tf-btn-search">
+                                            <i class="icon-magnifying-glass"></i>
+                                        </button>
+                                    </fieldset>
+                                </form>
+                            </div>
+
+                            <!-- Categories -->
+                            @if ($categories->count())
+                            <div class="sidebar-item sidebar-content sidebar-categories mb-40">
+                                <h5 class="title-content fw-5">Category</h5>
+                                <ul class="list">
+                                    @foreach ($categories as $cat)
+                                    <li class="item">
+                                        <i class="icon-arrow-right"></i>
+                                        <a href="#" class="body-2 fw-5">
+                                            {{ $cat->name }}
+                                            @if ($cat->blogs_count)
+                                                <span class="text-muted">({{ $cat->blogs_count }})</span>
+                                            @endif
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+
+                            <!-- Latest News -->
+                            @if ($recentBlogs->count())
+                            <div class="sidebar-item sidebar-content sidebar-recent-posts">
+                                <h4 class="title-content fw-5">Latest News</h4>
+                                @foreach ($recentBlogs as $recent)
+                                <div class="tf-post-list style-small hover-img">
+                                    <a href="{{ route('blog-details', $recent->slug) }}" class="image">
+                                        @if ($recent->image)
+                                            <img src="{{ asset('storage/' . $recent->image) }}"
+                                                 alt="{{ $recent->title }}" class="lazyload">
+                                        @else
+                                            <img src="image/blog/post-list-1.jpg"
+                                                 alt="{{ $recent->title }}" class="lazyload">
+                                        @endif
+                                    </a>
+                                    <div class="post-content">
+                                        <div class="post-date">
+                                            <i class="icon-email"></i>
+                                            <span>{{ ($recent->published_at ?? $recent->created_at)->format('M d, Y') }}</span>
+                                        </div>
+                                        <a href="{{ route('blog-details', $recent->slug) }}" class="body-2">
+                                            {{ Str::limit($recent->title, 35) }}
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            @endif
+
+                            <!-- Popular Tags -->
+                            @php
+                                $allTags = $blogs->pluck('tags')->filter()->flatMap(fn($t) => array_map('trim', explode(',', $t)))->unique()->values();
+                            @endphp
+                            @if ($allTags->count())
+                            <div class="sidebar-item sidebar-tags mb-50">
+                                <h4 class="title-content fw-5">Popular Tags</h4>
+                                <div class="tabs-list">
+                                    @foreach ($allTags->take(10) as $tag)
+                                        <a href="#" class="tabs-item fw-5">{{ $tag }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endif
+
+                            <div class="sidebar-banner box-item">
+                                <div class="box-content px-sm-15">
+                                    <p class="sub-title">Get A Quote</p>
+                                    <h4 class="title">Looking For Creative Web Designer</h4>
+                                    <a href="{{ route('contact-us') }}" class="tf-btn">
+                                        <span>Hire Me</span>
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /.Sidebar -->
+
                 </div>
             </div>
         </div>
-        <!-- /.main-content -->
+    </div>
+    <!-- /.main-content -->
 @endsection

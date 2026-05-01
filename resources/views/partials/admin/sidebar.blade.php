@@ -57,16 +57,30 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="javascript:void(0)">All Posts</a></li>
-                                <li><a href="javascript:void(0)">Categories</a></li>
+                                <li class="{{ request()->routeIs('admin.blog.all') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.blog.all') }}">All Blog</a>
+                                </li>
+                                <li class="{{ request()->routeIs('admin.blog.manage-categories') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.blog.manage-categories') }}">Categories</a>
+                                </li>
+                                <li class="{{ request()->routeIs('admin.blog.comments') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.blog.comments') }}">Blog Comments</a>
+                                </li>
+                                </li>
                             </ul>
                         </li>
 
-                        <li class="mb-1">
+                        <li class="submenu mb-1">
                             <a href="javascript:void(0)">
                                 <i class="ti ti-briefcase fs-16 me-2"></i>
                                 <span>Portfolio</span>
+                                 <span class="menu-arrow"></span>
                             </a>
+                             <ul>
+                                <li><a href="javascript:void(0)">All Portfolio</a></li>
+                                <li><a href="javascript:void(0)">Categories</a></li>
+                                <li><a href="javascript:void(0)">Create Portfolio</a></li>
+                            </ul>
                         </li>
 
                         <li>
