@@ -17,7 +17,9 @@ class PageController extends Controller
             ->take(2)
             ->get();
 
-        return view('welcome', compact('homeBlogs'));
+        $homeTestimonials = \App\Models\Testimonial::visible()->take(6)->get();
+
+        return view('welcome', compact('homeBlogs', 'homeTestimonials'));
     }
     public function about()
     {
@@ -121,7 +123,8 @@ class PageController extends Controller
     }
     public function testimonials()
     {
-        return view('pages.company.testimonials');
+        $testimonials = \App\Models\Testimonial::visible()->paginate(6);
+        return view('pages.company.testimonials', compact('testimonials'));
     }
     public function awards()
     {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogCommentController;
+use App\Http\Controllers\Admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 // ADMIN ROUTES
@@ -39,6 +40,13 @@ Route::prefix('admin')
         Route::put('blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
         Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
+        // Testimonial routes
+        Route::get('testimonial/all', [TestimonialController::class, 'index'])->name('testimonial.all');
+        Route::post('testimonial', [TestimonialController::class, 'store'])->name('testimonial.store');
+        Route::put('testimonial/{testimonial}', [TestimonialController::class, 'update'])->name('testimonial.update');
+        Route::delete('testimonial/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+        Route::patch('testimonial/{testimonial}/status', [TestimonialController::class, 'toggleStatus'])->name('testimonial.status');
+
         // Profile Management
         Route::prefix('profile')
             ->name('profile.')
@@ -57,4 +65,7 @@ Route::prefix('admin')
                 Route::get('/', 'index')->name('index');
                 Route::post('/', 'update')->name('update');
             });
+            
+        
+            
     });

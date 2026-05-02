@@ -157,10 +157,6 @@
     <script src="{{asset('dashboard_assets/js/theme-colorpicker.js')}}" type="bba39571e659c7cea8b06dff-text/javascript"></script>
     <script src="{{asset('dashboard_assets/js/script.js')}}" type="bba39571e659c7cea8b06dff-text/javascript"></script>
 
-
-
-
-
     <script src="https://dreamspos.dreamstechnologies.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
         data-cf-settings="bba39571e659c7cea8b06dff-|49" defer></script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"

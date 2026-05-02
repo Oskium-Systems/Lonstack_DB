@@ -83,8 +83,8 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript:void(0)">
+                        <li class="{{ request()->routeIs('admin.testimonial.all') ? 'active' : '' }}">
+                            <a href="{{ route('admin.testimonial.all') }}">
                                 <i class="ti ti-quote fs-16 me-2"></i>
                                 <span>Testimonials</span>
                             </a>
