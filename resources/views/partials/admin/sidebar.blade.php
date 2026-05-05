@@ -133,15 +133,19 @@
                             </a>
                         </li>
 
-                        <li class="submenu">
+                        <li class="submenu mb-1 {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                             <a href="javascript:void(0);">
                                 <i class="ti ti-stack fs-16 me-2"></i>
                                 <span>Services</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="javascript:void(0)">All Services</a></li>
-                                <li><a href="javascript:void(0)">Categories</a></li>
+                                <li class="">
+                                    <a href="{{ route('admin.services.categories.index') }}">Categories</a>
+                                </li>
+                                <li class="">
+                                    <a href="{{ route('admin.services.index') }}">All Services</a>
+                                </li>
                             </ul>
                         </li>
 

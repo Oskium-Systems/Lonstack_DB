@@ -3,7 +3,7 @@
         <div class="header-left flex align-items-center">
             <div class="logo logo-header">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('image/logo/logo.png') }}" alt="">
+                    <img src="{{ asset('image/logo/logo.png') }}" alt="Logo">
                 </a>
             </div>
             <nav class="main-menu">
