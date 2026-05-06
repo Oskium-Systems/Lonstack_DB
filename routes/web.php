@@ -18,7 +18,8 @@ Route::get('/portfolio-details', [PageController::class, 'portfolioDetails'])->n
 
 //blogs
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
-Route::get('/blog-details', [PageController::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog-details');
+Route::post('/blog/{slug}/comment', [\App\Http\Controllers\BlogCommentController::class, 'store'])->name('blog.comment.store');
 Route::middleware(['maintenance'])->group(
     function () {
         // page routes

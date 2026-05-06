@@ -1141,73 +1141,41 @@
                                 "pagination": { "el": ".sw-pagination-testimonial", "clickable": true }
                                 }'>
                             <div class="swiper-wrapper">
+                                @forelse ($homeTestimonials as $ht)
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         <div class="icon">
                                             <i class="icon-quote2"></i>
                                         </div>
                                         <div class="text fs-27 lh-35 fw-5">
-                                            Climb the mountain not to plant your flag but to embrace
-                                            the ways challenge, enjoy the air, and behold the. Climb it
-                                            see the world, not so the world can see you.
+                                            {{ $ht->content }}
                                         </div>
                                         <div class="user-testimonial">
-                                            <a href="#" class="name-user body-2 ">Richard T. Simmons</a>
-                                            <a href="#" class="position text-medium">Graphics Designer</a>
+                                            <a href="#" class="name-user body-2">{{ $ht->name }}</a>
+                                            <a href="#" class="position text-medium">
+                                                {{ $ht->position }}
+                                                @if ($ht->company)
+                                                    · {{ $ht->company }}
+                                                @endif
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-
+                                @empty
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
-                                        <div class="icon">
-                                            <i class="icon-quote2"></i>
-                                        </div>
+                                        <div class="icon"><i class="icon-quote2"></i></div>
                                         <div class="text fs-27 lh-35 fw-5">
-                                            Climb the mountain not to plant your flag but to embrace
-                                            the ways challenge, enjoy the air, and behold the. Climb it
-                                            see the world, not so the world can see you.
+                                            Working with LonStack was the best technology decision we made.
+                                            They delivered beyond expectations every step of the way.
                                         </div>
                                         <div class="user-testimonial">
-                                            <a href="#" class="name-user body-2 ">Richard T. Simmons</a>
-                                            <a href="#" class="position text-medium">Graphics Designer</a>
+                                            <a href="#" class="name-user body-2">A Happy Client</a>
+                                            <a href="#" class="position text-medium">CEO, Tech Company</a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <div class="icon">
-                                            <i class="icon-quote2"></i>
-                                        </div>
-                                        <div class="text fs-27 lh-35 fw-5">
-                                            Climb the mountain not to plant your flag but to embrace
-                                            the ways challenge, enjoy the air, and behold the. Climb it
-                                            see the world, not so the world can see you.
-                                        </div>
-                                        <div class="user-testimonial">
-                                            <a href="#" class="name-user body-2 ">Richard T. Simmons</a>
-                                            <a href="#" class="position text-medium">Graphics Designer</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <div class="icon">
-                                            <i class="icon-quote2"></i>
-                                        </div>
-                                        <div class="text fs-27 lh-35 fw-5">
-                                            Climb the mountain not to plant your flag but to embrace
-                                            the ways challenge, enjoy the air, and behold the. Climb it
-                                            see the world, not so the world can see you.
-                                        </div>
-                                        <div class="user-testimonial">
-                                            <a href="#" class="name-user body-2 ">Richard T. Simmons</a>
-                                            <a href="#" class="position text-medium">Graphics Designer</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforelse
                             </div>
                         </div>
                         <div class="sw-pagination-testimonial sw-pagination mt-50"></div>
@@ -1345,58 +1313,45 @@
             </div>
             <div class="tf-container">
                 <div class="row rg-30">
+                    @foreach ($homeBlogs as $homeBlog)
                     <div class="col-lg-6">
-                        <div class="tf-post-list style-2 hover-image">
+                        <div class="tf-post-list style-2 hover-image" style="display:flex; align-items:stretch;">
                             <div class="post-content">
                                 <div class="top-post">
                                     <div class="post-meta">
-                                        <a href="{{ route('blog-details') }}" class="text-medium">05 June 2025</a> <span
-                                            class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
+                                        <a href="{{ route('blog-details', $homeBlog->slug) }}" class="text-medium">
+                                            {{ ($homeBlog->published_at ?? $homeBlog->created_at)->format('d F Y') }}
+                                        </a>
+                                        <span class="line"></span>
+                                        <a href="#" class="text-medium">Comment({{ $homeBlog->comments_count ?? 0 }})</a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="{{ route('blog-details') }}">The Future of Software
-                                            Development Emerging and Technologies</a></h5>
+                                    <h5 class="title fw-5">
+                                        <a href="{{ route('blog-details', $homeBlog->slug) }}">{{ $homeBlog->title }}</a>
+                                    </h5>
                                 </div>
                                 <div class="bottom-post">
-                                    <div class="desc lh-30">We undertake is a testament to our dedication to
-                                        quality</div>
-                                    <a href="{{ route('blog-details') }}" class="tf-btn-readmore style-open">
+                                    <div class="desc lh-30">{{ Str::limit($homeBlog->excerpt ?? strip_tags($homeBlog->description), 80) }}</div>
+                                    <a href="{{ route('blog-details', $homeBlog->slug) }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="{{ route('blog-details') }}" class="image">
-                                <img src="image/blog/post-list-4.jpg" data-src="image/blog/post-list-4.jpg"
-                                    alt="" class="lazyload">
+                            <a href="{{ route('blog-details', $homeBlog->slug) }}"
+                               style="display:block; flex-shrink:0; width:270px; margin:0; overflow:hidden; align-self:stretch;">
+                                @if ($homeBlog->image)
+                                    <img src="{{ asset('storage/' . $homeBlog->image) }}"
+                                         alt="{{ $homeBlog->title }}"
+                                         style="width:100%; height:100%; object-fit:cover; display:block;">
+                                @else
+                                    <img src="image/blog/post-list-4.jpg"
+                                         alt="{{ $homeBlog->title }}"
+                                         style="width:100%; height:100%; object-fit:cover; display:block;">
+                                @endif
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="tf-post-list style-2 hover-image">
-                            <div class="post-content">
-                                <div class="top-post">
-                                    <div class="post-meta">
-                                        <a href="blog-details.html" class="text-medium">05 June 2025</a> <span
-                                            class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
-                                    </div>
-                                    <h5 class="title fw-5"><a href="{{ route('blog-details') }}">Mastering Agile: Best
-                                            Practices for Efficient Software Development</a></h5>
-                                </div>
-                                <div class="bottom-post">
-                                    <div class="desc lh-30">We undertake is a testament to our dedication to
-                                        quality</div>
-                                    <a href="{{ route('blog-details') }}" class="tf-btn-readmore style-open">
-                                        <span class="plus">+</span>
-                                        <span class="text">Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <a href="{{ route('blog-details') }}" class="image">
-                                <img src="image/blog/post-list-5.jpg" data-src="image/blog/post-list-5.jpg"
-                                    alt="" class="lazyload">
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -9,7 +10,16 @@ class PageController extends Controller
     // ─── Main Pages 
     public function home()
     {
-        return view('welcome');
+        $homeBlogs = \App\Models\Blog::with('category')
+            ->withCount('comments')
+            ->where('status', true)
+            ->latest('published_at')
+            ->take(2)
+            ->get();
+
+        $homeTestimonials = \App\Models\Testimonial::visible()->take(6)->get();
+
+        return view('welcome', compact('homeBlogs', 'homeTestimonials'));
     }
     public function about()
     {
@@ -47,14 +57,55 @@ class PageController extends Controller
     }
 
     //Blogs
-       public function blogs()
+    public function blogs()
     {
-        return view('pages.blogs.blogs');
+        $blogs = Blog::with('category', 'author')
+            ->where('status', true)
+            ->latest('published_at')
+            ->get();
+
+        $categories = \App\Models\BlogCategory::where('status', true)
+            ->withCount(['blogs' => fn($q) => $q->where('status', true)])
+            ->get();
+
+        $recentBlogs = Blog::with('category')
+            ->where('status', true)
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        return view('pages.blogs.blogs', compact('blogs', 'categories', 'recentBlogs'));
     }
 
-       public function blogDetails()
+    public function blogDetails($slug)
     {
-        return view('pages.blogs.blog-details');
+        $blog = Blog::with([
+                'category',
+                'author',
+                // Only top-level published comments, with their published replies
+                'comments' => fn($q) => $q->whereNull('parent_id')
+                                          ->where('status', 'published')
+                                          ->latest(),
+                'comments.publishedReplies',
+            ])
+            ->where('slug', $slug)
+            ->where('status', true)
+            ->firstOrFail();
+
+        $blog->increment('views');
+
+        $categories = \App\Models\BlogCategory::where('status', true)
+            ->withCount(['blogs' => fn($q) => $q->where('status', true)])
+            ->get();
+
+        $recentBlogs = Blog::with('category')
+            ->where('status', true)
+            ->where('id', '!=', $blog->id)
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        return view('pages.blogs.blog-details', compact('blog', 'categories', 'recentBlogs'));
     }
 
     // ─── Company
@@ -72,7 +123,8 @@ class PageController extends Controller
     }
     public function testimonials()
     {
-        return view('pages.company.testimonials');
+        $testimonials = \App\Models\Testimonial::visible()->paginate(6);
+        return view('pages.company.testimonials', compact('testimonials'));
     }
     public function awards()
     {
