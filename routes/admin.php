@@ -1,0 +1,141 @@
+<?php
+
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogCommentController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceBenefitController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceDetailController;
+use App\Http\Controllers\Admin\ServiceFaqController;
+use App\Http\Controllers\Admin\ServiceHeroController;
+use App\Http\Controllers\Admin\ServiceProcessController;
+use App\Http\Controllers\Admin\ServiceRelatedController;
+use App\Http\Controllers\Admin\ServiceTalkToUsController;
+use App\Http\Controllers\Admin\ServiceTechGroupController;
+use App\Http\Controllers\Admin\ServiceTechTagController;
+use App\Http\Controllers\Admin\ServiceTestimonialController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\TestimonialController;
+use Illuminate\Support\Facades\Route;
+
+// ADMIN ROUTES
+Route::prefix('admin')
+  ->name('admin.')
+  ->middleware('auth', 'can:access-admin-dashboard')
+  ->group(function () {
+
+    // ── Dashboard ──
+    Route::get('dashboard', [AdminDashboardController::class, 'adminDashboard'])->name('dashboard');
+
+    // ── Profile ──
+    Route::prefix('profile')
+      ->name('profile.')
+      ->controller(ProfileController::class)
+      ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::patch('/', 'update')->name('update');
+        Route::patch('/password', 'updatePassword')->name('password');
+      });
+
+    // ── Settings ──
+    Route::prefix('settings')
+      ->name('settings.')
+      ->controller(SettingsController::class)
+      ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'update')->name('update');
+      });
+
+    // ── Blog Categories ──
+    Route::get('blog/manage-categories', [BlogCategoryController::class, 'index'])->name('blog.manage-categories');
+    Route::get('blog/manage-categories/search', [BlogCategoryController::class, 'search'])->name('blog.categories.search');
+    Route::post('blog/manage-categories', [BlogCategoryController::class, 'store'])->name('blog.categories.store');
+    Route::put('blog/manage-categories/{blogCategory}', [BlogCategoryController::class, 'update'])->name('blog.categories.update');
+    Route::delete('blog/manage-categories/{blogCategory}', [BlogCategoryController::class, 'destroy'])->name('blog.categories.destroy');
+
+    // ── Blog Comments ──
+    Route::get('blog/comments', [BlogCommentController::class, 'index'])->name('blog.comments');
+    Route::get('blog/comments/search', [BlogCommentController::class, 'search'])->name('blog.comments.search');
+    Route::patch('blog/comments/{blogComment}/status', [BlogCommentController::class, 'updateStatus'])->name('blog.comments.status');
+    Route::delete('blog/comments/{blogComment}', [BlogCommentController::class, 'destroy'])->name('blog.comments.destroy');
+
+    // ── Blog Posts ──
+    // Static routes before {blog} wildcard to avoid conflicts
+    Route::get('blog/all', [BlogController::class, 'index'])->name('blog.all');
+    Route::get('blog/search', [BlogController::class, 'search'])->name('blog.search');
+    Route::post('blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('blog/{blog}', [BlogController::class, 'show'])->name('blog.show');
+    Route::put('blog/{blog}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
+    // ── Testimonials (global, not service-specific) ──
+    Route::get('testimonial/all', [TestimonialController::class, 'index'])->name('testimonial.all');
+    Route::post('testimonial', [TestimonialController::class, 'store'])->name('testimonial.store');
+    Route::put('testimonial/{testimonial}', [TestimonialController::class, 'update'])->name('testimonial.update');
+    Route::delete('testimonial/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+    Route::patch('testimonial/{testimonial}/status', [TestimonialController::class, 'toggleStatus'])->name('testimonial.status');
+
+    // ── Services ──
+    Route::prefix('services')
+      ->name('services.')
+      ->group(function () {
+
+        // Service Categories
+        Route::resource('categories', ServiceCategoryController::class)
+          ->only(['index', 'store', 'update', 'destroy'])
+          ->parameters(['categories' => 'serviceCategory']);
+
+        // Services list — explicit routes (avoids empty-string resource conflicts)
+        Route::get('/', [ServiceController::class, 'index'])->name('index');
+        Route::post('/', [ServiceController::class, 'store'])->name('store');
+        Route::patch('{service}', [ServiceController::class, 'update'])->name('update');
+        Route::delete('{service}', [ServiceController::class, 'destroy'])->name('destroy');
+
+        // Service Detail Editor (tabbed page)
+        Route::get('{service}/detail', [ServiceDetailController::class, 'show'])->name('detail');
+
+        // Hero (one per service)
+        Route::post('{service}/hero', [ServiceHeroController::class, 'store'])->name('hero.store');
+        Route::patch('{service}/hero/{hero}', [ServiceHeroController::class, 'update'])->name('hero.update');
+
+        // Benefits
+        Route::post('{service}/benefits', [ServiceBenefitController::class, 'store'])->name('benefits.store');
+        Route::patch('{service}/benefits/{benefit}', [ServiceBenefitController::class, 'update'])->name('benefits.update');
+        Route::delete('{service}/benefits/{benefit}', [ServiceBenefitController::class, 'destroy'])->name('benefits.destroy');
+
+        // Talk To Us (one per service)
+        Route::post('{service}/talk', [ServiceTalkToUsController::class, 'store'])->name('talk.store');
+        Route::patch('{service}/talk/{talkToUs}', [ServiceTalkToUsController::class, 'update'])->name('talk.update');
+
+        // Process Steps
+        Route::post('{service}/process', [ServiceProcessController::class, 'store'])->name('process.store');
+        Route::patch('{service}/process/{step}', [ServiceProcessController::class, 'update'])->name('process.update');
+        Route::delete('{service}/process/{step}', [ServiceProcessController::class, 'destroy'])->name('process.destroy');
+
+        // Tech Groups
+        Route::post('{service}/techgroups', [ServiceTechGroupController::class, 'store'])->name('techgroups.store');
+        Route::patch('{service}/techgroups/{techGroup}', [ServiceTechGroupController::class, 'update'])->name('techgroups.update');
+        Route::delete('{service}/techgroups/{techGroup}', [ServiceTechGroupController::class, 'destroy'])->name('techgroups.destroy');
+
+        // Tech Tags (nested under group)
+        Route::post('{service}/techgroups/{techGroup}/tags', [ServiceTechTagController::class, 'store'])->name('techtags.store');
+        Route::delete('{service}/techgroups/{techGroup}/tags/{tag}', [ServiceTechTagController::class, 'destroy'])->name('techtags.destroy');
+
+        // Testimonials (service-specific)
+        Route::post('{service}/testimonials', [ServiceTestimonialController::class, 'store'])->name('testimonials.store');
+        Route::patch('{service}/testimonials/{testimonial}', [ServiceTestimonialController::class, 'update'])->name('testimonials.update');
+        Route::delete('{service}/testimonials/{testimonial}', [ServiceTestimonialController::class, 'destroy'])->name('testimonials.destroy');
+
+        // FAQs
+        Route::post('{service}/faqs', [ServiceFaqController::class, 'store'])->name('faqs.store');
+        Route::patch('{service}/faqs/{faq}', [ServiceFaqController::class, 'update'])->name('faqs.update');
+        Route::delete('{service}/faqs/{faq}', [ServiceFaqController::class, 'destroy'])->name('faqs.destroy');
+
+        // Related Services
+        Route::post('{service}/related', [ServiceRelatedController::class, 'store'])->name('related.store');
+        Route::delete('{service}/related/{related}', [ServiceRelatedController::class, 'destroy'])->name('related.destroy');
+      });
+  });

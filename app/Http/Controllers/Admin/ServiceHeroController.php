@@ -1,0 +1,111 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\ServiceHero;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+class ServiceHeroController extends Controller
+{
+  /**
+   * Store a new hero record for the service.
+   */
+  public function store(Request $request, Service $service)
+  {
+    $validated = $request->validate([
+      'headline'            => 'required|string|max:255',
+      'description'         => 'nullable|string',
+      'image'               => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+      'cta_primary_label'   => 'nullable|string|max:100',
+      'cta_primary_url'     => 'nullable|string|max:255',
+      'cta_secondary_label' => 'nullable|string|max:100',
+      'cta_secondary_url'   => 'nullable|string|max:255',
+    ], [
+      'image.image' => 'The file must be an image.',
+      'image.mimes' => 'The image must be a JPEG, PNG, JPG, or WebP file.',
+      'image.max'   => 'The image size must not exceed 2MB.',
+    ]);
+
+    $newImagePath = null;
+
+    try {
+      if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+        $newImagePath = $file->storeAs('services/hero', $filename, 'public');
+        $validated['image'] = $newImagePath;
+      }
+
+      $validated['service_id'] = $service->id;
+
+      ServiceHero::create($validated);
+
+      return back()->with('success', 'Hero section saved successfully.');
+    } catch (\Exception $e) {
+      // Roll back uploaded file if DB write fails
+      if ($newImagePath && Storage::disk('public')->exists($newImagePath)) {
+        Storage::disk('public')->delete($newImagePath);
+      }
+
+      return back()->withInput()->with('error', 'Failed to save hero section. Please try again.');
+    }
+  }
+
+  /**
+   * Update the existing hero record (PATCH).
+   * Safe order: upload new → update DB → delete old.
+   * Old image is only removed after a successful DB update.
+   */
+  public function update(Request $request, Service $service, ServiceHero $hero)
+  {
+    abort_if($hero->service_id !== $service->id, 403);
+
+    $validated = $request->validate([
+      'headline'            => 'required|string|max:255',
+      'description'         => 'nullable|string',
+      'image'               => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+      'cta_primary_label'   => 'nullable|string|max:100',
+      'cta_primary_url'     => 'nullable|string|max:255',
+      'cta_secondary_label' => 'nullable|string|max:100',
+      'cta_secondary_url'   => 'nullable|string|max:255',
+    ], [
+      'image.image' => 'The file must be an image.',
+      'image.mimes' => 'The image must be a JPEG, PNG, JPG, or WebP file.',
+      'image.max'   => 'The image size must not exceed 2MB.',
+    ]);
+
+    $newImagePath = null;
+    $oldImagePath = $hero->image;
+
+    try {
+      // Step 1: Upload new image first (before touching the DB)
+      if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+        $newImagePath = $file->storeAs('services/hero', $filename, 'public');
+        $validated['image'] = $newImagePath;
+      }
+
+      // Step 2: Update the DB record
+      $hero->update($validated);
+
+      // Step 3: Only delete old image after DB update succeeds
+      if ($newImagePath && $oldImagePath && Storage::disk('public')->exists($oldImagePath)) {
+        Storage::disk('public')->delete($oldImagePath);
+      }
+
+      return back()->with('success', 'Hero section updated successfully.');
+    } catch (\Exception $e) {
+      // Roll back newly uploaded file — old image is untouched
+      if ($newImagePath && Storage::disk('public')->exists($newImagePath)) {
+        Storage::disk('public')->delete($newImagePath);
+      }
+
+      return back()->withInput()->with('error', 'Failed to update hero section. Please try again.');
+    }
+  }
+}

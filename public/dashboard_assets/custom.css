@@ -1,0 +1,178 @@
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+.login-wrapper .login-img {
+    background: #fff !important;
+    width: 100%;
+    height: 100vh;
+    /* border-right: 4px solid #212b36; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-wrapper .login-img img {
+    width: 500px;
+}
+
+.login-wrapper .login-img.login {
+    position: relative;
+}
+
+.login-wrapper .login-img.login img {
+    width: 300px;
+}
+
+.login-wrapper .login-content form {
+    width: 90%;
+}
+
+.form-label {
+    margin-bottom: 0.1rem !important;
+}
+
+/* .form-control {
+    height: 150px !important;
+    background: red !important;
+} */
+
+.login-wrapper .login-content .form-login .btn-login {
+    height: 50px;
+}
+
+/* .form-control:focus {
+    border: 1px solid #212b36;
+} */
+
+@media only screen and (max-width: 991.98px) {
+    .login-wrapper .login-content form {
+        width: 100%;
+    }
+
+    .login-wrapper .login-img.login {
+        display: block !important;
+    }
+}
+
+.login-wrapper .login-img.login img {
+    width: 300px;
+}
+
+.contact-info-card {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-card .card {
+    background: transparent;
+}
+
+.contact-info-card .card-body {
+    background: transparent;
+    padding: 30px;
+}
+
+.contact-item {
+    border-left: 3px solid #212b36;
+    padding-left: 10px;
+}
+
+.contact-item h6 {
+    font-size: 0.9rem;
+}
+
+.contact-item p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 991.98px) {
+    .login-wrapper .login-content .login-userset {
+        margin-top: 30px;
+    }
+    .contact-info-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+
+
+
+    .login-wrapper .login-img {
+        background: #fff !important;
+        width: 100%;
+        height: auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-wrapper {
+        flex-direction: column; /* stack vertically */
+        height: auto; /* allow full height */
+        overflow: visible; /* allow scroll */
+    }
+
+    .login-wrapper .login-content,
+    .login-wrapper .login-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .login-wrapper .login-img.login img {
+        width: 80%;
+        display: none;
+        height: auto;
+        max-width: 350px;
+        margin: 20px auto;
+    }
+
+    .contact-info-card {
+        position: static; /* remove absolute positioning */
+        transform: none;
+        margin: 20px auto;
+        width: 90%;
+        background: #fff;
+        backdrop-filter: none;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0);
+    }
+
+    .contact-info-card .card-body {
+       padding: 0px;
+       padding-block: 30px !important;
+    }
+}
+
+/* .custom-input{
+    background: red !important;
+} */
+
+/* ── Sidebar active item — brand primary #43baff light tint ── */
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a {
+    background: rgba(67, 186, 255, 0.1) !important;
+    border-radius: 5px !important;
+    color: #43baff !important;
+}
+
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a span,
+.sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a i,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a span,
+.settings-sidebar .sidebar-menu > ul > li.submenu-open ul > li.active a i {
+    color: #43baff !important;
+}

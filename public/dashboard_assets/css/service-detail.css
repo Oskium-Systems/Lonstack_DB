@@ -1,0 +1,73 @@
+/**
+ * service-detail.css
+ * Styles specific to the service detail editor page.
+ */
+
+/* ── Tab pills ── */
+#detailTabs .nav-link {
+    color: #67748e;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 6px 14px;
+}
+
+#detailTabs .nav-link.active {
+    background: #43baff;
+    color: #fff;
+}
+
+/* ── Quill editor height ── */
+.ql-container {
+    min-height: 140px;
+    font-size: 14px;
+}
+
+/* ── Repeatable item card (benefits, process, faqs, etc.) ── */
+.item-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    background: #fff;
+}
+
+/* Numbered circle shown on each item card */
+.item-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #43baff;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Image / avatar preview ── */
+.img-preview-wrap img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* Dashed upload label button */
+.upload-label {
+    display: block;
+    border: 2px dashed #dee2e6;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #67748e;
+    transition: border-color .2s;
+}
+
+.upload-label:hover {
+    border-color: #43baff;
+    color: #43baff;
+}
