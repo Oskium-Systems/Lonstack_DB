@@ -2,16 +2,47 @@
     width: 170px;
 }
 
+/* ── Burger / hamburger menu button ── */
+/* Hidden on desktop, visible on mobile */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+    .burger-menu {
+        display: flex;
+    }
+    .main-menu {
+        display: none;
+    }
+}
+
 /* ===== MEGA MENU LARGE ===== */
 .sub-menu-large {
-    position: fixed; /* or absolute depending on your header */
+    position: fixed;
     width: 100vw;
     left: 0;
-    top: 145px !important;
+    /* top is set dynamically by JS based on actual header height */
     opacity: 0;
     visibility: hidden;
     z-index: 9999;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     pointer-events: none;
     background-color: var(--main-dark);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -21,7 +52,6 @@
 .menu-primary-menu .menu-item:hover .sub-menu-large {
     opacity: 1;
     visibility: visible;
-    top: 90px;
     pointer-events: all;
 }
 
