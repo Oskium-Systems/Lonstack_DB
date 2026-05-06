@@ -325,3 +325,56 @@
         preloader();
     });
 })(jQuery);
+
+
+// ── Mega Menu Tab Switching ──
+// Handles hover on .mega-cat-item to show the matching .mega-tab panel.
+// Works with both static IDs (web3, software, ai, data) and
+// dynamic IDs (cat-1, cat-2, etc.) generated from the DB.
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ── Position dropdown flush with the bottom of the header ──
+        // Uses getBoundingClientRect so it works whether the header is
+        // sticky, scrolled, or at its natural position.
+        function positionDropdowns() {
+            var header = document.getElementById('header');
+            if (!header) return;
+            var bottom = header.getBoundingClientRect().bottom;
+            document.querySelectorAll('.sub-menu-large').forEach(function (menu) {
+                menu.style.top = bottom + 'px';
+            });
+        }
+
+        // Set on load and on every scroll/resize so it stays accurate
+        positionDropdowns();
+        window.addEventListener('scroll', positionDropdowns, { passive: true });
+        window.addEventListener('resize', positionDropdowns, { passive: true });
+
+        // ── Tab switching ──
+        var catItems = document.querySelectorAll('.mega-cat-item[data-tab]');
+
+        catItems.forEach(function (item) {
+            item.addEventListener('mouseenter', function () {
+                var tabId = this.getAttribute('data-tab');
+                var menu  = this.closest('.mega-menu-inner');
+                if (!menu) return;
+
+                // Deactivate all category items in this menu
+                menu.querySelectorAll('.mega-cat-item').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+
+                // Deactivate all tab panels in this menu
+                menu.querySelectorAll('.mega-tab').forEach(function (el) {
+                    el.classList.remove('active');
+                });
+
+                // Activate the hovered item and its matching panel
+                this.classList.add('active');
+                var panel = menu.querySelector('#' + tabId);
+                if (panel) panel.classList.add('active');
+            });
+        });
+    });
+})();
