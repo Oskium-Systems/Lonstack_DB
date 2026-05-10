@@ -14,7 +14,8 @@ Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-
 
 // ── Portfolio ──
 Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
-Route::get('/portfolio-details', [PageController::class, 'portfolioDetails'])->name('portfolio-details');
+Route::get('/portfolio/load', [PageController::class, 'portfolioLoad'])->name('portfolio.load');
+Route::get('/portfolio/{slug}', [PageController::class, 'portfolioDetails'])->name('portfolio-details');
 
 // ── Blog ──
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');

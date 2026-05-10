@@ -990,120 +990,73 @@
                         "clickable": true,
                         "nextEl": ".team-project",
                         "prevEl": ".team-project"
-                    },
-                    "breakpoints": {
-                        "1200": { "slidesPerView": 1.4125, "slidesPerGroup": 1}
-                        }
+                    }
                     }'>
     <div class="swiper-wrapper">
+      @forelse ($homePortfolios as $p)
       <div class="swiper-slide">
         <div class="project-item hover-image">
           <div class="item-content px-sm-15">
             <div class="top-content">
               <div class="sub-title body-2 fw-7">
-                Software Development
+                {{ $p->service->name ?? '' }}
               </div>
-              <h3 class="title-project"><a href="porfolio-details.html">Mobile Application
-                  Design</a></h3>
-              <div class="desc lh-30">
-                Sed ut perspiciatis unde omnis iste natus
-                error sit voluptatem accusantium doloremque seeney laudantium totam
-              </div>
-            </div>
-            <div class="bottom-content">
-              <a href="porfolio-details.html" class="tf-btn-readmore">
-                <span class="plus">+</span>
-                <span class="text">Read More</span>
-              </a>
-            </div>
-          </div>
-          <a href="porfolio-details.html" class="image">
-            <img src="image/project-item/project-item-1.jpg"
-              data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
-          </a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="project-item hover-image">
-          <div class="item-content px-sm-15">
-            <div class="top-content">
-              <div class="sub-title body-2 fw-7">
-                Software Development
-              </div>
-              <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a>
+              <h3 class="title-project">
+                <a href="{{ route('portfolio-details', $p->slug) }}">{{ $p->title }}</a>
               </h3>
-              <div class="desc lh-30">
-                Sed ut perspiciatis unde omnis iste natus
-                error sit voluptatem accusantium doloremque seeney laudantium totam
-              </div>
+              @if ($p->excerpt)
+              <div class="desc lh-30">{{ Str::limit($p->excerpt, 100) }}</div>
+              @endif
             </div>
             <div class="bottom-content">
-              <a href="porfolio-details.html" class="tf-btn-readmore">
+              <a href="{{ route('portfolio-details', $p->slug) }}" class="tf-btn-readmore">
                 <span class="plus">+</span>
                 <span class="text">Read More</span>
               </a>
             </div>
           </div>
-          <a href="porfolio-details.html" class="image">
-            <img src="image/project-item/project-item-1.jpg"
-              data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
+          <a href="{{ route('portfolio-details', $p->slug) }}" class="image"
+             style="display:block; overflow:hidden;">
+            @if ($p->cover_image)
+              <img src="{{ asset('storage/' . $p->cover_image) }}"
+                   data-src="{{ asset('storage/' . $p->cover_image) }}"
+                   alt="{{ $p->title }}" class="lazyload"
+                   style="width:100%; height:420px; object-fit:cover; display:block;">
+            @else
+              <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                   data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                   alt="{{ $p->title }}" class="lazyload"
+                   style="width:100%; height:420px; object-fit:cover; display:block;">
+            @endif
           </a>
         </div>
       </div>
+      @empty
       <div class="swiper-slide">
         <div class="project-item hover-image">
           <div class="item-content px-sm-15">
             <div class="top-content">
-              <div class="sub-title body-2 fw-7">
-                Software Development
-              </div>
-              <h3 class="title-project"><a href="porfolio-details.html">Mobile Application
-                  Design</a></h3>
-              <div class="desc lh-30">
-                Sed ut perspiciatis unde omnis iste natus
-                error sit voluptatem accusantium doloremque seeney laudantium totam
-              </div>
+              <div class="sub-title body-2 fw-7">Software Development</div>
+              <h3 class="title-project"><a href="{{ route('portfolio') }}">Our Latest Work</a></h3>
+              <div class="desc lh-30">Explore our portfolio of successful projects.</div>
             </div>
             <div class="bottom-content">
-              <a href="porfolio-details.html" class="tf-btn-readmore">
+              <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                 <span class="plus">+</span>
-                <span class="text">Read More</span>
+                <span class="text">View Portfolio</span>
               </a>
             </div>
           </div>
-          <a href="porfolio-details.html" class="image">
-            <img src="image/project-item/project-item-1.jpg"
-              data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
+          <a href="{{ route('portfolio') }}" class="image"
+             style="display:block; overflow:hidden;">
+            <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                 data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                 alt="" class="lazyload"
+                 style="width:100%; height:420px; object-fit:cover; display:block;">
           </a>
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="project-item hover-image">
-          <div class="item-content px-sm-15">
-            <div class="top-content">
-              <div class="sub-title body-2 fw-7">
-                Software Development
-              </div>
-              <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a>
-              </h3>
-              <div class="desc lh-30">
-                Sed ut perspiciatis unde omnis iste natus
-                error sit voluptatem accusantium doloremque seeney laudantium totam
-              </div>
-            </div>
-            <div class="bottom-content">
-              <a href="porfolio-details.html" class="tf-btn-readmore">
-                <span class="plus">+</span>
-                <span class="text">Read More</span>
-              </a>
-            </div>
-          </div>
-          <a href="porfolio-details.html" class="image">
-            <img src="image/project-item/project-item-1.jpg"
-              data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
-          </a>
-        </div>
-      </div>
+      @endforelse
     </div>
   </div>
   <div class="sw-pagination-project sw-pagination mt-70 justify-content-center"></div>

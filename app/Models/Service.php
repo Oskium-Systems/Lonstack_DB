@@ -84,6 +84,11 @@ class Service extends Model
     return $this->hasMany(ServiceRelated::class)->orderBy('sort_order');
   }
 
+  public function portfolios(): HasMany
+  {
+    return $this->hasMany(Portfolio::class)->orderBy('sort_order');
+  }
+
   public function scopeActive($query): void
   {
     $query->where('is_active', true)->orderBy('sort_order');

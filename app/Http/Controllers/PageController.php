@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
@@ -22,7 +23,13 @@ class PageController extends Controller
 
     $homeTestimonials = \App\Models\Testimonial::visible()->take(6)->get();
 
-    return view('welcome', compact('homeBlogs', 'homeTestimonials'));
+    $homePortfolios = Portfolio::with('service')
+      ->where('is_active', true)
+      ->latest()
+      ->take(4)
+      ->get();
+
+    return view('welcome', compact('homeBlogs', 'homeTestimonials', 'homePortfolios'));
   }
 
   public function about()
@@ -78,12 +85,87 @@ class PageController extends Controller
 
   public function portfolio()
   {
-    return view('pages.portfolio.portfolio');
+    $services = Service::whereHas('portfolios', fn($q) => $q->where('is_active', true))
+      ->orderBy('sort_order')
+      ->get();
+
+    $portfolios = Portfolio::with('service')
+      ->where('is_active', true)
+      ->latest()
+      ->paginate(6);
+
+    return view('pages.portfolio.portfolio', compact('portfolios', 'services'));
   }
 
-  public function portfolioDetails()
+  public function portfolioLoad(\Illuminate\Http\Request $request)
   {
-    return view('pages.portfolio.portfolio-details');
+    $serviceId = $request->input('service_id');
+    $page      = max(1, (int) $request->input('page', 1));
+
+    $query = Portfolio::with('service')
+      ->where('is_active', true)
+      ->latest();
+
+    if ($serviceId) {
+      $query->where('service_id', $serviceId);
+    }
+
+    $paginator = $query->paginate(6, ['*'], 'page', $page);
+
+    $html = '';
+    foreach ($paginator->items() as $p) {
+      $cover = $p->cover_image
+        ? asset('storage/' . $p->cover_image)
+        : asset('image/project-item/project-item-2.jpg');
+
+      $html .= '<div class="col-sm-6 portfolio-card">'
+        . '<div class="project-gird-item project-item">'
+        . '<a href="' . route('portfolio-details', $p->slug) . '" class="image" style="display:block;overflow:hidden;">'
+        . '<img src="' . $cover . '" data-src="' . $cover . '" alt="' . e($p->title) . '" class="lazyload" style="width:100%;height:320px;object-fit:cover;display:block;">'
+        . '</a>'
+        . '<div class="item-content">'
+        . '<div class="sub-title body-2 fw-7">' . e($p->service->name ?? '') . '</div>'
+        . '<h3 class="title-project"><a href="' . route('portfolio-details', $p->slug) . '">' . e($p->title) . '</a></h3>'
+        . '</div>'
+        . '</div>'
+        . '</div>';
+    }
+
+    return response()->json([
+      'html'     => $html,
+      'hasMore'  => $paginator->hasMorePages(),
+      'lastPage' => $paginator->lastPage(),
+    ]);
+  }
+
+  public function portfolioDetails(string $slug)
+  {
+    $portfolio = Portfolio::with('service')
+      ->where('slug', $slug)
+      ->where('is_active', true)
+      ->firstOrFail();
+
+    // Other active portfolios under the same service (excluding current), latest 4
+    $related = Portfolio::with('service')
+      ->where('service_id', $portfolio->service_id)
+      ->where('id', '!=', $portfolio->id)
+      ->active()
+      ->latest()
+      ->take(4)
+      ->get();
+
+    // Previous and next items for navigation
+    $prev = Portfolio::active()
+      ->where('sort_order', '<', $portfolio->sort_order)
+      ->orderByDesc('sort_order')
+      ->first();
+
+    $next = Portfolio::active()
+      ->where('sort_order', '>', $portfolio->sort_order)
+      ->orderBy('sort_order')
+      ->first();
+
+    return view('pages.portfolio.portfolio-details', compact('portfolio', 'related', 'prev', 'next'));
   }
 
   // ─── Blog ─────────────────────────────────────────────────

@@ -74,12 +74,12 @@
                             <a href="javascript:void(0)">
                                 <i class="ti ti-briefcase fs-16 me-2"></i>
                                 <span>Portfolio</span>
-                                 <span class="menu-arrow"></span>
+                                <span class="menu-arrow"></span>
                             </a>
-                             <ul>
-                                <li><a href="javascript:void(0)">All Portfolio</a></li>
-                                <li><a href="javascript:void(0)">Categories</a></li>
-                                <li><a href="javascript:void(0)">Create Portfolio</a></li>
+                            <ul>
+                                <li class="{{ request()->routeIs('admin.portfolio.index') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.portfolio.index') }}">All Portfolio</a>
+                                </li>
                             </ul>
                         </li>
 

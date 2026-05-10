@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogCommentController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceBenefitController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
@@ -138,4 +139,17 @@ Route::prefix('admin')
         Route::post('{service}/related', [ServiceRelatedController::class, 'store'])->name('related.store');
         Route::delete('{service}/related/{related}', [ServiceRelatedController::class, 'destroy'])->name('related.destroy');
       });
+
+  
+      // ── Portfolios ──
+    Route::prefix('portfolio')
+      ->name('portfolio.')
+      ->group(function () {
+        Route::get('/', [PortfolioController::class, 'index'])->name('index');
+        Route::post('/', [PortfolioController::class, 'store'])->name('store');
+        Route::post('/{portfolio}', [PortfolioController::class, 'update'])->name('update');
+        Route::patch('/{portfolio}/status', [PortfolioController::class, 'toggleStatus'])->name('status');
+        Route::delete('/{portfolio}', [PortfolioController::class, 'destroy'])->name('destroy');
+      });
+    
   });
