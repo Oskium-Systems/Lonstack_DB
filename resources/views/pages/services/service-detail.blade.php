@@ -2,15 +2,11 @@
 
 @section('content')
 
-{{-- ══════════════════════════════════════════
-     PAGE TITLE / BREADCRUMB
-══════════════════════════════════════════ --}}
+{{-- PAGE TITLE --}}
 <div class="page-title">
   <div class="tf-container">
     <div class="page-title-content text-center">
-      <h1 class="title split-text effect-right">
-        {{ $service->name }}
-      </h1>
+      <h1 class="title split-text effect-right">{{ $service->name }}</h1>
       <div class="breadkcum">
         <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
         <span class="dot"></span>
@@ -24,7 +20,6 @@
 
 <div class="main-content position-relative">
 
-  {{-- Background mask --}}
   <div class="mask mask-service-4">
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none">
       <circle cx="400" cy="400" r="325" stroke="url(#sd1)" stroke-width="150" />
@@ -38,62 +33,56 @@
   </div>
 
   {{-- ══════════════════════════════════════════
-         HERO SECTION
-         Uses the same two-column layout as services.blade.php
-         Left = image, Right = headline + description + CTAs
+         1. HERO — two-column, image left / content right
     ══════════════════════════════════════════ --}}
   @if($service->hero)
   <section class="section-about p-services tf-spacing-3">
     <div class="tf-container">
-      <div class="row">
+      <div class="row align-items-center rg-50">
 
-        {{-- Left: hero image --}}
         @if($service->hero->image)
         <div class="col-lg-6">
-          <div class="left">
-            <div class="image tf-animate-2">
-              <img src="{{ asset('storage/' . $service->hero->image) }}"
-                data-src="{{ asset('storage/' . $service->hero->image) }}"
-                alt="{{ $service->hero->headline }}"
-                class="lazyload" style="border-radius:16px;">
-            </div>
+          <div class="image tf-animate-2">
+            <img src="{{ asset('storage/' . $service->hero->image) }}"
+              data-src="{{ asset('storage/' . $service->hero->image) }}"
+              alt="{{ $service->hero->headline }}"
+              class="lazyload" style="border-radius:20px;width:100%;">
           </div>
         </div>
         @endif
 
-        {{-- Right: headline + description + CTAs --}}
-        <div class="{{ $service->hero->image ? 'col-lg-6' : 'col-lg-8 offset-lg-2 text-center' }}">
-          <div class="right">
-            <div class="heading-section mb-45">
-              <div class="sub-title body-2 fw-7 mb-17 title-animation">
-                {{ $service->category->name }}
-              </div>
-              <h2 class="title fw-6 title-animation">
-                {{ $service->hero->headline }}
-              </h2>
+        <div class="{{ $service->hero->image ? 'col-lg-6' : 'col-lg-9 offset-lg-1' }}">
+          <div class="heading-section mb-40">
+            <div class="sub-title body-2 fw-7 mb-17 title-animation">
+              {{ $service->category->name }}
             </div>
-            @if($service->hero->description)
-            <div class="section-content">
-              <div class="desc mb-40 text-animation">
-                <div class="lh-30">{!! $service->hero->description !!}</div>
-              </div>
-            </div>
-            @endif
-            <div class="flex flex-wrap align-items-center g-15 title-animation">
-              @if($service->hero->cta_primary_label)
-              <a href="{{ $service->hero->cta_primary_url ?? route('contact-us') }}" class="tf-btn">
-                <span>{{ $service->hero->cta_primary_label }}</span>
-                <i class="icon-arrow-right"></i>
-              </a>
-              @endif
-              @if($service->hero->cta_secondary_label)
-              <a href="{{ $service->hero->cta_secondary_url ?? route('contact-us') }}" class="tf-btn no-bg text-underline">
-                <span>{{ $service->hero->cta_secondary_label }}</span>
-                <i class="icon-arrow-right"></i>
-              </a>
-              @endif
-            </div>
+            <h2 class="title fw-6 title-animation" style="line-height:1.2;">
+              {{ $service->hero->headline }}
+            </h2>
           </div>
+
+          @if($service->hero->description)
+          <div class="svc-rich-text mb-40 text-animation">
+            {!! $service->hero->description !!}
+          </div>
+          @endif
+
+          @if($service->hero->cta_primary_label || $service->hero->cta_secondary_label)
+          <div class="flex flex-wrap align-items-center g-20 title-animation">
+            @if($service->hero->cta_primary_label)
+            <a href="{{ $service->hero->cta_primary_url ?? route('contact-us') }}" class="tf-btn">
+              <span>{{ $service->hero->cta_primary_label }}</span>
+              <i class="icon-arrow-right"></i>
+            </a>
+            @endif
+            @if($service->hero->cta_secondary_label)
+            <a href="{{ $service->hero->cta_secondary_url ?? route('contact-us') }}" class="tf-btn no-bg text-underline">
+              <span>{{ $service->hero->cta_secondary_label }}</span>
+              <i class="icon-arrow-right"></i>
+            </a>
+            @endif
+          </div>
+          @endif
         </div>
 
       </div>
@@ -102,131 +91,131 @@
   @endif
 
   {{-- ══════════════════════════════════════════
-         BENEFITS SECTION
-         Numbered list using .benefit-item pattern
+         2. BENEFITS — clean numbered list, 2 columns
+         Inspired by Peiko's service page layout
     ══════════════════════════════════════════ --}}
   @if($service->benefits->isNotEmpty())
-  <section class="section-services tf-spacing-2">
+  <section class="tf-spacing-2">
     <div class="tf-container">
 
       @if($service->benefits->first()->section_heading)
-      <div class="heading-section mb-60 text-center">
+      <div class="svc-section-heading">
         <div class="sub-title body-2 fw-7 mb-17 title-animation">
           {{ $service->benefits->first()->section_heading }}
         </div>
         @if($service->benefits->first()->section_subtitle)
         <h2 class="title fw-6 title-animation">
-          {!! nl2br(e($service->benefits->first()->section_subtitle)) !!}
+          {{ $service->benefits->first()->section_subtitle }}
         </h2>
         @endif
       </div>
       @endif
 
-      <div class="row rg-30">
+      <ul class="svc-numbered-list svc-numbered-list--2col">
         @foreach($service->benefits as $benefit)
-        <div class="col-lg-6">
-          <div class="flex g-20" style="padding:24px;border:1px solid var(--stroke-2);border-radius:12px;height:100%;">
-            <div class="flex-shrink-0" style="width:48px;height:48px;border-radius:10px;background:rgba(var(--primary-rgb),.12);display:flex;align-items:center;justify-content:center;">
-              <span class="fw-7" style="font-size:18px;color:var(--primary);">
-                {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
-              </span>
-            </div>
-            <div>
-              <h5 class="fw-6 mb-10 title-animation">{{ $benefit->title }}</h5>
-              @if($benefit->description)
-              <div class="desc lh-30 text-animation">{!! $benefit->description !!}</div>
-              @endif
-            </div>
+        <li class="svc-numbered-item">
+          <div class="svc-numbered-item__num">
+            {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
           </div>
-        </div>
+          <div>
+            <div class="svc-numbered-item__title title-animation">{{ $benefit->title }}</div>
+            @if($benefit->description)
+            <div class="svc-numbered-item__desc svc-rich-text text-animation">
+              {!! $benefit->description !!}
+            </div>
+            @endif
+          </div>
+        </li>
         @endforeach
-      </div>
+      </ul>
 
     </div>
   </section>
   @endif
 
   {{-- ══════════════════════════════════════════
-         TALK TO US SECTION
-         Person card — uses the CTA banner style
+         3. TALK TO US — full-width strip
     ══════════════════════════════════════════ --}}
   @if($service->talkToUs)
   @php $talk = $service->talkToUs; @endphp
-  <section class="tf-spacing-2">
+  <section class="svc-cta-strip">
     <div class="tf-container">
-      <div class="wg-cta" style="border-radius:16px;padding:40px 50px;background:rgba(255,255,255,.04);border:1px solid var(--stroke-2);">
-        <div class="cta-inner flex align-items-center justify-content-between flex-wrap g-30">
-          <div class="flex align-items-center g-20">
-            @if($talk->person_avatar)
-            <img src="{{ asset('storage/' . $talk->person_avatar) }}"
-              alt="{{ $talk->person_name }}"
-              style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);flex-shrink:0;">
-            @endif
-            <div>
-              @if($talk->person_name)
-              <div class="fw-7 fs-18 title-animation">{{ $talk->person_name }}</div>
-              @endif
-              @if($talk->person_role)
-              <div class="body-2 text-animation" style="opacity:.6;">{{ $talk->person_role }}</div>
-              @endif
-            </div>
+      <div class="row align-items-center rg-40">
+
+        {{-- Person --}}
+        <div class="col-lg-3 col-md-4 text-center">
+          @if($talk->person_avatar)
+          <img src="{{ asset('storage/' . $talk->person_avatar) }}"
+            alt="{{ $talk->person_name }}"
+            style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);display:block;margin:0 auto 16px;">
+          @else
+          <div style="width:100px;height:100px;border-radius:50%;background:rgba(var(--primary-rgb),.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:36px;font-weight:700;color:var(--primary);">
+            {{ strtoupper(substr($talk->person_name ?? 'T', 0, 1)) }}
           </div>
-          <div style="flex:1;padding:0 40px;">
-            <h4 class="fw-6 mb-10 title-animation">{{ $talk->headline }}</h4>
-            @if($talk->subtext)
-            <p class="body-2 text-animation" style="opacity:.6;">{{ $talk->subtext }}</p>
-            @endif
-          </div>
-          <a href="{{ $talk->cta_url }}" class="tf-btn flex-shrink-0">
+          @endif
+          @if($talk->person_name)
+          <div class="fw-7" style="font-size:16px;line-height:1.4;margin-bottom:5px;">{{ $talk->person_name }}</div>
+          @endif
+          @if($talk->person_role)
+          <div style="font-size:13px;line-height:1.5;color:rgba(255,255,255,.45);">{{ $talk->person_role }}</div>
+          @endif
+        </div>
+
+        {{-- Headline + subtext --}}
+        <div class="col-lg-6 col-md-8">
+          <h3 class="svc-talk-headline title-animation" style="font-size:clamp(22px,3vw,32px);font-weight:600;line-height:1.35;color:var(--white);margin-bottom:14px;">
+            {{ $talk->headline }}
+          </h3>
+          @if($talk->subtext)
+          <p class="text-animation" style="font-size:15px;line-height:1.75;color:rgba(255,255,255,.5);margin:0;">
+            {{ $talk->subtext }}
+          </p>
+          @endif
+        </div>
+
+        {{-- CTA --}}
+        <div class="col-lg-3 text-lg-end text-center">
+          <a href="{{ $talk->cta_url }}" class="tf-btn">
             <span>{{ $talk->cta_label }}</span>
             <i class="icon-arrow-right"></i>
           </a>
         </div>
+
       </div>
     </div>
   </section>
   @endif
 
   {{-- ══════════════════════════════════════════
-         PROCESS STEPS SECTION
-         Uses .wg-according accordion style from faq.blade.php
-         but rendered as numbered cards in a grid
+         4. PROCESS STEPS — grid of bordered cells
     ══════════════════════════════════════════ --}}
   @if($service->processSteps->isNotEmpty())
-  <section class="section-company tf-spacing-2">
+  <section class="tf-spacing-2">
     <div class="tf-container">
 
       @if($service->processSteps->first()->section_heading)
-      <div class="heading-section mb-60 text-center">
+      <div class="svc-section-heading" style="margin-bottom:48px;">
         <div class="sub-title body-2 fw-7 mb-17 title-animation">
           {{ $service->processSteps->first()->section_heading }}
         </div>
         @if($service->processSteps->first()->section_subtitle)
         <h2 class="title fw-6 title-animation">
-          {!! nl2br(e($service->processSteps->first()->section_subtitle)) !!}
+          {{ $service->processSteps->first()->section_subtitle }}
         </h2>
         @endif
       </div>
       @endif
 
-      <div class="row rg-30">
+      <div class="svc-process-grid">
         @foreach($service->processSteps as $step)
-        <div class="col-lg-4 col-md-6">
-          <div style="padding:32px 28px;border:1px solid var(--stroke-2);border-radius:16px;height:100%;position:relative;overflow:hidden;">
-            {{-- Large background number --}}
-            <div style="position:absolute;top:-10px;right:16px;font-size:80px;font-weight:800;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;">
-              {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
-            </div>
-            <div class="mb-20" style="width:44px;height:44px;border-radius:10px;background:rgba(var(--primary-rgb),.12);display:flex;align-items:center;justify-content:center;">
-              <span class="fw-7" style="color:var(--primary);font-size:16px;">
-                {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
-              </span>
-            </div>
-            <h5 class="fw-6 mb-15 title-animation">{{ $step->title }}</h5>
-            @if($step->description)
-            <div class="desc lh-30 text-animation">{!! $step->description !!}</div>
-            @endif
+        <div class="svc-process-item">
+          <span class="svc-process-item__num">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+          <div class="svc-process-item__title title-animation">{{ $step->title }}</div>
+          @if($step->description)
+          <div class="svc-process-item__desc svc-rich-text text-animation">
+            {!! $step->description !!}
           </div>
+          @endif
         </div>
         @endforeach
       </div>
@@ -236,36 +225,35 @@
   @endif
 
   {{-- ══════════════════════════════════════════
-         TECH STACK SECTION
-         Tag badges grouped by technology group
+         5. TECH STACK — tag clouds per group
     ══════════════════════════════════════════ --}}
   @if($service->techGroups->isNotEmpty())
   <section class="tf-spacing-2">
     <div class="tf-container">
 
       @if($service->techGroups->first()->section_heading)
-      <div class="heading-section mb-60 text-center">
+      <div class="svc-section-heading">
         <div class="sub-title body-2 fw-7 mb-17 title-animation">
           {{ $service->techGroups->first()->section_heading }}
         </div>
         @if($service->techGroups->first()->section_subtitle)
         <h2 class="title fw-6 title-animation">
-          {!! nl2br(e($service->techGroups->first()->section_subtitle)) !!}
+          {{ $service->techGroups->first()->section_subtitle }}
         </h2>
         @endif
       </div>
       @endif
 
-      <div class="row rg-40">
+      <div class="row rg-30">
         @foreach($service->techGroups as $group)
         <div class="col-lg-4 col-md-6">
-          <div style="padding:28px;border:1px solid var(--stroke-2);border-radius:12px;height:100%;">
-            <h6 class="fw-6 mb-20 title-animation" style="text-transform:uppercase;letter-spacing:.08em;font-size:12px;opacity:.6;">
-              {{ $group->group_name }}
-            </h6>
-            <div class="flex flex-wrap g-10">
+          <div class="svc-tech-card">
+            <div class="svc-group-label">
+              <span>{{ $group->group_name }}</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
               @foreach($group->tags as $tag)
-              <span style="display:inline-flex;align-items:center;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:{{ $tag->is_featured ? '600' : '400' }};background:{{ $tag->is_featured ? 'rgba(var(--primary-rgb),.15)' : 'rgba(255,255,255,.06)' }};border:1px solid {{ $tag->is_featured ? 'rgba(var(--primary-rgb),.3)' : 'rgba(255,255,255,.1)' }};color:{{ $tag->is_featured ? 'var(--primary)' : 'rgba(255,255,255,.75)' }};">
+              <span class="svc-tag {{ $tag->is_featured ? 'svc-tag--featured' : 'svc-tag--normal' }} title-animation">
                 {{ $tag->name }}
               </span>
               @endforeach
@@ -280,9 +268,7 @@
   @endif
 
   {{-- ══════════════════════════════════════════
-         TESTIMONIALS SECTION
-         Uses exact .testimonial-item style-2 pattern
-         from testimonials.blade.php
+         6. TESTIMONIALS — 3-col cards
     ══════════════════════════════════════════ --}}
   @if($service->testimonials->isNotEmpty())
   <section class="section-testimonial tf-spacing-2">
@@ -301,13 +287,13 @@
     <div class="tf-container">
 
       @if($service->testimonials->first()->section_heading)
-      <div class="heading-section mb-60 text-center">
+      <div class="svc-section-heading">
         <div class="sub-title body-2 fw-7 mb-17 title-animation">
           {{ $service->testimonials->first()->section_heading }}
         </div>
         @if($service->testimonials->first()->section_subtitle)
         <h2 class="title fw-6 title-animation">
-          {!! nl2br(e($service->testimonials->first()->section_subtitle)) !!}
+          {{ $service->testimonials->first()->section_subtitle }}
         </h2>
         @endif
       </div>
@@ -318,28 +304,23 @@
         <div class="col-xl-4 col-md-6">
           <div class="testimonial-item style-2" style="display:flex;flex-direction:column;height:100%;">
             <div class="top-item">
-              <div class="icon">
-                <i class="icon-quote2"></i>
-              </div>
-              {{-- Initials avatar since no image in service testimonials --}}
-              <div class="image-avatar d-flex align-items-center justify-content-center"
-                style="background:rgba(var(--primary-rgb),.15);color:var(--primary);font-weight:700;font-size:18px;width:72px;height:72px;border-radius:50%;flex-shrink:0;">
+              <div class="icon"><i class="icon-quote2"></i></div>
+              <div class="image-avatar" style="display:flex;align-items:center;justify-content:center;background:rgba(var(--primary-rgb),.15);color:var(--primary);font-weight:700;font-size:22px;width:72px;height:72px;border-radius:50%;flex-shrink:0;">
                 {{ strtoupper(substr($testimonial->client_name, 0, 1)) }}
               </div>
             </div>
-            {{-- Star rating --}}
-            <div class="mb-20" style="display:flex;gap:4px;">
+            <div class="mb-20" style="display:flex;gap:5px;">
               @for($i = 1; $i <= 5; $i++)
-                <span style="font-size:15px;color:{{ $i <= $testimonial->rating ? '#f5a623' : 'rgba(255,255,255,.15)' }};">★</span>
+                <span style="font-size:16px;color:{{ $i <= $testimonial->rating ? '#f5a623' : 'rgba(255,255,255,.15)' }};">★</span>
                 @endfor
             </div>
-            <div class="text lh-30" style="flex:1;">
+            <div class="text" style="flex:1;font-size:15px;line-height:1.85;color:rgba(255,255,255,.7);">
               "{{ $testimonial->quote }}"
             </div>
-            <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--stroke-2);">
+            <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--stroke-2);">
               <span class="name-user body-2 fw-6 d-block">{{ $testimonial->client_name }}</span>
               @if($testimonial->client_role)
-              <span class="position text-medium d-block">{{ $testimonial->client_role }}</span>
+              <span class="position text-medium d-block" style="line-height:1.6;margin-top:4px;opacity:.5;">{{ $testimonial->client_role }}</span>
               @endif
             </div>
           </div>
@@ -352,15 +333,14 @@
   @endif
 
   {{-- ══════════════════════════════════════════
-         FAQs SECTION
-         Uses exact .wg-according pattern from faq.blade.php
+         7. FAQs — accordion left, image right
     ══════════════════════════════════════════ --}}
   @if($service->faqs->isNotEmpty())
   <section class="section-company tf-spacing-2">
     <div class="tf-container w-1810">
       <div class="section-company-inner">
-        <div class="left-section">
 
+        <div class="left-section">
           @if($service->faqs->first()->section_heading)
           <div class="heading-section mb-53">
             <div class="sub-title body-2 fw-7 mb-17 title-animation">
@@ -368,7 +348,7 @@
             </div>
             @if($service->faqs->first()->section_subtitle)
             <h2 class="title fw-6 title-animation">
-              {!! nl2br(e($service->faqs->first()->section_subtitle)) !!}
+              {{ $service->faqs->first()->section_subtitle }}
             </h2>
             @endif
           </div>
@@ -389,16 +369,15 @@
                 data-bs-parent="#serviceFaqs">
                 <div class="according-content">
                   <div class="right">
-                    <div class="desc lh-30">{!! $faq->answer !!}</div>
+                    <div class="svc-rich-text">{!! $faq->answer !!}</div>
                   </div>
                 </div>
               </div>
             </div>
             @endforeach
           </div>
-
         </div>
-        {{-- Right side decorative image --}}
+
         <div class="right-section">
           <div class="image image-section tf-animate-1">
             <img src="{{ asset('image/section/img-section-company.jpg') }}"
@@ -406,21 +385,21 @@
               alt="" class="lazyload">
           </div>
         </div>
+
       </div>
     </div>
   </section>
   @endif
 
   {{-- ══════════════════════════════════════════
-         RELATED SERVICES SECTION
-         Uses exact .services-item pattern from services.blade.php
+         8. RELATED SERVICES — theme service cards
     ══════════════════════════════════════════ --}}
   @if($service->relatedServices->isNotEmpty())
   <section class="section-services tf-spacing-2">
     <div class="tf-container">
 
       @if($service->relatedServices->first()->section_heading)
-      <div class="heading-section mb-60 text-center">
+      <div class="svc-section-heading">
         <div class="sub-title body-2 fw-7 mb-17 title-animation">
           {{ $service->relatedServices->first()->section_heading }}
         </div>
@@ -440,7 +419,7 @@
             </a>
           </h5>
           @if($rel->short_description)
-          <div class="desc lh-30">{{ $rel->short_description }}</div>
+          <div class="desc" style="line-height:1.75;font-size:15px;">{{ $rel->short_description }}</div>
           @endif
           <div class="bottom-item">
             <a href="{{ route('services.show', $rel->slug) }}" class="tf-btn-readmore">
@@ -456,6 +435,6 @@
   </section>
   @endif
 
-</div>{{-- end .main-content --}}
+</div>
 
 @endsection
