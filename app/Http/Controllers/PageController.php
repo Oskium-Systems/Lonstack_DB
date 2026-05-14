@@ -224,7 +224,39 @@ class PageController extends Controller
 
   public function career()
   {
-    return view('pages.company.career');
+    $jobs = \App\Models\Career::active()
+      ->orderBy('is_featured', 'desc')
+      ->orderBy('sort_order')
+      ->orderBy('created_at', 'desc')
+      ->paginate(6);
+
+    return view('pages.company.career', compact('jobs'));
+  }
+
+  public function careerApply(\Illuminate\Http\Request $request)
+  {
+    $request->validate([
+      'name'     => ['required', 'string', 'max:100'],
+      'email'    => ['required', 'email', 'max:150'],
+      'phone'    => ['required', 'string', 'max:30'],
+      'telegram' => ['nullable', 'string', 'max:60'],
+      'position' => ['required', 'string', 'max:150'],
+      'experience' => ['nullable', 'string', 'max:50'],
+      'message'  => ['required', 'string', 'min:20'],
+      'cv_file'  => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:8192'],
+    ]);
+
+    // Store the uploaded CV if provided
+    $cvPath = null;
+    if ($request->hasFile('cv_file')) {
+      $cvPath = $request->file('cv_file')->store('career-applications', 'public');
+    }
+
+    // TODO: send notification email or save to DB
+    // \Mail::to(config('mail.from.address'))->send(new \App\Mail\CareerApplicationMail($request->all(), $cvPath));
+
+    return redirect()->route('career')
+      ->with('success', 'Thank you for applying! We will get back to you within 24 hours.');
   }
 
   public function faq()

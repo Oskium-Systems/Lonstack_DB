@@ -104,8 +104,8 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="javascript:void(0)">
+                        <li class="{{ request()->routeIs('admin.career.*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.career.index') }}">
                                 <i class="ti ti-id-badge fs-16 me-2"></i>
                                 <span>Career / Jobs</span>
                             </a>

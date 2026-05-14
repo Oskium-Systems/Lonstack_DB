@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogCommentController;
 use App\Http\Controllers\Admin\BlogController;
@@ -141,6 +142,17 @@ Route::prefix('admin')
       });
 
   
+      // ── Careers / Job Vacancies ──
+    Route::prefix('career')
+      ->name('career.')
+      ->group(function () {
+        Route::get('/', [CareerController::class, 'index'])->name('index');
+        Route::post('/', [CareerController::class, 'store'])->name('store');
+        Route::put('/{career}', [CareerController::class, 'update'])->name('update');
+        Route::patch('/{career}/status', [CareerController::class, 'toggleStatus'])->name('status');
+        Route::delete('/{career}', [CareerController::class, 'destroy'])->name('destroy');
+      });
+
       // ── Portfolios ──
     Route::prefix('portfolio')
       ->name('portfolio.')

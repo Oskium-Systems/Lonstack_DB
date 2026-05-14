@@ -34,6 +34,7 @@ Route::middleware(['maintenance'])->group(function () {
 
   // Company
   Route::get('/career', [PageController::class, 'career'])->name('career');
+  Route::post('/career/apply', [PageController::class, 'careerApply'])->name('career.apply');
   Route::get('/faq', [PageController::class, 'faq'])->name('faq');
   Route::get('/press', [PageController::class, 'press'])->name('press');
   Route::get('/testimonials', [PageController::class, 'testimonials'])->name('testimonials');
