@@ -281,45 +281,32 @@ class PageController extends Controller
   }
 
   // ─── Technologies ─────────────────────────────────────────
+  // Dynamic — one method handles all technology pages by slug.
+  // Replaces all the old static per-technology methods.
 
-  public function nodejs()
+  public function technologyDetail(string $slug)
   {
-    return view('pages.technologies.nodejs');
-  }
+    $technology = \App\Models\Technology::with([
+      'hero',
+      'advantages',
+      'benefits',
+      'whyUs',
+      'processes',
+      'faqs',
+    ])
+      ->where('slug', $slug)
+      ->where('is_active', true)
+      ->firstOrFail();
 
-  public function reactjs()
-  {
-    return view('pages.technologies.reactjs');
-  }
+    // Global tech stack groups for the "Technologies We Use" section
+    $techStackGroups = \App\Models\TechStackGroup::with(['activeItems'])
+      ->active()
+      ->get();
 
-  public function reactNative()
-  {
-    return view('pages.technologies.react-native');
-  }
+    // All active technologies for the hero orbit bubbles
+    $navTechnologies = \App\Models\Technology::active()->get();
 
-  public function solidity()
-  {
-    return view('pages.technologies.solidity');
-  }
-
-  public function solana()
-  {
-    return view('pages.technologies.solana');
-  }
-
-  public function expressjs()
-  {
-    return view('pages.technologies.expressjs');
-  }
-
-  public function laravelTech()
-  {
-    return view('pages.technologies.laravel');
-  }
-
-  public function nestjs()
-  {
-    return view('pages.technologies.nestjs');
+    return view('pages.technologies.technology-detail', compact('technology', 'techStackGroups', 'navTechnologies'));
   }
 
   // ─── Industries ───────────────────────────────────────────

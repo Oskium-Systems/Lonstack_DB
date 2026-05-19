@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ServiceCategory;
+use App\Models\Technology;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -18,14 +19,15 @@ class AppServiceProvider extends ServiceProvider
   {
     Paginator::useBootstrap();
 
-    // Share active service categories (with their active services) to all
-    // guest layout views. This powers the nav mega menu on every page
-    // without repeating the query in every controller method.
-    // View::composer runs the query only when the layout is actually rendered.
+    // Share active service categories to all guest layout views.
+    // Powers the nav mega menu without repeating the query per controller.
     View::composer('layouts.guest', function ($view) {
       $view->with('navCategories', ServiceCategory::with(['activeServices'])
         ->active()
         ->get());
+
+      // Share active technologies for the nav Technologies dropdown
+      $view->with('navTechnologies', Technology::active()->get());
     });
   }
 }

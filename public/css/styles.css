@@ -1264,7 +1264,7 @@ a:focus {
 }
 .header .header-content {
     padding-left: 15px;
-    padding-right: 0;
+    padding-right: 15px;
 }
 .header .logo-header {
     padding-right: 15px;

@@ -20,6 +20,16 @@ use App\Http\Controllers\Admin\ServiceTechGroupController;
 use App\Http\Controllers\Admin\ServiceTechTagController;
 use App\Http\Controllers\Admin\ServiceTestimonialController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\TechStackGroupController;
+use App\Http\Controllers\Admin\TechStackItemController;
+use App\Http\Controllers\Admin\TechnologyAdvantageController;
+use App\Http\Controllers\Admin\TechnologyBenefitController;
+use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\Admin\TechnologyDetailController;
+use App\Http\Controllers\Admin\TechnologyFaqController;
+use App\Http\Controllers\Admin\TechnologyHeroController;
+use App\Http\Controllers\Admin\TechnologyProcessController;
+use App\Http\Controllers\Admin\TechnologyWhyUsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
@@ -141,8 +151,69 @@ Route::prefix('admin')
         Route::delete('{service}/related/{related}', [ServiceRelatedController::class, 'destroy'])->name('related.destroy');
       });
 
-  
-      // ── Careers / Job Vacancies ──
+    // ── Technologies ──
+    Route::prefix('technologies')
+      ->name('technologies.')
+      ->group(function () {
+
+        // Technologies list (index, store, update, destroy)
+        Route::get('/', [TechnologyController::class, 'index'])->name('index');
+        Route::post('/', [TechnologyController::class, 'store'])->name('store');
+        Route::patch('{technology}', [TechnologyController::class, 'update'])->name('update');
+        Route::delete('{technology}', [TechnologyController::class, 'destroy'])->name('destroy');
+
+        // Technology detail editor (tabbed page)
+        Route::get('{technology}/detail', [TechnologyDetailController::class, 'show'])->name('detail');
+
+        // Hero (one per technology)
+        Route::post('{technology}/hero', [TechnologyHeroController::class, 'store'])->name('hero.store');
+        Route::patch('{technology}/hero/{hero}', [TechnologyHeroController::class, 'update'])->name('hero.update');
+
+        // Advantages
+        Route::post('{technology}/advantages', [TechnologyAdvantageController::class, 'store'])->name('advantages.store');
+        Route::patch('{technology}/advantages/{advantage}', [TechnologyAdvantageController::class, 'update'])->name('advantages.update');
+        Route::delete('{technology}/advantages/{advantage}', [TechnologyAdvantageController::class, 'destroy'])->name('advantages.destroy');
+
+        // Benefits
+        Route::post('{technology}/benefits', [TechnologyBenefitController::class, 'store'])->name('benefits.store');
+        Route::patch('{technology}/benefits/{benefit}', [TechnologyBenefitController::class, 'update'])->name('benefits.update');
+        Route::delete('{technology}/benefits/{benefit}', [TechnologyBenefitController::class, 'destroy'])->name('benefits.destroy');
+
+        // Why Choose Us
+        Route::post('{technology}/why-us', [TechnologyWhyUsController::class, 'store'])->name('why-us.store');
+        Route::patch('{technology}/why-us/{whyUs}', [TechnologyWhyUsController::class, 'update'])->name('why-us.update');
+        Route::delete('{technology}/why-us/{whyUs}', [TechnologyWhyUsController::class, 'destroy'])->name('why-us.destroy');
+
+        // Process Steps
+        Route::post('{technology}/process', [TechnologyProcessController::class, 'store'])->name('process.store');
+        Route::patch('{technology}/process/{process}', [TechnologyProcessController::class, 'update'])->name('process.update');
+        Route::delete('{technology}/process/{process}', [TechnologyProcessController::class, 'destroy'])->name('process.destroy');
+
+        // FAQs
+        Route::post('{technology}/faqs', [TechnologyFaqController::class, 'store'])->name('faqs.store');
+        Route::patch('{technology}/faqs/{faq}', [TechnologyFaqController::class, 'update'])->name('faqs.update');
+        Route::delete('{technology}/faqs/{faq}', [TechnologyFaqController::class, 'destroy'])->name('faqs.destroy');
+      });
+
+    // ── Tech Stack (global "Technologies We Use" section) ──
+    Route::prefix('tech-stack')
+      ->name('tech-stack.')
+      ->group(function () {
+
+        // Groups management page
+        Route::get('/', [TechStackGroupController::class, 'index'])->name('index');
+        Route::post('/', [TechStackGroupController::class, 'store'])->name('groups.store');
+        Route::patch('groups/{group}', [TechStackGroupController::class, 'update'])->name('groups.update');
+        Route::delete('groups/{group}', [TechStackGroupController::class, 'destroy'])->name('groups.destroy');
+
+        // Items within a group
+        Route::post('groups/{group}/items', [TechStackItemController::class, 'store'])->name('items.store');
+        Route::patch('groups/{group}/items/{item}', [TechStackItemController::class, 'update'])->name('items.update');
+        Route::delete('groups/{group}/items/{item}', [TechStackItemController::class, 'destroy'])->name('items.destroy');
+      });
+
+
+    // ── Careers / Job Vacancies ──
     Route::prefix('career')
       ->name('career.')
       ->group(function () {
@@ -153,7 +224,7 @@ Route::prefix('admin')
         Route::delete('/{career}', [CareerController::class, 'destroy'])->name('destroy');
       });
 
-      // ── Portfolios ──
+    // ── Portfolios ──
     Route::prefix('portfolio')
       ->name('portfolio.')
       ->group(function () {
@@ -163,5 +234,4 @@ Route::prefix('admin')
         Route::patch('/{portfolio}/status', [PortfolioController::class, 'toggleStatus'])->name('status');
         Route::delete('/{portfolio}', [PortfolioController::class, 'destroy'])->name('destroy');
       });
-    
   });

@@ -43,15 +43,8 @@ Route::middleware(['maintenance'])->group(function () {
   // Dynamic service detail — single route handles all services by slug
   Route::get('/services/{slug}', [PageController::class, 'serviceDetail'])->name('services.show');
 
-  // Technologies
-  Route::get('/technologies/nodejs', [PageController::class, 'nodejs'])->name('tech.nodejs');
-  Route::get('/technologies/reactjs', [PageController::class, 'reactjs'])->name('tech.reactjs');
-  Route::get('/technologies/react-native', [PageController::class, 'reactNative'])->name('tech.react-native');
-  Route::get('/technologies/solidity', [PageController::class, 'solidity'])->name('tech.solidity');
-  Route::get('/technologies/solana', [PageController::class, 'solana'])->name('tech.solana');
-  Route::get('/technologies/expressjs', [PageController::class, 'expressjs'])->name('tech.expressjs');
-  Route::get('/technologies/laravel', [PageController::class, 'laravelTech'])->name('tech.laravel');
-  Route::get('/technologies/nestjs', [PageController::class, 'nestjs'])->name('tech.nestjs');
+  // Technologies — dynamic, one route handles all by slug
+  Route::get('/technologies/{slug}', [PageController::class, 'technologyDetail'])->name('tech.show');
 
   // Industries
   Route::get('/industries/oil-gas', [PageController::class, 'oilGas'])->name('industries.oil-gas');

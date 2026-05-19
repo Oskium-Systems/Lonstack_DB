@@ -144,56 +144,19 @@
                     </a>
                   </div>
                 </div>
+                {{-- Technologies — dynamic from DB --}}
                 <div class="mega-menu-content">
                   <div class="header-desktop--services-list">
-                    <a href="{{ route('tech.nodejs') }}" class="mega-service-item mega-service-item--no-icon">
+                    @foreach($navTechnologies as $tech)
+                    <a href="{{ route('tech.show', $tech->slug) }}" class="mega-service-item mega-service-item--no-icon">
                       <div class="mega-service-text">
-                        <span class="mega-service-title">Node.js Development</span>
-                        <span class="mega-service-desc">Accelerate development with scalable and flexible Node.js solutions.</span>
+                        <span class="mega-service-title">{{ $tech->name }} Development</span>
+                        @if($tech->short_description)
+                        <span class="mega-service-desc">{{ $tech->short_description }}</span>
+                        @endif
                       </div>
                     </a>
-                    <a href="{{ route('tech.reactjs') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">React JS Development</span>
-                        <span class="mega-service-desc">Diverse applications from Single Page Applications (SPAs) and more.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.react-native') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">React Native Development</span>
-                        <span class="mega-service-desc">Advanced React Native solutions for businesses of all sizes.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.solidity') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">Solidity Development</span>
-                        <span class="mega-service-desc">Powerful dApps, smart contracts, and blockchain Solidity solutions.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.solana') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">Solana Development</span>
-                        <span class="mega-service-desc">Top Solana blockchain software development with our expert team.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.expressjs') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">Express.js Development</span>
-                        <span class="mega-service-desc">Quality mobile and web apps with this powerful JS framework.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.laravel') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">Laravel Development</span>
-                        <span class="mega-service-desc">Elegant PHP solutions built on the most popular modern framework.</span>
-                      </div>
-                    </a>
-                    <a href="{{ route('tech.nestjs') }}" class="mega-service-item mega-service-item--no-icon">
-                      <div class="mega-service-text">
-                        <span class="mega-service-title">NestJS Development</span>
-                        <span class="mega-service-desc">Scalable server-side applications with a structured Node.js framework.</span>
-                      </div>
-                    </a>
+                    @endforeach
                   </div>
                 </div>
               </div>
