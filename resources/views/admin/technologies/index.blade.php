@@ -67,6 +67,7 @@
                   <a class="me-2 p-2" href="#"
                     data-bs-toggle="modal" data-bs-target="#editTechModal"
                     data-id="{{ $tech->id }}"
+                    data-slug="{{ $tech->slug }}"
                     data-name="{{ $tech->name }}"
                     data-icon="{{ $tech->icon }}"
                     data-short-description="{{ $tech->short_description }}"
@@ -235,7 +236,7 @@
     const btn = e.relatedTarget;
     const form = document.getElementById('editTechForm');
 
-    form.action = `/admin/technologies/${btn.dataset.id}`;
+    form.action = `/admin/technologies/${btn.dataset.slug}`;
 
     document.getElementById('et_name').value = btn.dataset.name || '';
     document.getElementById('et_icon').value = btn.dataset.icon || '';
