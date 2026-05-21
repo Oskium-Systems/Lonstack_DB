@@ -1690,3 +1690,324 @@
     .td-ben-card { padding: 28px 22px; }
     .td-proc-card { padding: 28px 22px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   BLOG DETAIL PAGE — Fixes and improvements
+═══════════════════════════════════════════════════════════ */
+
+/* ── Featured image: fixed height, proper cover ── */
+.img-details {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.img-details img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+/* ── Author + date row ── */
+.date-user-post {
+    gap: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--stroke-2);
+    margin-bottom: 36px !important;
+}
+
+.date-user-post .user-details,
+.date-user-post .date-post {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.date-user-post p.by,
+.date-user-post p.fw-5 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+.date-user-post h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0;
+}
+
+.date-user-post h5 a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.date-user-post h5 a:hover {
+    color: var(--primary);
+}
+
+/* ── Author box ── */
+.author {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 32px;
+    border: 1px solid var(--stroke-2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.author .author-content .name a {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.author .author-content .text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 4px;
+}
+
+/* ── Comments section ── */
+.comment {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid var(--stroke-2);
+}
+
+.comment h4.title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--white);
+}
+
+/* Comment item */
+.comment-item {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-item .comment-content .top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-item .comment-content .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.comment-item .comment-content .date {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.comment-item .comment-content .text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Reply button */
+.reply-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.reply-toggle-btn:hover {
+    opacity: 0.75;
+}
+
+/* ── REPLY FORM — properly styled ── */
+.reply-form {
+    margin-top: 20px;
+    margin-left: 24px;
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid var(--primary);
+    border-radius: 12px;
+}
+
+.reply-form .reply-form-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reply-form .reply-form-title::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Reply form input row */
+.reply-form .reply-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.reply-form fieldset {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.reply-form fieldset:focus-within {
+    border-color: rgba(67, 186, 255, 0.4);
+}
+
+.reply-form fieldset i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.reply-form fieldset input,
+.reply-form fieldset textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px 14px 12px 40px;
+    font-size: 14px;
+    color: var(--white);
+    line-height: 1.5;
+}
+
+.reply-form fieldset input::placeholder,
+.reply-form fieldset textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.reply-form .reply-textarea {
+    margin-bottom: 16px;
+}
+
+.reply-form .reply-textarea fieldset {
+    border-radius: 8px;
+}
+
+.reply-form .reply-textarea fieldset i {
+    top: 16px;
+    transform: none;
+}
+
+.reply-form .reply-textarea textarea {
+    padding: 12px 14px 12px 40px;
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Reply form buttons */
+.reply-form .reply-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reply-form .reply-cancel-btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reply-form .reply-cancel-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Nested reply items */
+.comment-item.reply {
+    margin-left: 28px;
+    padding: 18px 0;
+    border-left: 2px solid rgba(67, 186, 255, 0.15);
+    padding-left: 20px;
+    border-bottom: none;
+}
+
+/* ── Leave a Reply form ── */
+.form-comment {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid var(--stroke-2);
+}
+
+.form-comment h4.title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--white);
+}
+
+@media (max-width: 767px) {
+    .img-details img {
+        height: 260px;
+    }
+
+    .reply-form .reply-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .reply-form {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .comment-item.reply {
+        margin-left: 16px;
+    }
+}
