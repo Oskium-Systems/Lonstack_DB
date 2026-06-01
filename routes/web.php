@@ -4,25 +4,27 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// ── Core pages ──
-Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/services', [PageController::class, 'services'])->name('services');
-Route::get('/contact-us', [PageController::class, 'contact'])->name('contact-us');
-Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms-of-service');
-Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
 
-// ── Portfolio ──
-Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
-Route::get('/portfolio/load', [PageController::class, 'portfolioLoad'])->name('portfolio.load');
-Route::get('/portfolio/{slug}', [PageController::class, 'portfolioDetails'])->name('portfolio-details');
-
-// ── Blog ──
-Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
-Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog-details');
-Route::post('/blog/{slug}/comment', [\App\Http\Controllers\BlogCommentController::class, 'store'])->name('blog.comment.store');
 
 Route::middleware(['maintenance'])->group(function () {
+
+    // ── Core pages ──
+    Route::get('/', [PageController::class, 'home'])->name('home');
+    Route::get('/about', [PageController::class, 'about'])->name('about');
+    Route::get('/services', [PageController::class, 'services'])->name('services');
+    Route::get('/contact-us', [PageController::class, 'contact'])->name('contact-us');
+    Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms-of-service');
+    Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+
+    // ── Portfolio ──
+    Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
+    Route::get('/portfolio/load', [PageController::class, 'portfolioLoad'])->name('portfolio.load');
+    Route::get('/portfolio/{slug}', [PageController::class, 'portfolioDetails'])->name('portfolio-details');
+
+    // ── Blog ──
+    Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
+    Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog-details');
+    Route::post('/blog/{slug}/comment', [\App\Http\Controllers\BlogCommentController::class, 'store'])->name('blog.comment.store');
 
   // Core pages (inside maintenance middleware)
   Route::get('/', [PageController::class, 'home'])->name('home');
@@ -47,16 +49,16 @@ Route::middleware(['maintenance'])->group(function () {
   Route::get('/technologies/{slug}', [PageController::class, 'technologyDetail'])->name('tech.show');
 
   // Industries
-  Route::get('/industries/oil-gas', [PageController::class, 'oilGas'])->name('industries.oil-gas');
-  Route::get('/industries/logistics', [PageController::class, 'logistics'])->name('industries.logistics');
-  Route::get('/industries/fintech', [PageController::class, 'fintech'])->name('industries.fintech');
-  Route::get('/industries/retail', [PageController::class, 'retail'])->name('industries.retail');
-  Route::get('/industries/real-estate', [PageController::class, 'realEstate'])->name('industries.real-estate');
-  Route::get('/industries/travel-hospitality', [PageController::class, 'travelHospitality'])->name('industries.travel');
-  Route::get('/industries/media-entertainment', [PageController::class, 'mediaEntertainment'])->name('industries.media');
-  Route::get('/industries/healthcare', [PageController::class, 'healthcare'])->name('industries.healthcare');
-  Route::get('/industries/elearning', [PageController::class, 'elearning'])->name('industries.elearning');
-  Route::get('/industries/manufacturing', [PageController::class, 'manufacturing'])->name('industries.manufacturing');
+//   Route::get('/industries/oil-gas', [PageController::class, 'oilGas'])->name('industries.oil-gas');
+//   Route::get('/industries/logistics', [PageController::class, 'logistics'])->name('industries.logistics');
+//   Route::get('/industries/fintech', [PageController::class, 'fintech'])->name('industries.fintech');
+//   Route::get('/industries/retail', [PageController::class, 'retail'])->name('industries.retail');
+//   Route::get('/industries/real-estate', [PageController::class, 'realEstate'])->name('industries.real-estate');
+//   Route::get('/industries/travel-hospitality', [PageController::class, 'travelHospitality'])->name('industries.travel');
+//   Route::get('/industries/media-entertainment', [PageController::class, 'mediaEntertainment'])->name('industries.media');
+//   Route::get('/industries/healthcare', [PageController::class, 'healthcare'])->name('industries.healthcare');
+//   Route::get('/industries/elearning', [PageController::class, 'elearning'])->name('industries.elearning');
+//   Route::get('/industries/manufacturing', [PageController::class, 'manufacturing'])->name('industries.manufacturing');
 });
 
 Route::get('/dashboard', function () {
