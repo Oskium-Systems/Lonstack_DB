@@ -13,7 +13,6 @@ namespace Psy\Completion\Source;
 
 use Psy\Command\Command;
 use Psy\CommandAware;
-use Psy\CommandMapTrait;
 use Psy\Completion\AnalysisResult;
 use Psy\Completion\CompletionKind;
 use Symfony\Component\Console\Input\StringInput;
@@ -25,7 +24,8 @@ use Symfony\Component\Console\Input\StringInput;
  */
 class CommandOptionSource implements CommandAware, SourceInterface
 {
-    use CommandMapTrait;
+    /** @var array<string, Command> */
+    private array $commandMap = [];
 
     /**
      * @param Command[] $commands Array of PsySH commands
@@ -33,6 +33,24 @@ class CommandOptionSource implements CommandAware, SourceInterface
     public function __construct(array $commands)
     {
         $this->setCommands($commands);
+    }
+
+    /**
+     * Set commands for completion.
+     *
+     * @param Command[] $commands
+     */
+    public function setCommands(array $commands): void
+    {
+        $this->commandMap = [];
+
+        foreach ($commands as $command) {
+            $this->commandMap[$command->getName()] = $command;
+
+            foreach ($command->getAliases() as $alias) {
+                $this->commandMap[$alias] = $command;
+            }
+        }
     }
 
     /**

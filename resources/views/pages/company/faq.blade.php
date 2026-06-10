@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 <div class="title-animation">
-                                    <a href="about-us.html" class="tf-btn no-bg text-underline">
+                                    <a href="{{ route('about') }}" class="tf-btn no-bg text-underline">
                                         <span>Learn More Us</span>
                                         <i class="icon-arrow-right"></i>
                                     </a>
@@ -472,3 +472,4 @@
     </div>
     <!-- /.main-content -->
 @endsection
+

@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+﻿@extends('layouts.guest')
 @section('content')
 <!-- Page-title -->
 <div class="page-title-home">
@@ -81,7 +81,7 @@
 
           </div>
 
-          <a href="services.html" class="tf-btn">
+          <a href="{{ route('services') }}" class="tf-btn">
             <span>Explore Our Services</span>
             <i class="icon-arrow-right"></i>
           </a>
@@ -540,12 +540,12 @@
     </div>
   </div>
 
-  {{-- Services grid --}}
-  <div class="row">
+  {{-- Services grid â€” desktop only --}}
+  <div class="row d-none d-md-block">
     <div class="col-12">
       <div class="srv-new-grid">
 
-        {{-- ── FEATURED CARD ── --}}
+        {{-- â”€â”€ FEATURED CARD â”€â”€ --}}
         <div class="srv-featured-card">
           <div class="srv-featured-inner">
             <div class="srv-featured-icon">
@@ -554,11 +554,11 @@
             <div class="srv-featured-badge">Featured Service</div>
             <h4 class="srv-featured-title">
               Blockchain<br>Development
-              <span class="badge-hot">HOT 🔥</span>
+              <span class="badge-hot">HOT ðŸ”¥</span>
             </h4>
             <p class="srv-featured-desc">
               Robust and efficient blockchain software across various industries.
-              From smart contracts to full DeFi platforms — your most powerful
+              From smart contracts to full DeFi platforms â€” your most powerful
               service delivered end-to-end.
             </p>
           </div>
@@ -573,17 +573,16 @@
           </div>
         </div>
 
-        {{-- ── TOP-RIGHT 2×2 GRID ── --}}
+        {{-- â”€â”€ TOP-RIGHT 2Ã—2 GRID â”€â”€ --}}
         <div class="srv-mini-grid">
 
           <div class="srv-mini-card">
             <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
             <h6 class="srv-mini-title">
               Crypto Exchange Dev
-              <span class="badge-hot">HOT 🔥</span>
+              <span class="badge-hot">HOT ðŸ”¥</span>
             </h6>
-            <p class="srv-mini-desc">Seamless transactions to buy, sell, and trade cryptocurrencies
-            </p>
+            <p class="srv-mini-desc">Seamless transactions to buy, sell, and trade cryptocurrencies</p>
             <a href="{{ route('services.show', 'crypto-exchange-development') }}" class="tf-btn-readmore mt-auto">
               <span class="plus">+</span><span class="text">Read More</span>
             </a>
@@ -593,7 +592,7 @@
             <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
             <h6 class="srv-mini-title">
               Mobile App Dev
-              <span class="badge-hot">HOT 🔥</span>
+              <span class="badge-hot">HOT ðŸ”¥</span>
             </h6>
             <p class="srv-mini-desc">High-performing apps for iOS and Android</p>
             <a href="{{ route('services.show', 'mobile-app-development') }}" class="tf-btn-readmore mt-auto">
@@ -603,9 +602,7 @@
 
           <div class="srv-mini-card">
             <div class="srv-mini-icon"><i class="icon-custom-software"></i></div>
-            <h6 class="srv-mini-title">
-              AI Development
-            </h6>
+            <h6 class="srv-mini-title">AI Development</h6>
             <p class="srv-mini-desc">Custom AI to automate and transform your business</p>
             <a href="{{ route('services.show', 'ai-development') }}" class="tf-btn-readmore mt-auto">
               <span class="plus">+</span><span class="text">Read More</span>
@@ -616,7 +613,7 @@
             <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
             <h6 class="srv-mini-title">
               Custom Software Dev
-              <span class="badge-hot">HOT 🔥</span>
+              <span class="badge-hot">HOT ðŸ”¥</span>
             </h6>
             <p class="srv-mini-desc">Tailor-made solutions for all your business needs</p>
             <a href="{{ route('services.show', 'custom-software-development') }}" class="tf-btn-readmore mt-auto">
@@ -626,7 +623,7 @@
 
         </div>{{-- /.srv-mini-grid --}}
 
-        {{-- ── BOTTOM ROW (3 cards, full width) ── --}}
+        {{-- â”€â”€ BOTTOM ROW (3 cards, full width) â”€â”€ --}}
         <div class="srv-bottom-card">
           <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
           <h6 class="srv-mini-title">Data Analytics</h6>
@@ -639,8 +636,7 @@
         <div class="srv-bottom-card">
           <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
           <h6 class="srv-mini-title">Staff Augmentation</h6>
-          <p class="srv-mini-desc">Scale your team on demand with skilled developers integrated into
-            your workflow</p>
+          <p class="srv-mini-desc">Scale your team on demand with skilled developers integrated into your workflow</p>
           <a href="{{ route('services.show', 'staff-augmentation') }}" class="tf-btn-readmore mt-auto">
             <span class="plus">+</span><span class="text">Read More</span>
           </a>
@@ -662,6 +658,151 @@
     </div>
   </div>
 
+  {{-- Services carousel â€” mobile only --}}
+  <div class="d-md-none srv-mobile-carousel">
+
+    {{-- Featured card always visible on top --}}
+    <div class="srv-featured-card srv-featured-card--mobile">
+      <div class="srv-featured-inner">
+        <div class="srv-featured-icon">
+          <i class="icon-custom-software"></i>
+        </div>
+        <div class="srv-featured-badge">Featured Service</div>
+        <h4 class="srv-featured-title">
+          Blockchain Development
+          <span class="badge-hot">HOT ðŸ”¥</span>
+        </h4>
+        <p class="srv-featured-desc">
+          Robust blockchain software from smart contracts to full DeFi platforms â€” delivered end-to-end.
+        </p>
+      </div>
+      <div class="srv-featured-footer">
+        <a href="{{ route('services.show', 'blockchain-development') }}" class="tf-btn tf-btn--sm">
+          <span>Get Started</span>
+          <i class="icon-arrow-right"></i>
+        </a>
+        <a href="{{ route('services') }}" class="srv-view-all-link">
+          View all <i class="icon-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    {{-- Swipeable remaining cards --}}
+    <div class="srv-mobile-swiper-wrap">
+      <div class="swiper tf-swiper sw-srv-mobile"
+        data-swiper='{
+          "slidesPerView": 1.1,
+          "spaceBetween": 14,
+          "speed": 600,
+          "loop": false,
+          "navigation": {
+            "nextEl": ".srv-mobile-next",
+            "prevEl": ".srv-mobile-prev"
+          },
+          "pagination": {
+            "el": ".srv-mobile-pagination",
+            "clickable": true
+          },
+          "breakpoints": {
+            "480": { "slidesPerView": 1.6, "spaceBetween": 16 }
+          }
+        }'>
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+              <h6 class="srv-mini-title">Crypto Exchange Dev <span class="badge-hot">HOT ðŸ”¥</span></h6>
+              <p class="srv-mini-desc">Seamless transactions to buy, sell, and trade cryptocurrencies</p>
+              <a href="{{ route('services.show', 'crypto-exchange-development') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
+              <h6 class="srv-mini-title">Mobile App Dev <span class="badge-hot">HOT ðŸ”¥</span></h6>
+              <p class="srv-mini-desc">High-performing apps for iOS and Android</p>
+              <a href="{{ route('services.show', 'mobile-app-development') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-custom-software"></i></div>
+              <h6 class="srv-mini-title">AI Development</h6>
+              <p class="srv-mini-desc">Custom AI to automate and transform your business</p>
+              <a href="{{ route('services.show', 'ai-development') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+              <h6 class="srv-mini-title">Custom Software Dev <span class="badge-hot">HOT ðŸ”¥</span></h6>
+              <p class="srv-mini-desc">Tailor-made solutions for all your business needs</p>
+              <a href="{{ route('services.show', 'custom-software-development') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-software-product"></i></div>
+              <h6 class="srv-mini-title">Data Analytics</h6>
+              <p class="srv-mini-desc">Transform raw data into actionable business insights</p>
+              <a href="{{ route('services.show', 'data-analytics') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-outsourcing"></i></div>
+              <h6 class="srv-mini-title">Staff Augmentation</h6>
+              <p class="srv-mini-desc">Scale your team on demand with skilled developers</p>
+              <a href="{{ route('services.show', 'staff-augmentation') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="srv-mini-card srv-mini-card--mobile">
+              <div class="srv-mini-icon"><i class="icon-custom-software"></i></div>
+              <h6 class="srv-mini-title">Prediction Market Dev <span class="badge-new">NEW</span></h6>
+              <p class="srv-mini-desc">Full-cycle prediction market software for crypto</p>
+              <a href="{{ route('services.show', 'prediction-market-development') }}" class="tf-btn-readmore mt-auto">
+                <span class="plus">+</span><span class="text">Read More</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {{-- Prev / Next arrows + pagination --}}
+      <div class="srv-mobile-controls">
+        <button class="srv-mobile-prev arrow-btn style-border w-50">
+          <i class="icon-arrow-left2"></i>
+        </button>
+        <div class="srv-mobile-pagination sw-pagination"></div>
+        <button class="srv-mobile-next arrow-btn style-border w-50">
+          <i class="icon-arrow-right2"></i>
+        </button>
+      </div>
+
+    </div>{{-- /.srv-mobile-swiper-wrap --}}
+  </div>{{-- /.srv-mobile-carousel --}}
+
 </div>{{-- /.tf-container --}}
 </section>
 
@@ -674,10 +815,10 @@
         <div class="icon">
           <i class="icon-chat-2"></i>
         </div>
-        <h5 class="fw-4 title">Let’s <span class="fw-6">Discuss & Start</span> IT Consultations
+        <h5 class="fw-4 title">Letâ€™s <span class="fw-6">Discuss & Start</span> IT Consultations
         </h5>
         <a href="#" class="tf-btn no-bg text-underline hover-color-main-dark">
-          <span>Let’s Talk</span>
+          <span>Letâ€™s Talk</span>
           <i class="icon-arrow-right"></i>
         </a>
       </div>
@@ -778,7 +919,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-1.jpg"
                       data-src="image/team-item/team-item-1.jpg" alt=""
                       class="lazyload">
@@ -800,7 +941,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">Micheal R. Shannon</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
                   <p class="sub-title">Software Developer</p>
                 </div>
               </div>
@@ -809,7 +950,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-2.jpg"
                       data-src="image/team-item/team-item-2.jpg" alt=""
                       class="lazyload">
@@ -831,7 +972,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">William J. Alexander</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
                   <p class="sub-title">App Developer</p>
                 </div>
               </div>
@@ -840,7 +981,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-3.jpg"
                       data-src="image/team-item/team-item-3.jpg" alt=""
                       class="lazyload">
@@ -862,7 +1003,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">Donnie O. Goldsmith</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
                   <p class="sub-title">Software Developer</p>
                 </div>
               </div>
@@ -871,7 +1012,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-1.jpg"
                       data-src="image/team-item/team-item-1.jpg" alt=""
                       class="lazyload">
@@ -893,7 +1034,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">Micheal R. Shannon</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
                   <p class="sub-title">Software Developer</p>
                 </div>
               </div>
@@ -902,7 +1043,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-2.jpg"
                       data-src="image/team-item/team-item-2.jpg" alt=""
                       class="lazyload">
@@ -924,7 +1065,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">William J. Alexander</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
                   <p class="sub-title">App Developer</p>
                 </div>
               </div>
@@ -933,7 +1074,7 @@
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="team.html" class="image">
+                  <a href="{{ route('about') }}" class="image">
                     <img src="image/team-item/team-item-3.jpg"
                       data-src="image/team-item/team-item-3.jpg" alt=""
                       class="lazyload">
@@ -955,7 +1096,7 @@
                   </div>
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="team.html">Donnie O. Goldsmith</a></h6>
+                  <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
                   <p class="sub-title">Software Developer</p>
                 </div>
               </div>
@@ -1016,17 +1157,17 @@
             </div>
           </div>
           <a href="{{ route('portfolio-details', $p->slug) }}" class="image"
-             style="display:block; overflow:hidden;">
+            style="display:block; overflow:hidden;">
             @if ($p->cover_image)
-              <img src="{{ asset('storage/' . $p->cover_image) }}"
-                   data-src="{{ asset('storage/' . $p->cover_image) }}"
-                   alt="{{ $p->title }}" class="lazyload"
-                   style="width:100%; height:420px; object-fit:cover; display:block;">
+            <img src="{{ asset('storage/' . $p->cover_image) }}"
+              data-src="{{ asset('storage/' . $p->cover_image) }}"
+              alt="{{ $p->title }}" class="lazyload"
+              style="width:100%; height:420px; object-fit:cover; display:block;">
             @else
-              <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
-                   data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
-                   alt="{{ $p->title }}" class="lazyload"
-                   style="width:100%; height:420px; object-fit:cover; display:block;">
+            <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
+              data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+              alt="{{ $p->title }}" class="lazyload"
+              style="width:100%; height:420px; object-fit:cover; display:block;">
             @endif
           </a>
         </div>
@@ -1048,11 +1189,11 @@
             </div>
           </div>
           <a href="{{ route('portfolio') }}" class="image"
-             style="display:block; overflow:hidden;">
+            style="display:block; overflow:hidden;">
             <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
-                 data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
-                 alt="" class="lazyload"
-                 style="width:100%; height:420px; object-fit:cover; display:block;">
+              data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+              alt="" class="lazyload"
+              style="width:100%; height:420px; object-fit:cover; display:block;">
           </a>
         </div>
       </div>
@@ -1108,7 +1249,7 @@
                   <a href="#" class="position text-medium">
                     {{ $ht->position }}
                     @if ($ht->company)
-                    · {{ $ht->company }}
+                    Â· {{ $ht->company }}
                     @endif
                   </a>
                 </div>
@@ -1169,10 +1310,10 @@
           Work Inquiry
         </div>
         <h2 class="title fw-6">
-          Let’s Work For your
+          Letâ€™s Work For your
           Next Projects ?
         </h2>
-        <a href="contact.html" class="tf-btn style-bg-white hover-bg-main-dark">
+        <a href="{{ route('contact-us') }}" class="tf-btn style-bg-white hover-bg-main-dark">
           <span>Contact Us</span>
           <i class="icon-arrow-right"></i>
         </a>
@@ -1187,7 +1328,7 @@
             Need Help For Project!
           </h3>
 
-          <div class="desc lh-30">We are ready to help your next projects, let’s work together
+          <div class="desc lh-30">We are ready to help your next projects, letâ€™s work together
           </div>
 
         </div>
@@ -1310,3 +1451,4 @@
 </section>
 </div>
 @endsection
+

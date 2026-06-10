@@ -1312,7 +1312,7 @@ a:focus {
 }
 
 .mobile-nav-wrap {
-    max-width: 300px;
+    max-width: 100%;
     width: 100%;
 }
 .mobile-nav-wrap .inner-mobile-nav {

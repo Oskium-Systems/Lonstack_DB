@@ -16,7 +16,7 @@
     <div class="row align-items-center">
 
       {{-- LEFT --}}
-      <div class="col-lg-6">
+      <div class="col-12 col-lg-6">
         <div class="tech-hero__breadcrumb">
           <a href="{{ route('home') }}">Home</a>
           <span class="dot"></span>

@@ -10,9 +10,9 @@
 
                     <div class="login-userset">
 
-                        <a href="">
+                        <a href="{{ route('home') }}">
                             <div class="login-logo logo-normal">
-                                <img src="assets/img/logo.svg" alt="Logo" />
+                                <img src="{{ asset('image/logo/logo-black.png') }}" alt="Logo" />
                             </div>
                         </a>
 

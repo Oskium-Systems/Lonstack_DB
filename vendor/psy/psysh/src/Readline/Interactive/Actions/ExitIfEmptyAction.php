@@ -30,8 +30,6 @@ class ExitIfEmptyAction implements ActionInterface
             return false;
         }
 
-        $readline->escapeCurrentFrameForAbort($buffer);
-
         throw new BreakException('Ctrl+D');
     }
 

@@ -8,7 +8,7 @@
         Services
       </h1>
       <div class="breadkcum">
-        <a href="index.html" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
+        <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
         <span class="dot"></span>
         <span class="page-breadkcum body-2 fw-7 split-text effect-right">Services</span>
       </div>
@@ -80,7 +80,7 @@
                 </div>
               </div>
               <div class="title-animation">
-                <a href="about-us.html" class="tf-btn no-bg text-underline">
+                <a href="{{ route('about') }}" class="tf-btn no-bg text-underline">
                   <span>Learn More Us</span>
                   <i class="icon-arrow-right"></i>
                 </a>
@@ -139,27 +139,32 @@
     </div>
 
     <div class="tf-container">
-      <div class="list-services flex flex-wrap">
+      @php
+      $hasServices = $categories->contains(fn ($category) => $category->activeServices->isNotEmpty());
+      @endphp
 
-        {{-- Loop through each active category and its active services --}}
+      @if(!$hasServices)
+      <div class="col-12 text-center py-5">
+        <p class="text-muted">No services available at the moment.</p>
+      </div>
+      @else
+
+      {{-- Desktop: grid layout --}}
+      <div class="list-services services-grid-desktop flex flex-wrap">
         @foreach($categories as $category)
         @foreach($category->activeServices as $service)
         <div class="services-item px-lg-15 no-img">
           <div class="icon">
-            {{-- Use the category icon if set, fallback to a default --}}
             <i class="{{ $category->icon ?? 'icon-custom-software' }}"></i>
           </div>
-
           <h5 class="lh-30 fw-6">
             <a href="{{ route('services.show', $service->slug) }}" class="title-service">
               {{ $service->name }}
             </a>
           </h5>
-
           <div class="desc lh-30">
             {{ $service->short_description }}
           </div>
-
           <div class="bottom-item">
             <a href="{{ route('services.show', $service->slug) }}" class="tf-btn-readmore">
               <span class="plus">+</span>
@@ -169,14 +174,60 @@
         </div>
         @endforeach
         @endforeach
-
-        @if($categories->isEmpty() || $categories->every(fn($c) => $c->activeServices->isEmpty()))
-        <div class="col-12 text-center py-5">
-          <p class="text-muted">No services available at the moment.</p>
-        </div>
-        @endif
-
       </div>
+
+      {{-- Mobile: auto-playing swiper carousel --}}
+      <div class="services-slider-mobile">
+        <div class="swiper tf-swiper sw-services-page sw-border"
+          data-swiper='{
+              "slidesPerView": 1,
+              "spaceBetween": 20,
+              "speed": 800,
+              "loop": true,
+              "autoplay": {
+                "delay": 4000,
+                "disableOnInteraction": false,
+                "pauseOnMouseEnter": true
+              },
+              "pagination": {
+                "el": ".sw-pagination-services",
+                "clickable": true
+              },
+              "observer": true,
+              "observeParents": true
+            }'>
+          <div class="swiper-wrapper">
+            @foreach($categories as $category)
+            @foreach($category->activeServices as $service)
+            <div class="swiper-slide">
+              <div class="services-item px-lg-15 no-img">
+                <div class="icon">
+                  <i class="{{ $category->icon ?? 'icon-custom-software' }}"></i>
+                </div>
+                <h5 class="lh-30 fw-6">
+                  <a href="{{ route('services.show', $service->slug) }}" class="title-service">
+                    {{ $service->name }}
+                  </a>
+                </h5>
+                <div class="desc lh-30">
+                  {{ $service->short_description }}
+                </div>
+                <div class="bottom-item">
+                  <a href="{{ route('services.show', $service->slug) }}" class="tf-btn-readmore">
+                    <span class="plus">+</span>
+                    <span class="text">Read More</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+            @endforeach
+          </div>
+        </div>
+        <div class="sw-pagination-services sw-pagination mt-20 justify-content-center"></div>
+      </div>
+
+      @endif
     </div>
   </section>
 

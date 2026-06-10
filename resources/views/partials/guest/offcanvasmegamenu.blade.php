@@ -1,4 +1,4 @@
- <div class="offcanvas offcanvas-end offcanvasMegamenu" id="canvnasMegamenu">
+﻿ <div class="offcanvas offcanvas-end offcanvasMegamenu" id="canvnasMegamenu">
             <div class="heading flex justify-content-between">
                 <div class="logo-megamenu">
                     <img src="{{ asset('image/logo/logo.png') }}" alt="" style="height: 65px; width: auto;">
@@ -53,7 +53,7 @@
                     Recent News
                 </h4>
                 <div class="tf-post-list style-small hover-img">
-                    <a href="blog-details.html" class="image">
+                    <a href="{{ route('blogs') }}" class="image">
                         <img src="image/blog/post-list-1.jpg" data-src="image/blog/post-list-1.jpg" alt=""
                             class=" ls-is-cached lazyloaded">
                     </a>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="tf-post-list style-small hover-img">
-                    <a href="blog-details.html" class="image">
+                    <a href="{{ route('blogs') }}" class="image">
                         <img src="image/blog/post-list-2.jpg" data-src="image/blog/post-list-2.jpg" alt=""
                             class=" ls-is-cached lazyloaded">
                     </a>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="tf-post-list style-small hover-img">
-                    <a href="blog-details.html" class="image">
+                    <a href="{{ route('blogs') }}" class="image">
                         <img src="image/blog/post-list-3.jpg" data-src="image/blog/post-list-3.jpg" alt=""
                             class=" ls-is-cached lazyloaded">
                     </a>
@@ -100,3 +100,4 @@
             </div>
 
         </div>
+

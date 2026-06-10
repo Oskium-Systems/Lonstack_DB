@@ -78,8 +78,8 @@ class MatcherAdapterSource implements SourceInterface
      */
     public function appliesToKind(int $kinds): bool
     {
-        // Legacy matchers don't understand command argument contexts.
-        return ($kinds & ~CompletionKind::COMMAND_ARGUMENT) !== 0;
+        // Legacy matchers could potentially match anything, so always apply.
+        return true;
     }
 
     /**
@@ -154,10 +154,6 @@ class MatcherAdapterSource implements SourceInterface
      */
     private function buildReadlineInfo(AnalysisResult $analysis): array
     {
-        if ($analysis->readlineInfo !== []) {
-            return $analysis->readlineInfo;
-        }
-
         $lineBuffer = '';
         if ($analysis->leftSide !== null) {
             $lineBuffer .= $analysis->leftSide;
@@ -172,7 +168,6 @@ class MatcherAdapterSource implements SourceInterface
 
         return [
             'line_buffer' => $lineBuffer,
-            'point'       => \strlen($lineBuffer),
             'end'         => \strlen($lineBuffer),
         ];
     }

@@ -11,8 +11,6 @@
 
 namespace Psy\Readline\Interactive\Input;
 
-use Psy\CodeAnalysis\BufferAnalysis;
-use Psy\CodeAnalysis\BufferAnalyzer;
 use Psy\Readline\Interactive\Helper\BracketPair;
 
 /**
@@ -26,7 +24,7 @@ class Buffer
     private string $text = '';
     private int $cursor = 0;
 
-    private BufferAnalyzer $bufferAnalyzer;
+    private ParseSnapshotCache $parseSnapshotCache;
     private StatementCompletenessPolicy $statementCompletenessPolicy;
     private IndentationPolicy $indentationPolicy;
     private TokenNavigationPolicy $tokenNavigationPolicy;
@@ -43,9 +41,9 @@ class Buffer
     public function __construct(bool $requireSemicolons = false)
     {
         $this->requireSemicolons = $requireSemicolons;
-        $this->bufferAnalyzer = new BufferAnalyzer();
+        $this->parseSnapshotCache = new ParseSnapshotCache();
         $this->statementCompletenessPolicy = new StatementCompletenessPolicy(
-            $this->bufferAnalyzer,
+            $this->parseSnapshotCache,
             $this->requireSemicolons
         );
         $this->indentationPolicy = new IndentationPolicy();
@@ -723,9 +721,9 @@ class Buffer
         $this->graphemeBoundaryMap = null;
     }
 
-    private function getBufferAnalysis(): BufferAnalysis
+    private function getParseSnapshot(): ParseSnapshot
     {
-        return $this->bufferAnalyzer->analyze($this->getText());
+        return $this->parseSnapshotCache->getSnapshot($this->getText());
     }
 
     /**
@@ -733,15 +731,15 @@ class Buffer
      */
     private function getParsedTokens(): array
     {
-        return $this->getBufferAnalysis()->getTokens();
+        return $this->getParseSnapshot()->getTokens();
     }
 
     /**
-     * @return array<int, array{start: int, end: int}>
+     * @return int[]
      */
     private function getParsedTokenPositions(): array
     {
-        return $this->getBufferAnalysis()->getTokenPositions();
+        return $this->getParseSnapshot()->getTokenPositions();
     }
 
     /**
@@ -795,7 +793,7 @@ class Buffer
     public function calculateIndentBeforeCursor(): string
     {
         $textBeforeCursor = $this->getBeforeCursor();
-        $tokens = $this->bufferAnalyzer->analyze($textBeforeCursor)->getTokens();
+        $tokens = $this->parseSnapshotCache->getSnapshot($textBeforeCursor)->getTokens();
 
         return $this->indentationPolicy->calculateNextLineIndent($textBeforeCursor, $tokens);
     }

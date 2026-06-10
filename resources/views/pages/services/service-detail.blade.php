@@ -41,7 +41,7 @@
       <div class="row align-items-center rg-50">
 
         @if($service->hero->image)
-        <div class="col-lg-6">
+        <div class="col-12 col-lg-6">
           <div class="image tf-animate-2">
             <img src="{{ asset('storage/' . $service->hero->image) }}"
               data-src="{{ asset('storage/' . $service->hero->image) }}"
@@ -51,7 +51,7 @@
         </div>
         @endif
 
-        <div class="{{ $service->hero->image ? 'col-lg-6' : 'col-lg-9 offset-lg-1' }}">
+        <div class="{{ $service->hero->image ? 'col-12 col-lg-6' : 'col-lg-9 offset-lg-1' }}">
           <div class="heading-section mb-40">
             <div class="sub-title body-2 fw-7 mb-17 title-animation">
               {{ $service->category->name }}
@@ -174,7 +174,7 @@
         </div>
 
         {{-- CTA --}}
-        <div class="col-lg-3 text-lg-end text-center">
+        <div class="col-lg-3 col-12 text-lg-end text-center">
           <a href="{{ $talk->cta_url }}" class="tf-btn">
             <span>{{ $talk->cta_label }}</span>
             <i class="icon-arrow-right"></i>
@@ -246,7 +246,7 @@
 
       <div class="row rg-30">
         @foreach($service->techGroups as $group)
-        <div class="col-lg-4 col-md-6">
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="svc-tech-card">
             <div class="svc-group-label">
               <span>{{ $group->group_name }}</span>

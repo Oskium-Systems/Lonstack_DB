@@ -2011,3 +2011,715 @@
         margin-left: 16px;
     }
 }
+
+/* ===== MOBILE NAV — full width + nested collapsible menus ===== */
+.mobile-nav-wrap.offcanvas {
+    --bs-offcanvas-width: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+.mobile-nav-wrap .inner-mobile-nav {
+    padding: 20px 24px;
+}
+
+/* Level 1 dropdown links (Company, Technologies, All Services) */
+#menu-mobile .sub-menu-mobile > .menu-item > a {
+    font-size: 14px;
+    padding: 8px 0;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Level 2 — service categories */
+#menu-mobile .sub-menu-mobile--categories {
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#menu-mobile .menu-item-nested {
+    border-bottom: none;
+}
+
+#menu-mobile .menu-item-nested > a {
+    font-size: 13px;
+    padding: 10px 0 10px 12px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#menu-mobile .menu-item-nested.menu-item-has-children-mobile > a::after {
+    right: 4px;
+    font-size: 5px;
+}
+
+/* Level 3 — individual services / nested links */
+#menu-mobile .sub-menu-mobile--nested {
+    padding-left: 12px;
+    margin-bottom: 8px;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#menu-mobile .sub-menu-mobile--nested .menu-item a {
+    font-size: 12px;
+    padding: 6px 0 6px 8px;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+#menu-mobile .sub-menu-mobile--nested .menu-item a:hover {
+    color: var(--primary);
+}
+
+.mobile-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.04em;
+}
+
+.mobile-badge--hot {
+    background: rgba(255, 100, 50, 0.2);
+    color: #ff6b35;
+}
+
+.mobile-badge--new {
+    background: #43baff;
+    color: #fff;
+}
+
+/* ===== SERVICES PAGE — mobile carousel ===== */
+.services-slider-mobile {
+    display: none;
+}
+
+.services-grid-desktop {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .services-grid-desktop {
+        display: none !important;
+    }
+
+    .services-slider-mobile {
+        display: block;
+    }
+
+    .section-services.p-services .sw-services-page {
+        overflow: hidden;
+        padding-bottom: 4px;
+    }
+
+    .section-services.p-services .sw-services-page .swiper-slide {
+        height: auto;
+    }
+
+    .section-services.p-services .sw-services-page .services-item.no-img {
+        padding: 32px 24px;
+        border: 1px solid var(--stroke-2);
+        border-left: 1px solid var(--stroke-2);
+        max-width: 100%;
+        height: 100%;
+    }
+
+    .section-services.p-services .sw-services-page .services-item .icon {
+        margin-bottom: 24px;
+    }
+
+    .section-services.p-services .sw-services-page .services-item .icon i {
+        font-size: 44px;
+    }
+
+    .section-services.p-services .sw-pagination-services {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-services.p-services .sw-pagination-services {
+        display: none;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS — comprehensive overrides
+   Breakpoints: 767px (phone), 575px (small phone)
+═══════════════════════════════════════════════════ */
+
+/* ── Mobile nav: nested category collapse ── */
+.menu-item-nested > a {
+    font-size: 13px !important;
+    padding: 9px 12px !important;
+    color: rgba(255,255,255,0.75) !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sub-menu-mobile--categories {
+    margin-top: 4px;
+}
+.sub-menu-mobile--nested .menu-item a {
+    font-size: 12px !important;
+    padding: 8px 24px !important;
+    color: rgba(255,255,255,0.55) !important;
+    border-left: 2px solid rgba(67,186,255,0.25);
+    margin-left: 8px;
+    display: block;
+}
+.sub-menu-mobile--nested .menu-item a:hover {
+    color: var(--primary) !important;
+    border-left-color: var(--primary);
+}
+.mobile-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.mobile-badge--hot {
+    background: rgba(245,158,11,0.15);
+    color: #f59e0b;
+}
+.mobile-badge--new {
+    background: rgba(72,187,120,0.15);
+    color: #48bb78;
+}
+
+/* ── Home page: Popular Services mobile carousel ── */
+@media (max-width: 767px) {
+    .srv-mobile-carousel {
+        padding: 0 4px;
+    }
+    .srv-featured-card--mobile {
+        margin-bottom: 20px;
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+    .srv-mobile-swiper-wrap {
+        position: relative;
+    }
+    .srv-mini-card--mobile {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 200px;
+        padding: 20px 18px;
+    }
+    .srv-mobile-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 20px;
+    }
+    /* Services page: readmore button always visible on mobile */
+    .services-item .tf-btn-readmore {
+        width: 132px !important;
+    }
+    .services-item .tf-btn-readmore .plus {
+        transform: translateY(-50%) !important;
+        left: 20px !important;
+    }
+    .services-item .tf-btn-readmore .text {
+        padding-left: 23px !important;
+        position: unset !important;
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    /* tf-btn-readmore: always expanded on mobile (no hover needed) */
+    .tf-btn-readmore {
+        width: 132px !important;
+    }
+    .tf-btn-readmore .plus {
+        transform: translateY(-50%) !important;
+        left: 20px !important;
+    }
+    .tf-btn-readmore .text {
+        padding-left: 23px !important;
+        position: unset !important;
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* ── Blog page: mobile swiper ── */
+.blog-mobile-swiper {
+    position: relative;
+}
+.blog-mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+@media (min-width: 576px) {
+    .d-sm-grid {
+        display: grid !important;
+    }
+}
+
+/* ── Careers page: form mobile fixes ── */
+@media (max-width: 767px) {
+    /* Hide the image panel on mobile to save space */
+    .section-form .left {
+        display: none;
+    }
+    .section-form .right {
+        padding: 30px 15px !important;
+    }
+    .section-form .section-inner {
+        flex-direction: column;
+    }
+    /* Force form fields to single column on mobile */
+    .form-contact-us .cols {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    .form-contact-us .cols .item,
+    .form-contact-us .cols .nice-select {
+        max-width: 100% !important;
+        width: 100% !important;
+        flex: unset !important;
+    }
+    /* Phone country dropdown: prevent horizontal overflow */
+    .career-country-wrap {
+        flex-shrink: 0;
+    }
+    #countryBtn {
+        min-width: 76px !important;
+        font-size: 12px !important;
+        padding: 0 8px !important;
+    }
+    #countryDropdown {
+        min-width: 180px !important;
+    }
+    /* Careers job rows: stack on mobile */
+    .career-job-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
+/* ── General font size reductions on mobile ── */
+@media (max-width: 767px) {
+    /* Hero headline on home */
+    .page-title-home .title.fw-6 {
+        font-size: 30px !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.5px;
+    }
+    .page-title-home .highlight {
+        font-size: inherit !important;
+    }
+    .page-title-home .top-page-title .sub-title {
+        font-size: 13px !important;
+    }
+    /* Counter numbers */
+    .page-title-home .fs-65 {
+        font-size: 36px !important;
+        line-height: 1.1 !important;
+    }
+    /* Page titles */
+    .page-title h1.title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+    /* Section h2 headings */
+    .heading-section h2.title {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+    }
+    /* Featured service title on home */
+    .srv-featured-title {
+        font-size: 20px !important;
+        line-height: 1.35 !important;
+    }
+    /* Marquee ticker text */
+    .big-text {
+        font-size: 60px !important;
+    }
+    /* Technology hero headline */
+    .tech-hero__headline {
+        font-size: clamp(28px, 8vw, 42px) !important;
+    }
+    /* Section sub-titles */
+    .sub-title.body-2 {
+        font-size: 12px !important;
+    }
+    /* Blog titles */
+    .tf-post-grid .title a {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+    /* Service detail hero */
+    .svc-hero-title,
+    h1.svc-hero-title {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+    }
+    /* Technology advantages heading */
+    .td-heading {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+    }
+    /* "Read More" button always active on touch */
+    .tf-btn-readmore {
+        pointer-events: auto;
+    }
+    /* CTA banner */
+    .wg-cta .cta-inner h5.title {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+    /* Services item heading on /services page */
+    .services-item h5 {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+    /* Technology page advantage/benefit numbers */
+    .td-adv-card__num {
+        font-size: 28px !important;
+    }
+    .td-adv-card__title {
+        font-size: 15px !important;
+    }
+    .td-adv-card__desc {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-home .title.fw-6 {
+        font-size: 26px !important;
+    }
+    .page-title h1.title {
+        font-size: 24px !important;
+    }
+    .heading-section h2.title {
+        font-size: 21px !important;
+    }
+    .big-text {
+        font-size: 48px !important;
+    }
+    .tech-hero__headline {
+        font-size: 24px !important;
+    }
+    /* Reduce section padding on very small screens */
+    .td-section {
+        padding: 60px 0 !important;
+    }
+    .svc-talk-banner {
+        padding: 32px 20px !important;
+    }
+    .svc-talk-banner h3 {
+        font-size: 18px !important;
+    }
+    /* Career hero tagline */
+    .career-tagline h2 {
+        font-size: 22px !important;
+    }
+    /* srv featured card */
+    .srv-featured-title {
+        font-size: 18px !important;
+    }
+    .srv-featured-desc {
+        font-size: 13px !important;
+    }
+}
+
+/* ── Services page: show grid on desktop, slider on mobile ── */
+.services-grid-desktop {
+    display: flex !important;
+}
+.services-slider-mobile {
+    display: none !important;
+}
+@media (max-width: 767px) {
+    .services-grid-desktop {
+        display: none !important;
+    }
+    .services-slider-mobile {
+        display: block !important;
+    }
+}
+
+/* ── Technology detail page: orbit bubbles too large on mobile ── */
+@media (max-width: 767px) {
+    .tech-hero__visual {
+        display: none;
+    }
+    .tech-hero {
+        min-height: unset;
+        padding: 50px 0 60px;
+    }
+    .tech-hero__desc {
+        font-size: 14px !important;
+    }
+    .tech-hero__badge {
+        font-size: 11px !important;
+        padding: 6px 14px !important;
+    }
+    /* Advantages grid: single column */
+    .td-adv-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .td-adv-card {
+        border-right: none !important;
+    }
+    .td-adv-card:nth-last-child(-n+3) {
+        border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    }
+    .td-adv-card:last-child {
+        border-bottom: none !important;
+    }
+    /* Benefits grid */
+    .td-ben-grid {
+        grid-template-columns: 1fr !important;
+    }
+    /* Process grid */
+    .svc-process-grid {
+        grid-template-columns: 1fr !important;
+    }
+    /* Service numbered list */
+    .svc-numbered-list--2col {
+        grid-template-columns: 1fr !important;
+    }
+    /* Numbered item */
+    .svc-numbered-item {
+        grid-template-columns: 36px 1fr !important;
+        gap: 0 12px !important;
+    }
+}
+
+/* ── Portfolio page: prevent image overflow on mobile ── */
+@media (max-width: 767px) {
+    .project-gird-item img {
+        height: 220px !important;
+        object-fit: cover;
+    }
+}
+
+/* ── Blog detail: comment section stacking ── */
+@media (max-width: 575px) {
+    .form-comment .cols {
+        flex-direction: column !important;
+    }
+    .comment-item {
+        padding: 20px 15px !important;
+    }
+}
+
+/* ── CTA banner mobile fix ── */
+@media (max-width: 767px) {
+    .wg-cta .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .wg-cta .cta-inner .right {
+        align-self: stretch;
+    }
+    .wg-cta .cta-inner .tf-btn-close {
+        align-self: flex-end;
+    }
+}
+
+/* ── Footer: mobile stacking ── */
+@media (max-width: 575px) {
+    .footer .footer-bottom .list-bottom {
+        flex-wrap: wrap;
+        gap: 10px !important;
+    }
+    .footer .footer-bottom .list-bottom li a {
+        font-size: 12px;
+    }
+}
+
+/* ── Section about on services page: image layout ── */
+@media (max-width: 767px) {
+    .section-about.p-services .left {
+        display: block !important;
+    }
+    .section-about.p-services .left .image {
+        height: 220px;
+    }
+    .section-about.p-services .left .img-secion-item {
+        display: none;
+    }
+}
+
+/* ── Topbar: hide on very small screens ── */
+@media (max-width: 480px) {
+    .top-bar {
+        display: none;
+    }
+}
+
+/* ── d-sm-grid utility (Bootstrap doesn't include this) ── */
+@media (min-width: 576px) {
+    .d-sm-grid { display: grid !important; }
+    .d-sm-none { display: none !important; }
+}
+@media (max-width: 575px) {
+    .d-sm-grid { display: none !important; }
+    .d-sm-none { display: block !important; }
+}
+
+/* ── Careers page: job row mobile stacking ── */
+@media (max-width: 600px) {
+    .career-job-row,
+    [style*="display:flex"][style*="align-items:center"][style*="justify-content:space-between"][style*="flex-wrap:wrap"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
+/* ── Home page hero: mobile font fixes ── */
+@media (max-width: 767px) {
+    .page-title-home .fs-20 { font-size: 15px !important; line-height: 1.6 !important; }
+    .page-title-home .lh-40 { line-height: 1.6 !important; }
+    .page-title-home .wg-counter { flex-direction: column; gap: 20px !important; }
+    .page-title-home .image { margin-right: 0 !important; }
+    .section-about .about-inner { flex-direction: column !important; gap: 20px !important; }
+    .section-about .about-inner .left { display: none; }
+    .section-about .about-inner .right { width: 100%; }
+    .section-counting .section-counting-inner { flex-direction: column; gap: 40px; }
+    .section-counting .wg-counter { flex-wrap: wrap; gap: 20px !important; }
+    .section-counting .counter-item.style-2 { min-width: 140px; flex: 1 1 140px; }
+}
+
+/* ── Mobile services page: swiper card height ── */
+@media (max-width: 767px) {
+    .sw-services-page .services-item {
+        min-height: 260px;
+        border: 1px solid var(--stroke-2) !important;
+        border-radius: 12px;
+        padding: 24px 20px !important;
+    }
+    .sw-services-page .services-item .icon { margin-bottom: 16px; }
+}
+
+/* ── Footer mobile: column layout ── */
+@media (max-width: 767px) {
+    .footer .footer-middle { flex-direction: column; }
+    .footer .footer-middle .left { max-width: 100% !important; }
+    .footer-content ul { margin-top: 16px; }
+    .footer-content li { margin-bottom: 14px; }
+}
+
+/* ── Section about on services page ── */
+@media (max-width: 767px) {
+    .section-about.p-services .left .image {
+        max-height: 240px;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+    .section-about.p-services .left .img-secion-item {
+        display: none !important;
+    }
+    .section-about.p-services .right {
+        padding-left: 0 !important;
+        margin-top: 24px;
+    }
+    .section-about.p-services .list-benefit { margin-bottom: 20px; }
+    .section-about.p-services .fs-20 { font-size: 15px !important; }
+}
+
+/* ── Blog mobile swiper: contain images ── */
+.blog-mobile-swiper .tf-post-grid .image img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+/* ── Topbar: hide on very small screens (already defined, ensure no conflict) ── */
+@media (max-width: 480px) {
+    .top-bar { display: none !important; }
+}
+
+/* ── CTA widget: mobile stack fix ── */
+@media (max-width: 767px) {
+    .wg-cta .cta-inner .left { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .wg-cta .cta-inner .left .icon { display: none; }
+    .wg-cta .cta-inner h5.title { font-size: 15px !important; }
+    .wg-cta .cta-inner .list-agent { display: none; }
+    .wg-cta .cta-inner .text h5 { font-size: 13px !important; }
+}
+
+/* ── Arrow button sizing for mobile prev/next ── */
+@media (max-width: 767px) {
+    .arrow-btn.w-50 {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--stroke-2);
+        cursor: pointer;
+        background: transparent;
+        color: var(--white);
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+    .arrow-btn.w-50:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+    .arrow-btn.w-50.swiper-button-disabled {
+        opacity: 0.35;
+        pointer-events: none;
+    }
+}
+
+/* ── Section testimonials on mobile ── */
+@media (max-width: 767px) {
+    .section-testimonials-inner { flex-direction: column !important; }
+    .section-testimonials-inner .left { max-width: 100% !important; }
+    .section-testimonials-inner .right { max-width: 100% !important; width: 100%; }
+    .section-testimonials-inner .list-btn { display: flex !important; }
+}
+
+/* ── Company section: accordion content on mobile ── */
+@media (max-width: 767px) {
+    .according-content { flex-direction: column !important; }
+    .according-content .image { max-width: 100% !important; }
+    .according-content .right { padding-left: 0 !important; margin-top: 16px; }
+}
+
+/* ── Page title: reduce padding on mobile ── */
+@media (max-width: 767px) {
+    .page-title .page-title-content {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+    .page-title h1.title {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+    }
+    .page-title .breadkcum {
+        font-size: 13px !important;
+        margin-top: 8px;
+    }
+}
+
+/* ── Mobile nav: full width offcanvas ── */
+@media (max-width: 767px) {
+    .offcanvas.mobile-nav-wrap {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+}

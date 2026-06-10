@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+﻿@extends('layouts.guest')
 @section('content')
     <!-- Page-title -->
     <div class="page-title">
@@ -237,7 +237,7 @@
                                 </p>
                             </div>
                             <div class="title-animation">
-                                <a href="about-us.html" class="tf-btn no-bg text-underline ">
+                                <a href="{{ route('about') }}" class="tf-btn no-bg text-underline ">
                                     <span>Learn More Us</span>
                                     <i class="icon-arrow-right"></i>
                                 </a>
@@ -294,7 +294,7 @@
                                     <div class="sub-title body-2 fw-7">
                                         Software Development
                                     </div>
-                                    <h3 class="title-project"><a href="porfolio-details.html">Mobile Application
+                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">Mobile Application
                                             Design</a></h3>
                                     <div class="desc lh-30">
                                         Sed ut perspiciatis unde omnis iste natus
@@ -302,13 +302,13 @@
                                     </div>
                                 </div>
                                 <div class="bottom-content">
-                                    <a href="porfolio-details.html" class="tf-btn-readmore">
+                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="porfolio-details.html" class="image">
+                            <a href="{{ route('portfolio') }}" class="image">
                                 <img src="image/project-item/project-item-1.jpg"
                                     data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
                             </a>
@@ -321,20 +321,20 @@
                                     <div class="sub-title body-2 fw-7">
                                         Software Development
                                     </div>
-                                    <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">UI/UX Design</a></h3>
                                     <div class="desc lh-30">
                                         Sed ut perspiciatis unde omnis iste natus
                                         error sit voluptatem accusantium doloremque seeney laudantium totam
                                     </div>
                                 </div>
                                 <div class="bottom-content">
-                                    <a href="porfolio-details.html" class="tf-btn-readmore">
+                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="porfolio-details.html" class="image">
+                            <a href="{{ route('portfolio') }}" class="image">
                                 <img src="image/project-item/project-item-1.jpg"
                                     data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
                             </a>
@@ -347,7 +347,7 @@
                                     <div class="sub-title body-2 fw-7">
                                         Software Development
                                     </div>
-                                    <h3 class="title-project"><a href="porfolio-details.html">Mobile Application
+                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">Mobile Application
                                             Design</a></h3>
                                     <div class="desc lh-30">
                                         Sed ut perspiciatis unde omnis iste natus
@@ -355,13 +355,13 @@
                                     </div>
                                 </div>
                                 <div class="bottom-content">
-                                    <a href="porfolio-details.html" class="tf-btn-readmore">
+                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="porfolio-details.html" class="image">
+                            <a href="{{ route('portfolio') }}" class="image">
                                 <img src="image/project-item/project-item-1.jpg"
                                     data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
                             </a>
@@ -374,20 +374,20 @@
                                     <div class="sub-title body-2 fw-7">
                                         Software Development
                                     </div>
-                                    <h3 class="title-project"><a href="porfolio-details.html">UI/UX Design</a></h3>
+                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">UI/UX Design</a></h3>
                                     <div class="desc lh-30">
                                         Sed ut perspiciatis unde omnis iste natus
                                         error sit voluptatem accusantium doloremque seeney laudantium totam
                                     </div>
                                 </div>
                                 <div class="bottom-content">
-                                    <a href="porfolio-details.html" class="tf-btn-readmore">
+                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="porfolio-details.html" class="image">
+                            <a href="{{ route('portfolio') }}" class="image">
                                 <img src="image/project-item/project-item-1.jpg"
                                     data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
                             </a>
@@ -405,9 +405,9 @@
                         <div class="icon">
                             <i class="icon-chat-2"></i>
                         </div>
-                        <h5 class="fw-4 title">Let’s <span class="fw-6">Discuss & Start</span> IT Consultations</h5>
+                        <h5 class="fw-4 title">Letâ€™s <span class="fw-6">Discuss & Start</span> IT Consultations</h5>
                         <a href="#" class="tf-btn no-bg text-underline hover-color-main-dark">
-                            <span>Let’s Talk</span>
+                            <span>Letâ€™s Talk</span>
                             <i class="icon-arrow-right"></i>
                         </a>
                     </div>
@@ -567,7 +567,7 @@
                                                 </div>
                                             </div>
 
-                                            <a href="pricing.html"
+                                            <a href="{{ route('contact-us') }}"
                                                 class="tf-btn style-border w-full justify-content-center">
                                                 <span>Choose Package</span>
                                                 <i class="icon-arrow-right"></i>
@@ -612,7 +612,7 @@
                                                 </div>
                                             </div>
 
-                                            <a href="pricing.html"
+                                            <a href="{{ route('contact-us') }}"
                                                 class="tf-btn style-bg-primary w-full justify-content-center">
                                                 <span>Choose Package</span>
                                                 <i class="icon-arrow-right"></i>
@@ -655,7 +655,7 @@
                                                 </div>
                                             </div>
 
-                                            <a href="pricing.html"
+                                            <a href="{{ route('contact-us') }}"
                                                 class="tf-btn style-border w-full justify-content-center">
                                                 <span>Choose Package</span>
                                                 <i class="icon-arrow-right"></i>
@@ -761,7 +761,7 @@
                                                 </div>
                                             </div>
 
-                                            <a href="pricing.html"
+                                            <a href="{{ route('contact-us') }}"
                                                 class="tf-btn style-bg-primary w-full justify-content-center">
                                                 <span>Choose Package</span>
                                                 <i class="icon-arrow-right"></i>
@@ -832,10 +832,10 @@
                             Work Inquiry
                         </div>
                         <h2 class="title fw-6">
-                            Let’s Work For your
+                            Letâ€™s Work For your
                             Next Projects ?
                         </h2>
-                        <a href="contact.html" class="tf-btn style-bg-white hover-bg-main-dark">
+                        <a href="{{ route('contact-us') }}" class="tf-btn style-bg-white hover-bg-main-dark">
                             <span>Contact Us</span>
                             <i class="icon-arrow-right"></i>
                         </a>
@@ -848,7 +848,7 @@
                             <h3 class="title">
                                 Need Help For Project!
                             </h3>
-                            <div class="desc lh-30">We are ready to help your next projects, let’s work together</div>
+                            <div class="desc lh-30">We are ready to help your next projects, letâ€™s work together</div>
                         </div>
 
                         <div class="cols mb-20 g-20">
@@ -939,21 +939,21 @@
                             <div class="post-content">
                                 <div class="top-post">
                                     <div class="post-meta">
-                                        <a href="blog-details.html" class="text-medium">05 June 2025</a> <span
+                                        <a href="{{ route('blogs') }}" class="text-medium">05 June 2025</a> <span
                                             class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="blog-details.html">The Future of Software Development
+                                    <h5 class="title fw-5"><a href="{{ route('blogs') }}">The Future of Software Development
                                             Emerging and Technologies</a></h5>
                                 </div>
                                 <div class="bottom-post">
                                     <div class="desc lh-30">We undertake is a testament to our dedication to quality</div>
-                                    <a href="blog-details.html" class="tf-btn-readmore style-open">
+                                    <a href="{{ route('blogs') }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="blog-details.html" class="image">
+                            <a href="{{ route('blogs') }}" class="image">
                                 <img src="image/blog/post-list-4.jpg" data-src="image/blog/post-list-4.jpg"
                                     alt="" class="lazyload">
                             </a>
@@ -964,21 +964,21 @@
                             <div class="post-content">
                                 <div class="top-post">
                                     <div class="post-meta">
-                                        <a href="blog-details.html" class="text-medium">05 June 2025</a> <span
+                                        <a href="{{ route('blogs') }}" class="text-medium">05 June 2025</a> <span
                                             class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="blog-details.html">Mastering Agile: Best Practices for
+                                    <h5 class="title fw-5"><a href="{{ route('blogs') }}">Mastering Agile: Best Practices for
                                             Efficient Software Development</a></h5>
                                 </div>
                                 <div class="bottom-post">
                                     <div class="desc lh-30">We undertake is a testament to our dedication to quality</div>
-                                    <a href="blog-details.html" class="tf-btn-readmore style-open">
+                                    <a href="{{ route('blogs') }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="blog-details.html" class="image">
+                            <a href="{{ route('blogs') }}" class="image">
                                 <img src="image/blog/post-list-5.jpg" data-src="image/blog/post-list-5.jpg"
                                     alt="" class="lazyload">
                             </a>
@@ -990,3 +990,4 @@
     </div>
     <!-- /.main-content -->
 @endsection
+

@@ -135,14 +135,6 @@ class Readline
     }
 
     /**
-     * Get the command highlighter for CommandAware registration.
-     */
-    public function getCommandHighlighter(): Helper\CommandHighlighter
-    {
-        return $this->frameRenderer->getCommandHighlighter();
-    }
-
-    /**
      * Set whether to require semicolons on all statements.
      *
      * By default, PsySH automatically inserts semicolons. When set to true,
@@ -186,14 +178,6 @@ class Readline
         }
 
         return false;
-    }
-
-    /**
-     * Check if the input should be highlighted as a command (not in an open string or comment).
-     */
-    private function isCommandInput(string $text): bool
-    {
-        return $this->isCommand($text) && !$this->isInOpenStringOrComment($text);
     }
 
     /**
@@ -285,7 +269,7 @@ class Readline
             }
             $this->terminal->endFrameRender();
 
-            $this->frameRenderer->addHistoryLines($this->lastSubmittedText, $this->isCommandInput($this->lastSubmittedText));
+            $this->frameRenderer->addHistoryLines($this->lastSubmittedText);
 
             $this->continueFrame = false;
         } else {
@@ -302,7 +286,7 @@ class Readline
                 $key = $this->inputQueue->read();
 
                 if ($key->isEof()) {
-                    $this->escapeCurrentFrameForAbort($buffer);
+                    $this->terminal->write("\n");
 
                     return false;
                 }
@@ -397,8 +381,7 @@ class Readline
     private function display(Buffer $buffer): void
     {
         $searchTerm = $this->history->isInHistory() ? $this->history->getSearchTerm() : null;
-        $text = $buffer->getText();
-        $this->frameRenderer->render($buffer, $this->currentSuggestion, $searchTerm, $this->isCommandInput($text));
+        $this->frameRenderer->render($buffer, $this->currentSuggestion, $searchTerm);
     }
 
     /**
@@ -463,14 +446,6 @@ class Readline
     }
 
     /**
-     * Clear previously submitted lines from the current input frame.
-     */
-    public function clearPreviousLines(): void
-    {
-        $this->frameRenderer->clearHistoryLines();
-    }
-
-    /**
      * Set whether the next readline() call should continue the current frame.
      */
     public function setContinueFrame(bool $continue): void
@@ -487,23 +462,6 @@ class Readline
     }
 
     /**
-     * Escape below the current frame before aborting back to Shell.php.
-     *
-     * Shell.php writes the final newline after readline returns false or a
-     * BreakException bubbles up, so only escape the remaining frame rows here.
-     */
-    public function escapeCurrentFrameForAbort(Buffer $buffer): void
-    {
-        $lineCount = \substr_count($buffer->getText(), "\n") + 1;
-        $remainingInputLines = $lineCount - $buffer->getCurrentLineNumber();
-        $escapeRows = \max(0, $remainingInputLines + $this->getInputFrameOuterRowCount() - 1);
-
-        if ($escapeRows > 0) {
-            $this->terminal->write(\str_repeat("\n", $escapeRows));
-        }
-    }
-
-    /**
      * Get the history.
      */
     public function getHistory(): History
@@ -517,14 +475,6 @@ class Readline
     public function setUseSuggestions(bool $enabled): void
     {
         $this->useSuggestions = $enabled;
-    }
-
-    /**
-     * Enable or disable syntax highlighting.
-     */
-    public function setUseSyntaxHighlighting(bool $enabled): void
-    {
-        $this->frameRenderer->setUseSyntaxHighlighting($enabled);
     }
 
     /**

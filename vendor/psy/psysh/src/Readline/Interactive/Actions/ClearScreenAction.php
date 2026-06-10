@@ -25,8 +25,6 @@ class ClearScreenAction implements ActionInterface
      */
     public function execute(Buffer $buffer, Terminal $terminal, Readline $readline): bool
     {
-        $readline->clearPreviousLines();
-
         // Move cursor to top-left and clear entire screen
         $terminal->write("\033[H\033[2J");
         $terminal->invalidateFrame(true);

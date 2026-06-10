@@ -25,15 +25,12 @@ class CompletionRequest
     private string $buffer;
     private int $cursor;
     private string $mode;
-    /** @var array Raw callback metadata from the caller, if any */
-    private array $readlineInfo;
 
-    public function __construct(string $buffer, int $cursor, string $mode = self::MODE_TAB, array $readlineInfo = [])
+    public function __construct(string $buffer, int $cursor, string $mode = self::MODE_TAB)
     {
         $this->buffer = $buffer;
         $this->cursor = $this->normalizeCursor($buffer, $cursor);
         $this->mode = $mode;
-        $this->readlineInfo = $readlineInfo;
     }
 
     public function getBuffer(): string
@@ -49,14 +46,6 @@ class CompletionRequest
     public function getMode(): string
     {
         return $this->mode;
-    }
-
-    /**
-     * Get raw readline callback metadata associated with this request.
-     */
-    public function getReadlineInfo(): array
-    {
-        return $this->readlineInfo;
     }
 
     private function normalizeCursor(string $buffer, int $cursor): int

@@ -13,9 +13,6 @@ namespace Psy\Completion;
 
 use PhpParser\Node as AstNode;
 use Psy\CodeCleaner;
-use Psy\Completion\Refiner\AnalysisRefinerInterface;
-use Psy\Completion\Refiner\CommandSyntaxRefiner;
-use Psy\Completion\Refiner\PartialInputRefiner;
 use Psy\Completion\Source\CatalogSource;
 use Psy\Completion\Source\ClassConstantSource;
 use Psy\Completion\Source\KeywordSource;
@@ -34,10 +31,7 @@ use Psy\Context;
 use Psy\Readline\Interactive\Helper\DebugLog;
 
 /**
- * Completion pipeline coordinator.
- *
- * Each stage focuses on one job: parse the input, refine the context, then
- * collect candidates from applicable sources.
+ * Completion engine for request normalization and source orchestration.
  */
 class CompletionEngine
 {
@@ -49,17 +43,12 @@ class CompletionEngine
     /** @var SourceInterface[] */
     private array $sources = [];
 
-    /** @var AnalysisRefinerInterface[] */
-    private array $refiners = [];
-
     public function __construct(Context $context, ?CodeCleaner $cleaner = null, ?SymbolCatalog $symbolCatalog = null)
     {
         $this->context = $context;
         $this->analyzer = new ContextAnalyzer($cleaner);
         $this->typeResolver = new TypeResolver($context, $cleaner);
         $this->symbolCatalog = $symbolCatalog ?? new SymbolCatalog();
-        $this->addRefiner(new PartialInputRefiner());
-        $this->addRefiner(new CommandSyntaxRefiner());
     }
 
     /**
@@ -114,19 +103,6 @@ class CompletionEngine
     }
 
     /**
-     * Add an analysis refiner.
-     *
-     * Refiners translate broad parser output into the narrower completion lanes
-     * that sources consume.
-     */
-    public function addRefiner(AnalysisRefinerInterface $refiner): void
-    {
-        if (!\in_array($refiner, $this->refiners, true)) {
-            $this->refiners[] = $refiner;
-        }
-    }
-
-    /**
      * Get completions for a normalized request.
      *
      * @return string[]
@@ -140,14 +116,7 @@ class CompletionEngine
             'cursor' => $request->getCursor(),
         ]);
 
-        $analysis = $this->analyzer->analyze(
-            $request->getBuffer(),
-            $request->getCursor(),
-            $request->getReadlineInfo()
-        );
-        foreach ($this->refiners as $refiner) {
-            $analysis = $refiner->refine($analysis);
-        }
+        $analysis = $this->analyzer->analyze($request->getBuffer(), $request->getCursor());
         DebugLog::log('Completion', 'ANALYZED', [
             'kinds'    => $analysis->kinds,
             'prefix'   => $analysis->prefix,
@@ -208,7 +177,6 @@ class CompletionEngine
                     'source' => \get_class($source),
                     'count'  => \count($sourceCompletions),
                 ]);
-
                 $completions = \array_merge($completions, $sourceCompletions);
             }
         }

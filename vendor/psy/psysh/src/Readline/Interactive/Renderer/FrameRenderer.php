@@ -11,9 +11,7 @@
 
 namespace Psy\Readline\Interactive\Renderer;
 
-use Psy\Formatter\CodeFormatter;
 use Psy\Output\Theme;
-use Psy\Readline\Interactive\Helper\CommandHighlighter;
 use Psy\Readline\Interactive\Input\Buffer;
 use Psy\Readline\Interactive\Input\History;
 use Psy\Readline\Interactive\Layout\DisplayString;
@@ -38,7 +36,6 @@ class FrameRenderer
     private Terminal $terminal;
     private OverlayViewport $viewport;
     private Theme $theme;
-    private CommandHighlighter $commandHighlighter;
 
     /** @var string[] Lines currently displayed on the terminal. */
     private array $previousFrame = [];
@@ -56,7 +53,6 @@ class FrameRenderer
     private int $historyRowCount = 0;
 
     private bool $errorMode = false;
-    private bool $useSyntaxHighlighting = true;
 
     private ?int $lastTerminalWidth = null;
     private ?int $lastTerminalHeight = null;
@@ -74,15 +70,6 @@ class FrameRenderer
         $this->terminal = $terminal;
         $this->viewport = $viewport;
         $this->theme = $theme ?? new Theme();
-        $this->commandHighlighter = new CommandHighlighter();
-    }
-
-    /**
-     * Get the command highlighter for CommandAware registration.
-     */
-    public function getCommandHighlighter(): CommandHighlighter
-    {
-        return $this->commandHighlighter;
     }
 
     /**
@@ -92,14 +79,6 @@ class FrameRenderer
     {
         $this->theme = $theme;
         $this->promptWidthCache = [];
-    }
-
-    /**
-     * Enable or disable syntax highlighting for input rendering.
-     */
-    public function setUseSyntaxHighlighting(bool $enabled): void
-    {
-        $this->useSyntaxHighlighting = $enabled;
     }
 
     /**
@@ -170,23 +149,14 @@ class FrameRenderer
     /**
      * Add a previously submitted input to the in-frame history.
      */
-    public function addHistoryLines(string $text, bool $isCommand = false): void
+    public function addHistoryLines(string $text): void
     {
-        $newLines = $this->formatHighlightedLinesWithPrompts($this->formatInputLines($text, null, $isCommand));
+        $newLines = $this->formatLinesWithPrompts($text);
         \array_push($this->historyLines, ...$newLines);
 
         foreach ($newLines as $line) {
             $this->historyRowCount += $this->lineRowCount($line);
         }
-    }
-
-    /**
-     * Clear previously submitted lines rendered above the current input.
-     */
-    public function clearHistoryLines(): void
-    {
-        $this->historyLines = [];
-        $this->historyRowCount = 0;
     }
 
     /**
@@ -211,10 +181,10 @@ class FrameRenderer
     /**
      * Render the full frame (input + overlay) to the terminal.
      */
-    public function render(Buffer $buffer, ?SuggestionResult $suggestion, ?string $historySearchTerm = null, bool $isCommand = false): void
+    public function render(Buffer $buffer, ?SuggestionResult $suggestion, ?string $historySearchTerm = null): void
     {
         $isMultiline = \strpos($buffer->getText(), "\n") !== false;
-        $inputLines = $this->buildInputLines($buffer, $isMultiline, $suggestion, $historySearchTerm, $isCommand);
+        $inputLines = $this->buildInputLines($buffer, $isMultiline, $suggestion, $historySearchTerm);
 
         $this->viewport->setInputRowCount($this->getFrameRowCount($inputLines));
 
@@ -285,14 +255,18 @@ class FrameRenderer
      *
      * @return string[]
      */
-    private function buildInputLines(Buffer $buffer, bool $isMultiline, ?SuggestionResult $suggestion, ?string $historySearchTerm = null, bool $isCommand = false): array
+    private function buildInputLines(Buffer $buffer, bool $isMultiline, ?SuggestionResult $suggestion, ?string $historySearchTerm = null): array
     {
         $text = $buffer->getText();
+        $displayText = ($historySearchTerm !== null)
+            ? $this->highlightSearchTerm($text, $historySearchTerm)
+            : $text;
+
         $contentLines = [];
         if ($isMultiline) {
-            $contentLines = $this->formatHighlightedLinesWithPrompts($this->formatInputLines($text, $historySearchTerm, $isCommand));
+            $contentLines = $this->formatLinesWithPrompts($displayText);
         } else {
-            $line = $this->getPromptForLine(0).\implode("\n", $this->formatInputLines($text, $historySearchTerm, $isCommand));
+            $line = $this->getPromptForLine(0).$displayText;
 
             if ($suggestion !== null) {
                 $line = $this->appendSuggestionGhostText($line, $buffer, $text, $suggestion);
@@ -317,8 +291,8 @@ class FrameRenderer
             return \array_merge($this->historyLines, $contentLines);
         }
 
-        $styleName = $this->errorMode ? 'input_frame_error' : 'input_frame';
         $formatter = $this->terminal->getFormatter();
+        $styleName = $this->errorMode ? 'input_frame_error' : 'input_frame';
         $inputFrameStyle = ($formatter->isDecorated() && $formatter->hasStyle($styleName))
             ? $formatter->getStyle($styleName)
             : null;
@@ -338,10 +312,10 @@ class FrameRenderer
      *
      * @return string[]
      */
-    private function formatHighlightedLinesWithPrompts(array $lines): array
+    private function formatLinesWithPrompts(string $text): array
     {
         $result = [];
-        foreach ($lines as $i => $line) {
+        foreach (\explode("\n", $text) as $i => $line) {
             $result[] = $this->getPromptForLine($i).$line;
         }
 
@@ -531,32 +505,6 @@ class FrameRenderer
         $this->lineRowCache[$line] = $rows;
 
         return $rows;
-    }
-
-    /**
-     * Format input into ANSI-safe lines for prompt rendering.
-     *
-     * @return string[]
-     */
-    private function formatInputLines(string $text, ?string $historySearchTerm = null, bool $isCommand = false): array
-    {
-        if ($text === '') {
-            return [''];
-        }
-
-        if ($historySearchTerm !== null) {
-            return \explode("\n", $this->highlightSearchTerm($text, $historySearchTerm));
-        }
-
-        if (!$this->useSyntaxHighlighting) {
-            return \explode("\n", $text);
-        }
-
-        if ($isCommand) {
-            return $this->commandHighlighter->highlightLines($text, $this->terminal->getFormatter());
-        }
-
-        return CodeFormatter::formatInputLines($text, $this->terminal->getFormatter());
     }
 
     private function getTerminalWidth(): int
