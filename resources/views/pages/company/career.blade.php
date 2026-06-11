@@ -211,8 +211,8 @@
       </div>
 
       <br>
-      <a href="#apply-form" class="tf-btn">
-        <span>Send Your Profile</span>
+      <a href="#" class="tf-btn" data-bs-toggle="modal" data-bs-target="#cvModal" style="margin:0 auto;">
+        <span>Submit Your CV</span>
         <i class="icon-arrow-right"></i>
       </a>
     </div>
@@ -228,11 +228,11 @@
       <p class="body-1 fw-5 mb-20" style="font-size:20px;">
         Haven't found a vacancy but want to join Lonstack?
       </p>
-      <a href="#apply-form"
+      <a href="#" data-bs-toggle="modal" data-bs-target="#cvModal"
         style="display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:700;
                           letter-spacing:.06em; text-transform:uppercase; color:var(--primary);
                           text-decoration:none; border-bottom:1px solid var(--primary); padding-bottom:2px;">
-        WRITE US
+        SUBMIT YOUR CV
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round" />
@@ -577,6 +577,546 @@
 
     document.addEventListener('click', function() {
       dropdown.style.display = 'none';
+    });
+  })();
+</script>
+@endpush
+
+{{-- ── CV Upload Modal ── --}}
+<div class="modal fade cv-modal" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cv-modal__content">
+
+      {{-- Header --}}
+      <div class="cv-modal__header">
+        <div class="cv-modal__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="12" x2="12" y2="18" />
+            <polyline points="9 15 12 18 15 15" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="cv-modal__title" id="cvModalLabel">Submit Your CV</h4>
+          <p class="cv-modal__subtitle">We accept PDF, DOC, and DOCX files up to 8 MB</p>
+        </div>
+        <button type="button" class="cv-modal__close" data-bs-dismiss="modal" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="1" y1="1" x2="17" y2="17" />
+            <line x1="17" y1="1" x2="1" y2="17" />
+          </svg>
+        </button>
+      </div>
+
+      {{-- Success state (hidden by default) --}}
+      <div id="cv-success" class="cv-modal__success" style="display:none;">
+        <div class="cv-modal__success-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="17" stroke="var(--primary)" stroke-width="1.5" />
+            <path d="M10 18l5.5 5.5L26 12" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h5 class="cv-modal__success-title">CV Submitted!</h5>
+        <p class="cv-modal__success-msg">Thank you! We've received your CV and will reach out when the right opportunity arises.</p>
+        <button type="button" class="tf-btn" data-bs-dismiss="modal" style="margin:0 auto;">
+          <span>Close</span><i class="icon-arrow-right"></i>
+        </button>
+      </div>
+
+      {{-- Form --}}
+      <form id="cvForm" class="cv-modal__form" enctype="multipart/form-data" novalidate>
+        @csrf
+
+        <div class="cv-modal__row">
+          <div class="cv-modal__field">
+            <label>Full Name <span style="color:var(--primary);">*</span></label>
+            <input type="text" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="cv-modal__field">
+            <label>Email Address <span style="color:var(--primary);">*</span></label>
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+
+        <div class="cv-modal__row">
+          <div class="cv-modal__field">
+            <label>Phone <span style="color:rgba(255,255,255,0.35);">(optional)</span></label>
+            <input type="tel" name="phone" placeholder="+1 234 567 890">
+          </div>
+          <div class="cv-modal__field">
+            <label>Position <span style="color:rgba(255,255,255,0.35);">(optional)</span></label>
+            <input type="text" name="position" placeholder="Role you're interested in">
+          </div>
+        </div>
+
+        <div class="cv-modal__field">
+          <label>Cover Note <span style="color:rgba(255,255,255,0.35);">(optional)</span></label>
+          <textarea name="message" rows="3" placeholder="Briefly tell us about yourself and what you're looking for..."></textarea>
+        </div>
+
+        {{-- Drop zone --}}
+        <div class="cv-modal__field">
+          <label>Your CV <span style="color:var(--primary);">*</span></label>
+          <div id="cvDropZone" class="cv-dropzone">
+            <input type="file" id="cvFileInput" name="cv_file" accept=".pdf,.doc,.docx" required style="display:none;">
+            <div class="cv-dropzone__inner" id="cvDropInner">
+              <div class="cv-dropzone__icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+              </div>
+              <div class="cv-dropzone__text">
+                <span>Drag & drop your CV here or <span class="cv-dropzone__browse">Browse</span></span>
+                <small>PDF, DOC, DOCX — max 8 MB</small>
+              </div>
+            </div>
+            <div class="cv-dropzone__preview" id="cvPreview" style="display:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+              <span id="cvFileName" class="cv-dropzone__filename"></span>
+              <button type="button" id="cvRemoveBtn" class="cv-dropzone__remove">✕</button>
+            </div>
+          </div>
+          <div id="cvFileError" class="cv-modal__error" style="display:none;"></div>
+        </div>
+
+        <div id="cvFormError" class="cv-modal__error" style="display:none;"></div>
+
+        <div class="cv-modal__footer">
+          <button type="button" class="cv-modal__cancel" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" id="cvSubmitBtn" class="tf-btn">
+            <span>Submit CV</span>
+            <i class="icon-arrow-right"></i>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+@push('styles')
+<style>
+  /* ── CV Modal ── */
+  .cv-modal .modal-dialog {
+    max-width: 560px;
+  }
+
+  .cv-modal__content {
+    background: #19272b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .cv-modal__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+  }
+
+  .cv-modal__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(67, 186, 255, 0.12);
+    border: 1px solid rgba(67, 186, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cv-modal__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+  }
+
+  .cv-modal__subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .cv-modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .cv-modal__close:hover {
+    color: #fff;
+  }
+
+  /* Form body */
+  .cv-modal__form {
+    padding: 24px 28px;
+  }
+
+  .cv-modal__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .cv-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+  }
+
+  .cv-modal__field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .cv-modal__field input,
+  .cv-modal__field textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .cv-modal__field input:focus,
+  .cv-modal__field textarea:focus {
+    border-color: rgba(67, 186, 255, 0.5);
+  }
+
+  .cv-modal__field textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .cv-modal__field input::placeholder,
+  .cv-modal__field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Drop zone */
+  .cv-dropzone {
+    border: 1.5px dashed rgba(67, 186, 255, 0.4);
+    border-radius: 12px;
+    background: rgba(67, 186, 255, 0.04);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    overflow: hidden;
+  }
+
+  .cv-dropzone:hover,
+  .cv-dropzone.drag-over {
+    border-color: var(--primary);
+    background: rgba(67, 186, 255, 0.08);
+  }
+
+  .cv-dropzone__inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 20px;
+  }
+
+  .cv-dropzone__icon {
+    flex-shrink: 0;
+  }
+
+  .cv-dropzone__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cv-dropzone__text span {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .cv-dropzone__text small {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .cv-dropzone__browse {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .cv-dropzone__preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(67, 186, 255, 0.06);
+  }
+
+  .cv-dropzone__filename {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cv-dropzone__remove {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s;
+  }
+
+  .cv-dropzone__remove:hover {
+    color: #ff6b6b;
+  }
+
+  .cv-modal__error {
+    font-size: 13px;
+    color: #ff6b6b;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .cv-modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 8px;
+  }
+
+  .cv-modal__cancel {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+  }
+
+  .cv-modal__cancel:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Success */
+  .cv-modal__success {
+    padding: 48px 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cv-modal__success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(67, 186, 255, 0.1);
+    border: 1px solid rgba(67, 186, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cv-modal__success-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .cv-modal__success-msg {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    max-width: 340px;
+  }
+
+  @media (max-width: 575px) {
+    .cv-modal__row {
+      grid-template-columns: 1fr;
+    }
+
+    .cv-modal__form {
+      padding: 20px 20px;
+    }
+
+    .cv-modal__header {
+      padding: 20px 20px 16px;
+    }
+  }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+  (function() {
+    const form = document.getElementById('cvForm');
+    const dropZone = document.getElementById('cvDropZone');
+    const fileInput = document.getElementById('cvFileInput');
+    const preview = document.getElementById('cvPreview');
+    const inner = document.getElementById('cvDropInner');
+    const fileName = document.getElementById('cvFileName');
+    const removeBtn = document.getElementById('cvRemoveBtn');
+    const fileError = document.getElementById('cvFileError');
+    const formError = document.getElementById('cvFormError');
+    const submitBtn = document.getElementById('cvSubmitBtn');
+    const successDiv = document.getElementById('cv-success');
+
+    // Click on dropzone opens file picker
+    dropZone.addEventListener('click', function(e) {
+      if (e.target === removeBtn) return;
+      fileInput.click();
+    });
+
+    // Drag over
+    dropZone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', function() {
+      dropZone.classList.remove('drag-over');
+    });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f) handleFile(f);
+    });
+
+    // File selected
+    fileInput.addEventListener('change', function() {
+      if (this.files[0]) handleFile(this.files[0]);
+    });
+
+    function handleFile(f) {
+      const allowed = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      if (!allowed.includes(f.type) && !f.name.match(/\.(pdf|doc|docx)$/i)) {
+        showFileError('Only PDF, DOC, or DOCX files are accepted.');
+        return;
+      }
+      if (f.size > 8 * 1024 * 1024) {
+        showFileError('File is too large. Maximum size is 8 MB.');
+        return;
+      }
+      fileError.style.display = 'none';
+      fileName.textContent = f.name;
+      inner.style.display = 'none';
+      preview.style.display = 'flex';
+
+      // Create a DataTransfer to assign to the input
+      const dt = new DataTransfer();
+      dt.items.add(f);
+      fileInput.files = dt.files;
+    }
+
+    function showFileError(msg) {
+      fileError.textContent = msg;
+      fileError.style.display = 'block';
+      inner.style.display = 'flex';
+      preview.style.display = 'none';
+      fileInput.value = '';
+    }
+
+    // Remove file
+    removeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      fileInput.value = '';
+      inner.style.display = 'flex';
+      preview.style.display = 'none';
+      fileError.style.display = 'none';
+    });
+
+    // Reset on modal close
+    document.getElementById('cvModal').addEventListener('hidden.bs.modal', function() {
+      form.reset();
+      inner.style.display = 'flex';
+      preview.style.display = 'none';
+      fileError.style.display = 'none';
+      formError.style.display = 'none';
+      form.style.display = '';
+      successDiv.style.display = 'none';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = 'Submit CV';
+    });
+
+    // Submit
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      if (!fileInput.files || !fileInput.files[0]) {
+        showFileError('Please attach your CV before submitting.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Submitting...';
+
+      const fd = new FormData(form);
+
+      fetch("{{ route('cv.submit') }}", {
+          method: 'POST',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: fd,
+        })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            form.style.display = 'none';
+            successDiv.style.display = 'flex';
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = 'Submit CV';
+            formError.textContent = data.message || 'Something went wrong. Please try again.';
+            formError.style.display = 'block';
+          }
+        })
+        .catch(() => {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('span').textContent = 'Submit CV';
+          formError.textContent = 'Network error. Please check your connection and try again.';
+          formError.style.display = 'block';
+        });
     });
   })();
 </script>

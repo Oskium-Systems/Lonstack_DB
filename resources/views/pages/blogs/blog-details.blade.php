@@ -1,13 +1,14 @@
 @extends('layouts.guest')
 @section('content')
-<!-- Page-title -->
+
+{{-- ── Page Title ── --}}
 <div class="page-title">
   <div class="tf-container">
     <div class="page-title-content text-center">
-      <h1 class="title ml-11 split-text effect-right">
+      <h1 class="title split-text effect-right" style="font-size:clamp(22px,4vw,42px); line-height:1.25; max-width:800px; margin:0 auto;">
         {{ $blog->title }}
       </h1>
-      <div class="breadkcum">
+      <div class="breadkcum" style="margin-top:16px;">
         <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
         <span class="dot"></span>
         <a href="{{ route('blogs') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Blog</a>
@@ -17,126 +18,126 @@
     </div>
   </div>
 </div>
-<!-- /.page-title -->
 
-<!-- Main-content -->
+{{-- ── Main content ── --}}
 <div class="main-content tf-spacing-2">
   <div class="tf-container">
     <div class="row rg-30">
 
-      <!-- Main Content -->
+      {{-- ────────────────────────────────────────
+           LEFT: Article
+      ──────────────────────────────────────── --}}
       <div class="col-xl-8">
+
+        {{-- Sidebar toggle on tablet --}}
         <button id="filterShop" class="fillter-btn style-fixed d-xl-none">
           <i class="icon-sidebar"></i>
         </button>
 
-        <div class="wg-details wg-blog-details">
-          <div class="details-content">
+        <article class="bd-article">
 
-            <!-- Category -->
+          {{-- ── Meta bar ── --}}
+          <div class="bd-meta">
             @if ($blog->category)
-            <div class="category-post mb-30 px-lg-15">
-              <a href="#" class="item">{{ $blog->category->name }}</a>
+            <a href="#" class="bd-meta__cat">{{ $blog->category->name }}</a>
+            @endif
+            <span class="bd-meta__dot"></span>
+            <span class="bd-meta__date">
+              <i class="icon-calendar-days" style="font-size:13px; margin-right:5px;"></i>
+              {{ ($blog->published_at ?? $blog->created_at)->format('F d, Y') }}
+            </span>
+            @if ($blog->author)
+            <span class="bd-meta__dot"></span>
+            <span class="bd-meta__author">
+              <i class="icon-user" style="font-size:13px; margin-right:5px;"></i>
+              {{ $blog->author->name }}
+            </span>
+            @endif
+            <span class="bd-meta__dot"></span>
+            <span class="bd-meta__comments">
+              <i class="icon-message" style="font-size:13px; margin-right:5px;"></i>
+              {{ $blog->comments->count() }} comment{{ $blog->comments->count() !== 1 ? 's' : '' }}
+            </span>
+          </div>
+
+          {{-- ── Featured image ── --}}
+          @if ($blog->image)
+          <div class="bd-featured-image">
+            <img src="{{ asset('storage/' . $blog->image) }}"
+              alt="{{ $blog->title }}"
+              class="lazyload">
+          </div>
+          @endif
+
+          {{-- ── Body content ── --}}
+          <div class="bd-body">
+            {!! $blog->description !!}
+          </div>
+
+          {{-- ── Tags + Share ── --}}
+          <div class="bd-footer-row">
+            @if ($blog->tags)
+            <div class="bd-tags">
+              <span class="bd-tags__label">Tags</span>
+              <div class="tabs-list">
+                @foreach (array_map('trim', explode(',', $blog->tags)) as $tag)
+                <a href="#" class="tabs-item fw-5">{{ $tag }}</a>
+                @endforeach
+              </div>
             </div>
             @endif
-
-            <!-- Author + Date -->
-            <div class="date-user-post flex align-items-center mb-50 px-lg-15 flex-wrap rg-15">
-              @if ($blog->author)
-              <div class="user-details">
-                <div class="user-content">
-                  <p class="by fw-5">Post By</p>
-                  <h5 class="name-user fw-5">
-                    <a href="#">{{ $blog->author->name }}</a>
-                  </h5>
-                </div>
-              </div>
-              @endif
-              <div class="date-post">
-                <p class="fw-5">Published</p>
-                <h5 class="day-post fw-5">
-                  {{ ($blog->published_at ?? $blog->created_at)->format('F d, Y') }}
-                </h5>
-              </div>
-            </div>
-
-            <!-- Featured Image -->
-            @if ($blog->image)
-            <div class="image img-details mb-35">
-              <img src="{{ asset('storage/' . $blog->image) }}"
-                alt="{{ $blog->title }}" class="lazyload">
-            </div>
-            @endif
-
-            <!-- Description -->
-            <div class="desc mb-40 px-lg-15">
-              {!! $blog->description !!}
-            </div>
-
-            <!-- Tags + Share -->
-            <div class="tag-social flex justify-content-between align-items-center mx-lg-15 flex-wrap g-20">
-              @if ($blog->tags)
-              <div class="left tags flex g-16 align-items-center">
-                <span class="fw-7">Tags</span>
-                <div class="tabs-list">
-                  @foreach (array_map('trim', explode(',', $blog->tags)) as $tag)
-                  <a href="#" class="tabs-item fw-5">{{ $tag }}</a>
-                  @endforeach
-                </div>
-              </div>
-              @endif
-              <div class="right social flex g-16 align-items-center">
-                <span class="fw-7">Share</span>
-                <ul class="post-social style-radius-50 g-10">
-                  <li><a href="#" class="icon-social"><i class="icon-fb"></i></a></li>
-                  <li><a href="#" class="icon-social"><i class="icon-X"></i></a></li>
-                  <li><a href="#" class="icon-social"><i class="icon-linkedin"></i></a></li>
-                  <li><a href="#" class="icon-social"><i class="icon-instagram"></i></a></li>
-                </ul>
-              </div>
+            <div class="bd-share">
+              <span class="bd-share__label">Share</span>
+              <ul class="post-social style-radius-50 g-10">
+                <li><a href="#" class="icon-social"><i class="icon-fb"></i></a></li>
+                <li><a href="#" class="icon-social"><i class="icon-X"></i></a></li>
+                <li><a href="#" class="icon-social"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#" class="icon-social"><i class="icon-instagram"></i></a></li>
+              </ul>
             </div>
           </div>
 
-          <!-- Author Box -->
+          {{-- ── Author card ── --}}
           @if ($blog->author)
-          <div class="author mb-50 px-lg-15">
-            <div class="author-content">
-              <h5 class="name fw-5"><a href="#">{{ $blog->author->name }}</a></h5>
-              <div class="text fw-5">Author</div>
+          <div class="bd-author-card">
+            <div class="bd-author-card__avatar">
+              {{ strtoupper(substr($blog->author->name, 0, 1)) }}
+            </div>
+            <div class="bd-author-card__info">
+              <div class="bd-author-card__label">Written by</div>
+              <div class="bd-author-card__name">{{ $blog->author->name }}</div>
             </div>
           </div>
           @endif
 
-          <!-- Related / Recent Posts -->
+          {{-- ── Related posts ── --}}
           @if ($recentBlogs->count())
-          <div class="recent-news flex justify-content-between align-items-center mx-lg-15 flex-wrap g-30">
-            @foreach ($recentBlogs as $recent)
-            <div class="tf-post-list style-small hover-img align-items-center">
-              <a href="{{ route('blog-details', $recent->slug) }}" class="image">
-                @if ($recent->image)
-                <img src="{{ asset('storage/' . $recent->image) }}"
-                  alt="{{ $recent->title }}" class="lazyload">
-                @else
-                <img src="image/blog/post-list-1.jpg"
-                  alt="{{ $recent->title }}" class="lazyload">
-                @endif
-              </a>
-              <div class="post-content">
-                <div class="post-date">
-                  <i class="icon-calendar-days"></i>
-                  <span>{{ ($recent->published_at ?? $recent->created_at)->format('M d, Y') }}</span>
+          <div class="bd-related">
+            <h4 class="bd-section-title">You May Also Like</h4>
+            <div class="bd-related__grid">
+              @foreach ($recentBlogs as $recent)
+              <a href="{{ route('blog-details', $recent->slug) }}" class="bd-related-card">
+                <div class="bd-related-card__image">
+                  @if ($recent->image)
+                  <img src="{{ asset('storage/' . $recent->image) }}" alt="{{ $recent->title }}" class="lazyload">
+                  @else
+                  <img src="image/blog/post-list-1.jpg" alt="{{ $recent->title }}" class="lazyload">
+                  @endif
                 </div>
-                <a href="{{ route('blog-details', $recent->slug) }}" class="body-2">
-                  {{ Str::limit($recent->title, 40) }}
-                </a>
-              </div>
+                <div class="bd-related-card__body">
+                  <div class="bd-related-card__date">
+                    {{ ($recent->published_at ?? $recent->created_at)->format('M d, Y') }}
+                  </div>
+                  <div class="bd-related-card__title">{{ Str::limit($recent->title, 55) }}</div>
+                </div>
+              </a>
+              @endforeach
             </div>
-            @endforeach
           </div>
           @endif
 
-          <!-- Comments -->
-          <div class="comment mx-lg-15" id="comments">
+          {{-- ── Comments ── --}}
+          <div class="comment" id="comments">
             <h4 class="title">
               Comments ({{ $blog->comments->count() }})
             </h4>
@@ -220,7 +221,7 @@
             @endforelse
           </div>
 
-          <!-- Comment Form -->
+          {{-- ── Comment Form ── --}}
           <form action="{{ route('blog.comment.store', $blog->slug) }}" method="POST"
             class="form-comment write-review px-lg-15" id="comment-form">
             @csrf
@@ -259,45 +260,46 @@
             </div>
           </form>
 
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              // Toggle reply forms
-              document.querySelectorAll('.reply-toggle-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                  const target = document.getElementById(this.dataset.target);
-                  if (target) {
-                    target.style.display = target.style.display === 'none' ? 'block' : 'none';
-                  }
-                });
-              });
+        </article>
 
-              // Cancel reply
-              document.querySelectorAll('.reply-cancel-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                  const target = document.getElementById(this.dataset.target);
-                  if (target) target.style.display = 'none';
-                });
+        {{-- Reply toggle JS --}}
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.reply-toggle-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                var t = document.getElementById(this.dataset.target);
+                if (t) t.style.display = t.style.display === 'none' ? 'block' : 'none';
               });
             });
-          </script>
-        </div>
-      </div>
-      <!-- /.Main Content -->
+            document.querySelectorAll('.reply-cancel-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                var t = document.getElementById(this.dataset.target);
+                if (t) t.style.display = 'none';
+              });
+            });
+          });
+        </script>
 
-      <!-- Sidebar -->
+      </div>
+      {{-- /.col --}}
+
+      {{-- ────────────────────────────────────────
+           RIGHT: Sidebar
+      ──────────────────────────────────────── --}}
       <div class="col-xl-4">
         <div class="tf-sidebar sidebar-filter right">
+
           <div class="header-fillter flex justify-content-between align-items-center d-xl-none mb-30">
             <h3 class="title">Filter</h3>
             <span class="icon-close close-filter"></span>
           </div>
 
-          <!-- Search -->
+          {{-- Search --}}
           <div class="sidebar-item sidebar-search">
             <h5 class="title-content fw-5">Search</h5>
             <form action="{{ route('blogs') }}" method="GET" class="form-search-siderbar">
               <fieldset>
-                <input type="text" name="q" placeholder="Keywords">
+                <input type="text" name="q" placeholder="Keywords" value="{{ request('q') }}">
                 <button type="submit" class="tf-btn-search">
                   <i class="icon-magnifying-glass"></i>
                 </button>
@@ -305,7 +307,7 @@
             </form>
           </div>
 
-          <!-- Categories -->
+          {{-- Categories --}}
           @if ($categories->count())
           <div class="sidebar-item sidebar-content sidebar-categories mb-40">
             <h5 class="title-content fw-5">Category</h5>
@@ -325,7 +327,7 @@
           </div>
           @endif
 
-          <!-- Latest News -->
+          {{-- Latest Posts --}}
           @if ($recentBlogs->count())
           <div class="sidebar-item sidebar-content sidebar-recent-posts">
             <h4 class="title-content fw-5">Latest News</h4>
@@ -333,11 +335,9 @@
             <div class="tf-post-list style-small hover-img">
               <a href="{{ route('blog-details', $recent->slug) }}" class="image">
                 @if ($recent->image)
-                <img src="{{ asset('storage/' . $recent->image) }}"
-                  alt="{{ $recent->title }}" class="lazyload">
+                <img src="{{ asset('storage/' . $recent->image) }}" alt="{{ $recent->title }}" class="lazyload">
                 @else
-                <img src="image/blog/post-list-1.jpg"
-                  alt="{{ $recent->title }}" class="lazyload">
+                <img src="image/blog/post-list-1.jpg" alt="{{ $recent->title }}" class="lazyload">
                 @endif
               </a>
               <div class="post-content">
@@ -354,13 +354,11 @@
           </div>
           @endif
 
-          <!-- Popular Tags -->
+          {{-- Tags --}}
           @if ($blog->tags)
-          @php
-          $tags = array_map('trim', explode(',', $blog->tags));
-          @endphp
+          @php $tags = array_map('trim', explode(',', $blog->tags)); @endphp
           <div class="sidebar-item sidebar-tags mb-50">
-            <h4 class="title-content fw-5">Popular Tags</h4>
+            <h4 class="title-content fw-5">Tags</h4>
             <div class="tabs-list">
               @foreach ($tags as $tag)
               <a href="#" class="tabs-item fw-5">{{ $tag }}</a>
@@ -369,6 +367,7 @@
           </div>
           @endif
 
+          {{-- CTA Banner --}}
           <div class="sidebar-banner box-item">
             <div class="box-content px-sm-15">
               <p class="sub-title">Get A Quote</p>
@@ -379,12 +378,12 @@
               </a>
             </div>
           </div>
+
         </div>
       </div>
-      <!-- /.Sidebar -->
+      {{-- /.Sidebar --}}
 
     </div>
   </div>
 </div>
-<!-- /.main-content -->
 @endsection

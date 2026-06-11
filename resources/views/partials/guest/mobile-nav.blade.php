@@ -76,9 +76,9 @@
                             <li class="menu-item"><a href="{{ route('about') }}">About Us</a></li>
                             <li class="menu-item"><a href="{{ route('career') }}">Career</a></li>
                             <li class="menu-item"><a href="{{ route('faq') }}">FAQ</a></li>
-                            <li class="menu-item"><a href="{{ route('press') }}">Press</a></li>
+                            {{-- <li class="menu-item"><a href="{{ route('press') }}">Press</a></li> --}}
                             <li class="menu-item"><a href="{{ route('testimonials') }}">Testimonials</a></li>
-                            <li class="menu-item"><a href="{{ route('awards') }}">Awards</a></li>
+                            {{-- <li class="menu-item"><a href="{{ route('awards') }}">Awards</a></li> --}}
                         </ul>
                     </div>
                 </li>

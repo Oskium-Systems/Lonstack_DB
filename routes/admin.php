@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\TechnologyHeroController;
 use App\Http\Controllers\Admin\TechnologyProcessController;
 use App\Http\Controllers\Admin\TechnologyWhyUsController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\CvSubmissionController as AdminCvSubmissionController;
 use Illuminate\Support\Facades\Route;
 
 // ADMIN ROUTES
@@ -233,5 +234,15 @@ Route::prefix('admin')
         Route::post('/{portfolio}', [PortfolioController::class, 'update'])->name('update');
         Route::patch('/{portfolio}/status', [PortfolioController::class, 'toggleStatus'])->name('status');
         Route::delete('/{portfolio}', [PortfolioController::class, 'destroy'])->name('destroy');
+      });
+
+    // ── CV Submissions ──
+    Route::prefix('cv-submissions')
+      ->name('cv-submissions.')
+      ->group(function () {
+        Route::get('/', [AdminCvSubmissionController::class, 'index'])->name('index');
+        Route::patch('/{submission}/status', [AdminCvSubmissionController::class, 'updateStatus'])->name('status');
+        Route::delete('/{submission}', [AdminCvSubmissionController::class, 'destroy'])->name('destroy');
+        Route::get('/{submission}/download', [AdminCvSubmissionController::class, 'download'])->name('download');
       });
   });

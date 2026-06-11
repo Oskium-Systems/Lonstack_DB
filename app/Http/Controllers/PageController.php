@@ -173,6 +173,7 @@ class PageController extends Controller
   public function blogs()
   {
     $blogs = Blog::with('category', 'author')
+      ->withCount('comments')
       ->where('status', true)
       ->latest('published_at')
       ->get();

@@ -29,6 +29,9 @@ Route::middleware(['maintenance'])->group(function () {
   // ── Company ──
   Route::get('/career', [PageController::class, 'career'])->name('career');
   Route::post('/career/apply', [PageController::class, 'careerApply'])->name('career.apply');
+
+  // ── CV Submissions (public) ──
+  Route::post('/career/submit-cv', [\App\Http\Controllers\CvSubmissionController::class, 'store'])->name('cv.submit');
   Route::get('/faq', [PageController::class, 'faq'])->name('faq');
   Route::get('/press', [PageController::class, 'press'])->name('press');
   Route::get('/testimonials', [PageController::class, 'testimonials'])->name('testimonials');

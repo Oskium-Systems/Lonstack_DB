@@ -111,6 +111,13 @@
           </a>
         </li>
 
+        <li class="{{ request()->routeIs('admin.cv-submissions.*') ? 'active' : '' }}">
+          <a href="{{ route('admin.cv-submissions.index') }}">
+            <i class="ti ti-file-cv fs-16 me-2"></i>
+            <span>CV Submissions</span>
+          </a>
+        </li>
+
         <li>
           <a href="javascript:void(0)">
             <i class="ti ti-trophy fs-16 me-2"></i>

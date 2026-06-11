@@ -3453,10 +3453,10 @@ fieldset {
 }
 
 .comment {
-    margin-right: 50px;
-    margin-left: 50px;
-    padding-bottom: 70px;
-    margin-bottom: 62px;
+    /* margin-right: 20px;
+    margin-left: 20px; */
+    /* padding-bottom: 70px; */
+    /* margin-bottom: 62px; */
     border-bottom: 1px solid var(--stroke-2);
 }
 .comment .title {
@@ -5807,9 +5807,9 @@ a.mapboxgl-ctrl-logo {
     }
     .tf-post-list.style-2 .post-content {
         max-width: 297px;
-        padding-top: 61px;
-        padding-bottom: 70px;
-        padding-left: 50px;
+        /* padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 20px; */
     }
     .wg-cta {
         background-color: var(--primary);

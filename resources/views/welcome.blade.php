@@ -34,7 +34,7 @@
           <h1 class="title fw-6 lh-85 split-text effect-right">
             NextGen Software Innovators
             <br><span class="fw-3">and <span class="highlight text-uppercase">Digital
-                Soft</span> Solutions</span>
+                Software</span> Solutions</span>
           </h1>
         </div>
       </div>
@@ -927,18 +927,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
@@ -958,18 +947,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
@@ -989,18 +967,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
@@ -1020,18 +987,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
@@ -1051,18 +1007,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
@@ -1082,18 +1027,7 @@
                   <a href="#" class="plus-icon">
                     <span>+</span>
                   </a>
-                  <div class="social-item">
-                    <ul class="post-social">
-                      <li><a href="#" class="icon-social"><i class="icon-fb"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i class="icon-X"></i></a>
-                      </li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-linkedin"></i></a></li>
-                      <li><a href="#" class="icon-social"><i
-                            class="icon-youtube"></i></a></li>
-                    </ul>
-                  </div>
+
                 </div>
                 <div class="item-content">
                   <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
@@ -1394,6 +1328,7 @@
       </defs>
     </svg>
   </div>
+
   <div class="tf-container">
     <div class="heading-section mb-60 text-center">
       <div class="sub-title body-2 fw-7 mb-17 title-animation">
@@ -1405,50 +1340,84 @@
       </h2>
     </div>
   </div>
+
   <div class="tf-container">
-    <div class="row rg-30">
-      @foreach ($homeBlogs as $homeBlog)
-      <div class="col-lg-6">
-        <div class="tf-post-list style-2 hover-image" style="display:flex; align-items:stretch;">
-          <div class="post-content">
-            <div class="top-post">
-              <div class="post-meta">
-                <a href="{{ route('blog-details', $homeBlog->slug) }}" class="text-medium">
+
+    {{-- Blog swiper — works on both desktop and mobile --}}
+    <div class="swiper tf-swiper sw-home-blog"
+      data-swiper='{
+        "slidesPerView": 1,
+        "spaceBetween": 30,
+        "speed": 700,
+        "loop": false,
+        "navigation": {
+          "nextEl": ".home-blog-next",
+          "prevEl": ".home-blog-prev"
+        },
+        "pagination": {
+          "el": ".home-blog-pagination",
+          "clickable": true
+        },
+        "breakpoints": {
+          "768": { "slidesPerView": 2, "spaceBetween": 30 }
+        }
+      }'>
+      <div class="swiper-wrapper">
+        @foreach ($homeBlogs as $homeBlog)
+        <div class="swiper-slide">
+          <div class="home-blog-card">
+            {{-- Image — always on top --}}
+            <a href="{{ route('blog-details', $homeBlog->slug) }}" class="home-blog-card__image">
+              @if ($homeBlog->image)
+              <img src="{{ asset('storage/' . $homeBlog->image) }}"
+                alt="{{ $homeBlog->title }}"
+                class="lazyload">
+              @else
+              <img src="image/blog/post-list-4.jpg"
+                alt="{{ $homeBlog->title }}"
+                class="lazyload">
+              @endif
+            </a>
+            {{-- Content — always below --}}
+            <div class="home-blog-card__content">
+              <div class="post-meta" style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <a href="{{ route('blog-details', $homeBlog->slug) }}" class="text-medium" style="color:rgba(255,255,255,0.5);">
                   {{ ($homeBlog->published_at ?? $homeBlog->created_at)->format('d F Y') }}
                 </a>
-                <span class="line"></span>
-                <a href="#" class="text-medium">Comment({{ $homeBlog->comments_count ?? 0 }})</a>
+                <span style="width:1px; height:12px; background:rgba(255,255,255,0.2); display:inline-block;"></span>
+                <a href="#" class="text-medium" style="color:rgba(255,255,255,0.5);">
+                  Comment({{ $homeBlog->comments_count ?? 0 }})
+                </a>
               </div>
-              <h5 class="title fw-5">
+              <h5 class="title fw-5" style="margin-bottom:14px; line-height:1.4;">
                 <a href="{{ route('blog-details', $homeBlog->slug) }}">{{ $homeBlog->title }}</a>
               </h5>
-            </div>
-            <div class="bottom-post">
-              <div class="desc lh-30">{{ Str::limit($homeBlog->excerpt ?? strip_tags($homeBlog->description), 80) }}</div>
+              <div class="desc lh-30" style="color:rgba(255,255,255,0.55); font-size:14px; margin-bottom:20px;">
+                {{ Str::limit($homeBlog->excerpt ?? strip_tags($homeBlog->description ?? ''), 100) }}
+              </div>
               <a href="{{ route('blog-details', $homeBlog->slug) }}" class="tf-btn-readmore style-open">
                 <span class="plus">+</span>
                 <span class="text">Read More</span>
               </a>
             </div>
           </div>
-          <a href="{{ route('blog-details', $homeBlog->slug) }}"
-            style="display:block; flex-shrink:0; width:270px; margin:0; overflow:hidden; align-self:stretch;">
-            @if ($homeBlog->image)
-            <img src="{{ asset('storage/' . $homeBlog->image) }}"
-              alt="{{ $homeBlog->title }}"
-              style="width:100%; height:100%; object-fit:cover; display:block;">
-            @else
-            <img src="image/blog/post-list-4.jpg"
-              alt="{{ $homeBlog->title }}"
-              style="width:100%; height:100%; object-fit:cover; display:block;">
-            @endif
-          </a>
         </div>
+        @endforeach
       </div>
-      @endforeach
     </div>
+
+    {{-- Prev / Next + pagination --}}
+    <div class="home-blog-controls">
+      <button class="home-blog-prev arrow-btn style-border w-50">
+        <i class="icon-arrow-left2"></i>
+      </button>
+      <div class="home-blog-pagination sw-pagination"></div>
+      <button class="home-blog-next arrow-btn style-border w-50">
+        <i class="icon-arrow-right2"></i>
+      </button>
+    </div>
+
   </div>
 </section>
 </div>
 @endsection
-
