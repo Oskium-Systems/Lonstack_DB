@@ -29,7 +29,12 @@ class PageController extends Controller
       ->take(4)
       ->get();
 
-    return view('welcome', compact('homeBlogs', 'homeTestimonials', 'homePortfolios'));
+    $homeTeam = \App\Models\Team::active()
+      ->orderBy('sort_order')
+      ->orderBy('created_at')
+      ->get();
+
+    return view('welcome', compact('homeBlogs', 'homeTestimonials', 'homePortfolios', 'homeTeam'));
   }
 
   public function about()

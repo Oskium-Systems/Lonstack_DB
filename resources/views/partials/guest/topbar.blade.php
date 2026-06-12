@@ -1,6 +1,6 @@
 @php $settings = \App\Models\Setting::current(); @endphp
 
-<div class="top-bar d-none d-md-flex">
+<div class="top-bar d-flex">
   <div class="top-bar-inner flex align-items-center justify-content-between">
     <div class="tf-tb-left">
       <ul class="list-topbar-item flex align-items-center">

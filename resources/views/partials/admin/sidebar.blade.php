@@ -110,6 +110,12 @@
             <span>Career / Jobs</span>
           </a>
         </li>
+        <li class="{{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
+          <a href="{{ route('admin.team.index') }}">
+            <i class="ti ti-users fs-16 me-2"></i>
+            <span>Team Members</span>
+          </a>
+        </li>
 
         <li class="{{ request()->routeIs('admin.cv-submissions.*') ? 'active' : '' }}">
           <a href="{{ route('admin.cv-submissions.index') }}">

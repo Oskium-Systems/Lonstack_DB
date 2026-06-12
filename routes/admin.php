@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\TechnologyProcessController;
 use App\Http\Controllers\Admin\TechnologyWhyUsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CvSubmissionController as AdminCvSubmissionController;
+use App\Http\Controllers\Admin\TeamController;
 use Illuminate\Support\Facades\Route;
 
 // ADMIN ROUTES
@@ -244,5 +245,16 @@ Route::prefix('admin')
         Route::patch('/{submission}/status', [AdminCvSubmissionController::class, 'updateStatus'])->name('status');
         Route::delete('/{submission}', [AdminCvSubmissionController::class, 'destroy'])->name('destroy');
         Route::get('/{submission}/download', [AdminCvSubmissionController::class, 'download'])->name('download');
+      });
+
+    // ── Team Members ──
+    Route::prefix('team')
+      ->name('team.')
+      ->group(function () {
+        Route::get('/', [TeamController::class, 'index'])->name('index');
+        Route::post('/', [TeamController::class, 'store'])->name('store');
+        Route::put('/{team}', [TeamController::class, 'update'])->name('update');
+        Route::patch('/{team}/status', [TeamController::class, 'toggleStatus'])->name('status');
+        Route::delete('/{team}', [TeamController::class, 'destroy'])->name('destroy');
       });
   });

@@ -478,7 +478,7 @@
             </div>
           </div>
         </div>
-        <div class="right-section">
+        <div class="right-section d-none d-lg-block">
           <div class="image image-section tf-animate-1">
             <img src="image/section/img-section-company.jpg"
               data-src="image/section/img-section-company.jpg" alt="" class="lazyload">
@@ -916,125 +916,62 @@
                                     }
                                 }'>
           <div class="swiper-wrapper">
+            @forelse ($homeTeam as $member)
             <div class="swiper-slide">
               <div class="team-item hover-image">
                 <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-1.jpg"
-                      data-src="image/team-item/team-item-1.jpg" alt=""
-                      class="lazyload">
+                  <a class="image">
+                    @if ($member->photo)
+                      <img src="{{ asset('storage/' . $member->photo) }}"
+                           data-src="{{ asset('storage/' . $member->photo) }}"
+                           alt="{{ $member->name }}" class="lazyload"
+                           style="width:100%; height:80%; object-fit:cover; display:block;">
+                    @else
+                      <div class="d-flex align-items-center justify-content-center w-100 h-100"
+                           style="background:rgba(67,186,255,0.12); font-size:52px; font-weight:700;
+                                  color:var(--primary); aspect-ratio:1;">
+                        {{ $member->initial }}
+                      </div>
+                    @endif
                   </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
+                 
+                  {{-- Social overlay (shows on hover via theme CSS) --}}
+                  @if ($member->facebook || $member->twitter || $member->linkedin || $member->youtube)
+                  <div class="social-item">
+                    <ul class="post-social">
+                      @if ($member->facebook)
+                      <li><a href="{{ $member->facebook }}" target="_blank" class="icon-social"><i class="icon-fb"></i></a></li>
+                      @endif
+                      @if ($member->twitter)
+                      <li><a href="{{ $member->twitter }}" target="_blank" class="icon-social"><i class="icon-X"></i></a></li>
+                      @endif
+                      @if ($member->linkedin)
+                      <li><a href="{{ $member->linkedin }}" target="_blank" class="icon-social"><i class="icon-linkedin"></i></a></li>
+                      @endif
+                      @if ($member->youtube)
+                      <li><a href="{{ $member->youtube }}" target="_blank" class="icon-social"><i class="icon-youtube"></i></a></li>
+                      @endif
+                    </ul>
+                  </div>
+                  @endif
                 </div>
                 <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
-                  <p class="sub-title">Software Developer</p>
+                  <h6 class="title"><a>{{ $member->name }}</a></h6>
+                  <p class="sub-title">{{ $member->role }}</p>
                 </div>
               </div>
             </div>
-
+            @empty
+            {{-- No members yet — shown as a single non-swipeable slide --}}
             <div class="swiper-slide">
-              <div class="team-item hover-image">
-                <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-2.jpg"
-                      data-src="image/team-item/team-item-2.jpg" alt=""
-                      class="lazyload">
-                  </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
-                </div>
-                <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
-                  <p class="sub-title">App Developer</p>
-                </div>
+              <div class="d-flex flex-column align-items-center justify-content-center text-center"
+                   style="padding:60px 30px; opacity:0.5;">
+                <i class="icon-users" style="font-size:48px; display:block; margin-bottom:16px; color:var(--primary);"></i>
+                <p class="body-2 fw-5">Our team profiles are coming soon.</p>
+                <p class="text-medium" style="font-size:13px;">Check back shortly.</p>
               </div>
             </div>
-
-            <div class="swiper-slide">
-              <div class="team-item hover-image">
-                <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-3.jpg"
-                      data-src="image/team-item/team-item-3.jpg" alt=""
-                      class="lazyload">
-                  </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
-                </div>
-                <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
-                  <p class="sub-title">Software Developer</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="team-item hover-image">
-                <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-1.jpg"
-                      data-src="image/team-item/team-item-1.jpg" alt=""
-                      class="lazyload">
-                  </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
-                </div>
-                <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">Micheal R. Shannon</a></h6>
-                  <p class="sub-title">Software Developer</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="team-item hover-image">
-                <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-2.jpg"
-                      data-src="image/team-item/team-item-2.jpg" alt=""
-                      class="lazyload">
-                  </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
-                </div>
-                <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">William J. Alexander</a></h6>
-                  <p class="sub-title">App Developer</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="team-item hover-image">
-                <div class="top-item">
-                  <a href="{{ route('about') }}" class="image">
-                    <img src="image/team-item/team-item-3.jpg"
-                      data-src="image/team-item/team-item-3.jpg" alt=""
-                      class="lazyload">
-                  </a>
-                  <a href="#" class="plus-icon">
-                    <span>+</span>
-                  </a>
-
-                </div>
-                <div class="item-content">
-                  <h6 class="title"><a href="{{ route('about') }}">Donnie O. Goldsmith</a></h6>
-                  <p class="sub-title">Software Developer</p>
-                </div>
-              </div>
-            </div>
+            @endforelse
           </div>
         </div>
         <div class="sw-pagination-team sw-pagination d-lg-none mt-15 justify-content-center"></div>

@@ -423,7 +423,7 @@
             </div>
           </div>
         </div>
-        <div class="right-section">
+        <div class="right-section d-none d-lg-block">
           <div class="image image-section tf-animate-1">
             <img src="image/section/img-section-company.jpg"
               data-src="image/section/img-section-company.jpg" alt="" class="lazyload">
