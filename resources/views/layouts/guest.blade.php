@@ -5,6 +5,16 @@
 <head>
   <base href="/public">
   <meta charset="utf-8" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJK800KXFR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LJK800KXFR');
+</script>
   <title> Lonstack Solution - IT Company</title>
   <meta name="description"
     content="Teckko – Modern, responsive IT Company HTML Template perfect for showcasing IT services, digital solutions & boosting online sales effortlessly.">

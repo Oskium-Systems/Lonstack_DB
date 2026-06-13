@@ -1,3 +1,5 @@
+@php $settings = \App\Models\Setting::current(); @endphp
+
 <footer class="footer" id="footer">
   <div class="mask mask-1">
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none">
@@ -173,19 +175,23 @@
         <div class="locations-contact">
           <div class="locations-footer item mb-30">
             <div class="title body-2 fw-5">Locations</div>
+            @if($settings->company_email)
             <div class="address body-2 lh-30">
-              55 Main Street, 2nd block<br>Malborne, Australia
+              {{ $settings->company_address }}
             </div>
+            @endif
           </div>
           <div class="contact-footer item">
             <div class="title body-2 fw-5">Contact</div>
             <div>
-              <h6><a href="#" class="fw-5">support@gmail.com</a></h6>
-              <h4 class="lh-45 fw-6"><a href="#" class="mb-0">+880 (123) 456 88</a></h4>
+               @if($settings->company_email)
+              <h6><a href="mailto:{{ $settings->company_email }}" class="fw-5">{{ $settings->company_email }}</a></h6>
+               @endif
+             --}}
             </div>
           </div>
         </div>
-
+       
       </div>
     </div>
     <div class="tf-container">
@@ -202,7 +208,7 @@
           <ul class="flex align-items-center justify-content-center flex-wrap rg-15">
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
-            <li><a href="{{ route('terms-of-service') }}">Terms of Service</a></li>
+            <li><a href="{{ route('terms-of-service') }}">Terms</a></li>
             <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
           </ul>
         </div>
