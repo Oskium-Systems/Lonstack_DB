@@ -32,22 +32,19 @@
             Welcome to LonStack Software
           </div>
           <h1 class="title fw-6 lh-85 split-text effect-right">
-            NextGen Software Innovators
-            <br><span class="fw-3">and <span class="highlight text-uppercase">Digital
-                Software</span> Solutions</span>
+            Building Custom Software That Helps
+            <br><span class="fw-2"><span class="highlight text-uppercase">Businesses</span></span><span class="fw-2">Scale</span>
           </h1>
         </div>
       </div>
     </div>
     <div class="row justify-content-between rg-70">
-      <div class="col-lg-4">
+      <div class="col-lg-5">
         <div class="content-left">
 
           <div class="desc text-animation">
-            <p class="fs-20 lh-40">
-              We specialize in delivering comprehensive software solutions tailored meet the
-              unique
-              businesses across various industries
+            <p class="fs-18 lh-40">
+             We design and build web / mobile applications, data-driven platforms, and blockchain solutions, while providing experienced engineers to support and extend your teams.
             </p>
           </div>
 
@@ -56,12 +53,12 @@
             <div class="counter-item">
               <div class="counter">
                 <div class="number-counter flex fs-65 fw-6">
-                  <span class="number odometer color-primary" data-to="5" data-inviewport="yes"> 0
+                  <span class="number odometer color-primary" data-to="20" data-inviewport="yes"> 0
                   </span>
-                  <span class="color-primary">k+</span>
+                  <span class="color-primary">+</span>
                 </div>
                 <p class="title-counter body-2 lh-30">
-                  Happy Clients
+                  Delivered Projects
                 </p>
               </div>
             </div>
@@ -69,12 +66,12 @@
             <div class="counter-item">
               <div class="counter">
                 <div class="number-counter flex fs-65 fw-6">
-                  <span class="number odometer color-primary" data-to="9" data-inviewport="yes"> 0
+                  <span class="number odometer color-primary" data-to="3" data-inviewport="yes"> 0
                   </span>
                   <span class="color-primary">+</span>
                 </div>
                 <p class="title-counter body-2 lh-30">
-                  Years Experience
+                  Years Building Software
                 </p>
               </div>
             </div>
@@ -263,7 +260,7 @@
           <div class="box-avatar tf-animate-3">
             <div class="text">
               <p class="fs-20 fw-6">
-                5m+ Trusted
+                20+ Trusted
                 <br>Global Clients
               </p>
               <img src="image/icon/icon-box-avatar.png" data-src="image/icon/icon-box-avatar.png"
@@ -309,9 +306,9 @@
               <div class="counter">
 
                 <div class="number-counter flex fs-65 fw-7">
-                  <span class="number odometer" data-to="36" data-inviewport="yes"> 0
+                  <span class="number odometer" data-to="20" data-inviewport="yes"> 0
                   </span>
-                  <span class="title-counter">k+</span>
+                  <span class="title-counter">+</span>
                 </div>
                 <h6 class="title-counter lh-30 fw-5">
                   Trusted Global Clients
@@ -325,7 +322,7 @@
               </div>
               <div class="counter">
                 <div class="number-counter flex fs-65 fw-7">
-                  <span class="number odometer" data-to="850" data-inviewport="yes"> 0
+                  <span class="number odometer" data-to="20" data-inviewport="yes"> 0
                   </span>
                   <span class="title-counter">+</span>
                 </div>
@@ -845,7 +842,7 @@
           </div>
           <div class="text">
             <h5>
-              1.8 million+ <span class="fw-5">Trusted Clients</span>
+             20+ <span class="fw-5">Trusted Clients</span>
             </h5>
             <div class="img-line tf-animate-1">
               <img src="image/icon/line-2.png" data-src="image/icon/line-2.png" alt=""
@@ -1094,7 +1091,7 @@
             Clients Feedback
           </div>
           <h2 class="title fw-6 title-animation">
-            1250+ People Say
+            20+ People Say
             <span class="fw-3">About Us</span>
           </h2>
         </div>

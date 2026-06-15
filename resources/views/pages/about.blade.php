@@ -8,7 +8,7 @@
                     About Us
                 </h1>
                 <div class="breadkcum">
-                    <a href="{{ route('about') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
+                    <a href="{{ route('home') }}" class="link-breadkcum body-2 fw-7 split-text effect-right">Home</a>
                     <span class="dot"></span>
                     <span class="page-breadkcum body-2 fw-7 split-text effect-right"> About Us</span>
                 </div>
@@ -35,7 +35,7 @@
                         <div class="box-avatar tf-animate-3">
                             <div class="text">
                                 <p class="fs-20 fw-6">
-                                    5m+ Trusted
+                                    20+ Trusted
                                     <br>Global Clients
                                 </p>
                                 <img src="image/icon/icon-box-avatar.png" data-src="image/icon/icon-box-avatar.png"
@@ -69,7 +69,7 @@
                             </div>
                             <h2 class="title fw-6 title-animation">
                                 Premier Tech Innovations
-                                <br><span class="fw-3">Vertex Software Agency</span>
+                                <br><span class="fw-3">Lonstack Software Company</span>
                             </h2>
                         </div>
                         <div class="wg-counter flex g-30">
@@ -81,8 +81,8 @@
                                 <div class="counter">
 
                                     <div class="number-counter flex fs-65 fw-7">
-                                        <span class="number odometer" data-to="36" data-inviewport="yes"> 0 </span>
-                                        <span class="title-counter">k+</span>
+                                        <span class="number odometer" data-to="20" data-inviewport="yes"> 0 </span>
+                                        <span class="title-counter">+</span>
                                     </div>
                                     <h6 class="title-counter lh-30 fw-5">
                                         Trusted Global Clients
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="counter">
                                     <div class="number-counter flex fs-65 fw-7">
-                                        <span class="number odometer" data-to="850" data-inviewport="yes"> 0 </span>
+                                        <span class="number odometer" data-to="20" data-inviewport="yes"> 0 </span>
                                         <span class="title-counter">+</span>
                                     </div>
                                     <h6 class="title-counter lh-30 fw-5">
@@ -221,7 +221,7 @@
                     <div class="right">
                         <div class="heading-section mb-30">
                             <div class="sub-title body-2 fw-7 mb-17 title-animation">
-                                We Are Teckko Company
+                                We Are Lonstack Software Company
                             </div>
                             <h2 class="title fw-6 title-animation">
                                 Innovate Soft Solutions to
@@ -287,112 +287,69 @@
                         }
                     }'>
                 <div class="swiper-wrapper">
+                    @forelse ($aboutPortfolios as $p)
                     <div class="swiper-slide">
                         <div class="project-item hover-image">
                             <div class="item-content px-sm-15">
                                 <div class="top-content">
                                     <div class="sub-title body-2 fw-7">
-                                        Software Development
+                                        {{ $p->service->name ?? '' }}
                                     </div>
-                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">Mobile Application
-                                            Design</a></h3>
-                                    <div class="desc lh-30">
-                                        Sed ut perspiciatis unde omnis iste natus
-                                        error sit voluptatem accusantium doloremque seeney laudantium totam
-                                    </div>
+                                    <h3 class="title-project">
+                                        <a href="{{ route('portfolio-details', $p->slug) }}">{{ $p->title }}</a>
+                                    </h3>
+                                    @if ($p->excerpt)
+                                    <div class="desc lh-30">{{ Str::limit($p->excerpt, 100) }}</div>
+                                    @endif
                                 </div>
                                 <div class="bottom-content">
-                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
+                                    <a href="{{ route('portfolio-details', $p->slug) }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="{{ route('portfolio') }}" class="image">
-                                <img src="image/project-item/project-item-1.jpg"
-                                    data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
+                            <a href="{{ route('portfolio-details', $p->slug) }}" class="image"
+                               style="display:block; overflow:hidden;">
+                                @if ($p->cover_image)
+                                    <img src="{{ asset('storage/' . $p->cover_image) }}"
+                                         data-src="{{ asset('storage/' . $p->cover_image) }}"
+                                         alt="{{ $p->title }}" class="lazyload"
+                                         style="width:100%; height:420px; object-fit:cover; display:block;">
+                                @else
+                                    <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                                         data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                                         alt="{{ $p->title }}" class="lazyload"
+                                         style="width:100%; height:420px; object-fit:cover; display:block;">
+                                @endif
                             </a>
                         </div>
                     </div>
+                    @empty
                     <div class="swiper-slide">
                         <div class="project-item hover-image">
                             <div class="item-content px-sm-15">
                                 <div class="top-content">
-                                    <div class="sub-title body-2 fw-7">
-                                        Software Development
-                                    </div>
-                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">UI/UX Design</a></h3>
-                                    <div class="desc lh-30">
-                                        Sed ut perspiciatis unde omnis iste natus
-                                        error sit voluptatem accusantium doloremque seeney laudantium totam
-                                    </div>
+                                    <div class="sub-title body-2 fw-7">Software Development</div>
+                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">Our Latest Work</a></h3>
+                                    <div class="desc lh-30">Explore our portfolio of successful projects.</div>
                                 </div>
                                 <div class="bottom-content">
                                     <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
                                         <span class="plus">+</span>
-                                        <span class="text">Read More</span>
+                                        <span class="text">View Portfolio</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="{{ route('portfolio') }}" class="image">
-                                <img src="image/project-item/project-item-1.jpg"
-                                    data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
+                            <a href="{{ route('portfolio') }}" class="image" style="display:block; overflow:hidden;">
+                                <img src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                                     data-src="{{ asset('image/project-item/project-item-1.jpg') }}"
+                                     alt="" class="lazyload"
+                                     style="width:100%; height:420px; object-fit:cover; display:block;">
                             </a>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="project-item hover-image">
-                            <div class="item-content px-sm-15">
-                                <div class="top-content">
-                                    <div class="sub-title body-2 fw-7">
-                                        Software Development
-                                    </div>
-                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">Mobile Application
-                                            Design</a></h3>
-                                    <div class="desc lh-30">
-                                        Sed ut perspiciatis unde omnis iste natus
-                                        error sit voluptatem accusantium doloremque seeney laudantium totam
-                                    </div>
-                                </div>
-                                <div class="bottom-content">
-                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
-                                        <span class="plus">+</span>
-                                        <span class="text">Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <a href="{{ route('portfolio') }}" class="image">
-                                <img src="image/project-item/project-item-1.jpg"
-                                    data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="project-item hover-image">
-                            <div class="item-content px-sm-15">
-                                <div class="top-content">
-                                    <div class="sub-title body-2 fw-7">
-                                        Software Development
-                                    </div>
-                                    <h3 class="title-project"><a href="{{ route('portfolio') }}">UI/UX Design</a></h3>
-                                    <div class="desc lh-30">
-                                        Sed ut perspiciatis unde omnis iste natus
-                                        error sit voluptatem accusantium doloremque seeney laudantium totam
-                                    </div>
-                                </div>
-                                <div class="bottom-content">
-                                    <a href="{{ route('portfolio') }}" class="tf-btn-readmore">
-                                        <span class="plus">+</span>
-                                        <span class="text">Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <a href="{{ route('portfolio') }}" class="image">
-                                <img src="image/project-item/project-item-1.jpg"
-                                    data-src="image/project-item/project-item-1.jpg" alt="" class="lazyload">
-                            </a>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
             <div class="sw-pagination-project sw-pagination mt-70 justify-content-center"></div>
@@ -406,7 +363,7 @@
                             <i class="icon-chat-2"></i>
                         </div>
                         <h5 class="fw-4 title">Letâ€™s <span class="fw-6">Discuss & Start</span> IT Consultations</h5>
-                        <a href="#" class="tf-btn no-bg text-underline hover-color-main-dark">
+                        <a href="{{ route('contact-us') }}" class="tf-btn no-bg text-underline hover-color-main-dark">
                             <span>Letâ€™s Talk</span>
                             <i class="icon-arrow-right"></i>
                         </a>
@@ -434,7 +391,7 @@
                             </div>
                             <div class="text">
                                 <h5>
-                                    1.8 million+ <span class="fw-5">Trusted Clients</span>
+                                    20+ <span class="fw-5">Trusted Clients</span>
                                 </h5>
                                 <div class="img-line">
                                     <img src="image/icon/line-2.png" data-src="image/icon/line-2.png" alt=""
@@ -450,7 +407,7 @@
             </div>
         </div>
 
-        <section class="section-pricing tf-spacing-7">
+        {{-- <section class="section-pricing tf-spacing-7">
             <div class="mask mask-s-pricing-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" fill="none">
                     <circle cx="350" cy="350" r="285" stroke="url(#c7)" stroke-width="130" />
@@ -818,7 +775,7 @@
                 </div>
             </div>
 
-        </section>
+        </section> --}}
 
         <section class="section-form tf-spacing-4">
             <div class="section-inner flex">
@@ -932,58 +889,89 @@
                     </h2>
                 </div>
             </div>
+
+            {{-- Blog swiper — works on both desktop and mobile --}}
             <div class="tf-container">
-                <div class="row rg-30">
-                    <div class="col-lg-6">
-                        <div class="tf-post-list style-2 hover-image">
-                            <div class="post-content">
-                                <div class="top-post">
-                                    <div class="post-meta">
-                                        <a href="{{ route('blogs') }}" class="text-medium">05 June 2025</a> <span
-                                            class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
+                <div class="swiper tf-swiper sw-home-blog"
+                     data-swiper='{
+                       "slidesPerView": 1,
+                       "spaceBetween": 30,
+                       "speed": 700,
+                       "loop": false,
+                       "navigation": {
+                         "nextEl": ".about-blog-next",
+                         "prevEl": ".about-blog-prev"
+                       },
+                       "pagination": {
+                         "el": ".about-blog-pagination",
+                         "clickable": true
+                       },
+                       "breakpoints": {
+                         "768": { "slidesPerView": 2, "spaceBetween": 30 }
+                       }
+                     }'>
+                    <div class="swiper-wrapper">
+                        @forelse ($aboutBlogs as $blog)
+                        <div class="swiper-slide">
+                            <div class="home-blog-card">
+                                {{-- Image --}}
+                                <a href="{{ route('blog-details', $blog->slug) }}" class="home-blog-card__image">
+                                    @if ($blog->image)
+                                        <img src="{{ asset('storage/' . $blog->image) }}"
+                                             alt="{{ $blog->title }}" class="lazyload">
+                                    @else
+                                        <img src="image/blog/post-list-4.jpg"
+                                             alt="{{ $blog->title }}" class="lazyload">
+                                    @endif
+                                </a>
+                                {{-- Content --}}
+                                <div class="home-blog-card__content">
+                                    <div class="post-meta" style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                                        <a href="{{ route('blog-details', $blog->slug) }}" class="text-medium"
+                                           style="color:rgba(255,255,255,0.5);">
+                                            {{ ($blog->published_at ?? $blog->created_at)->format('d F Y') }}
+                                        </a>
+                                        <span style="width:1px; height:12px; background:rgba(255,255,255,0.2); display:inline-block;"></span>
+                                        <a href="#" class="text-medium" style="color:rgba(255,255,255,0.5);">
+                                            Comment({{ $blog->comments_count ?? 0 }})
+                                        </a>
                                     </div>
-                                    <h5 class="title fw-5"><a href="{{ route('blogs') }}">The Future of Software Development
-                                            Emerging and Technologies</a></h5>
-                                </div>
-                                <div class="bottom-post">
-                                    <div class="desc lh-30">We undertake is a testament to our dedication to quality</div>
-                                    <a href="{{ route('blogs') }}" class="tf-btn-readmore style-open">
+                                    <h5 class="title fw-5" style="margin-bottom:14px; line-height:1.4;">
+                                        <a href="{{ route('blog-details', $blog->slug) }}">{{ $blog->title }}</a>
+                                    </h5>
+                                    <div class="desc lh-30" style="color:rgba(255,255,255,0.55); font-size:14px; margin-bottom:20px;">
+                                        {{ Str::limit($blog->excerpt ?? strip_tags($blog->description ?? ''), 100) }}
+                                    </div>
+                                    <a href="{{ route('blog-details', $blog->slug) }}" class="tf-btn-readmore style-open">
                                         <span class="plus">+</span>
                                         <span class="text">Read More</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="{{ route('blogs') }}" class="image">
-                                <img src="image/blog/post-list-4.jpg" data-src="image/blog/post-list-4.jpg"
-                                    alt="" class="lazyload">
-                            </a>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tf-post-list style-2 hover-image">
-                            <div class="post-content">
-                                <div class="top-post">
-                                    <div class="post-meta">
-                                        <a href="{{ route('blogs') }}" class="text-medium">05 June 2025</a> <span
-                                            class="line"></span> <a href="#" class="text-medium">Comment(5)</a>
-                                    </div>
-                                    <h5 class="title fw-5"><a href="{{ route('blogs') }}">Mastering Agile: Best Practices for
-                                            Efficient Software Development</a></h5>
-                                </div>
-                                <div class="bottom-post">
-                                    <div class="desc lh-30">We undertake is a testament to our dedication to quality</div>
-                                    <a href="{{ route('blogs') }}" class="tf-btn-readmore style-open">
-                                        <span class="plus">+</span>
-                                        <span class="text">Read More</span>
-                                    </a>
-                                </div>
+                        @empty
+                        <div class="swiper-slide">
+                            <div class="text-center py-5" style="color:rgba(255,255,255,0.4);">
+                                <p class="body-2">No blog posts published yet. Check back soon.</p>
+                                <a href="{{ route('blogs') }}" class="tf-btn mt-20">
+                                    <span>View All Posts</span>
+                                    <i class="icon-arrow-right"></i>
+                                </a>
                             </div>
-                            <a href="{{ route('blogs') }}" class="image">
-                                <img src="image/blog/post-list-5.jpg" data-src="image/blog/post-list-5.jpg"
-                                    alt="" class="lazyload">
-                            </a>
                         </div>
+                        @endforelse
                     </div>
+                </div>
+
+                {{-- Prev / Next + pagination --}}
+                <div class="home-blog-controls">
+                    <button class="about-blog-prev arrow-btn style-border w-50">
+                        <i class="icon-arrow-left2"></i>
+                    </button>
+                    <div class="about-blog-pagination sw-pagination"></div>
+                    <button class="about-blog-next arrow-btn style-border w-50">
+                        <i class="icon-arrow-right2"></i>
+                    </button>
                 </div>
             </div>
         </section>

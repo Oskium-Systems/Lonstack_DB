@@ -51,7 +51,7 @@
           <div class="right">
             <div class="heading-section mb-45">
               <div class="sub-title body-2 fw-7 mb-17 title-animation">
-                We Are Teckko Company
+                We Are Lonstack Software Company
               </div>
               <h2 class="title fw-6 title-animation">
                 Innovate Soft Solutions to
@@ -68,11 +68,11 @@
               <div class="list-benefit">
                 <div class="benefit-item style-big title-animation">
                   <i class="icon-star-of-life"></i>
-                  <span class="fs-20">5+ Years Of Experience</span>
+                  <span class="fs-20">3+ Years Of Experience</span>
                 </div>
                 <div class="benefit-item style-big title-animation">
                   <i class="icon-star-of-life"></i>
-                  <span class="fs-20">Professional Web Designer</span>
+                  <span class="fs-20">Professional Web Developers</span>
                 </div>
                 <div class="benefit-item style-big title-animation">
                   <i class="icon-star-of-life"></i>
@@ -267,7 +267,7 @@
             </div>
             <div class="text">
               <h5>
-                1.8 million+ <span class="fw-5">Trusted Clients</span>
+                20+ <span class="fw-5">Trusted Clients</span>
               </h5>
               <div class="img-line">
                 <img src="image/icon/line-2.png" data-src="image/icon/line-2.png" alt=""
@@ -442,13 +442,12 @@
             Clients Testimonials
           </div>
           <h2 class="title fw-6 mb-21 title-animation">
-            I’ve 342+ Clients
-            <span class="fw-3">Feedback</span>
+            What Our Clients
+            <span class="fw-3">Say About Us</span>
           </h2>
           <div class="desc mb-60 text-animation">
             <p class="lh-30">
-              Sed ut perspiciatis unde omnin natus totam
-              rem aperiam eaque inventore veritatis
+              Real feedback from real clients who trusted us to build their digital products.
             </p>
           </div>
           <div class="list-btn flex align-items-center g-10">
@@ -484,107 +483,60 @@
                                 }'>
             <div class="swiper-wrapper">
 
+              @forelse ($serviceTestimonials as $t)
               <div class="swiper-slide">
                 <div class="testimonial-item style-2">
                   <div class="top-item">
                     <div class="icon">
-                      <i class="icon-quote-left"></i>
+                      <i class="icon-quote2"></i>
                     </div>
-                    <div class="image-avatar">
-                      <img src="image/avatar/avatar-tes-1.jpg"
-                        data-src="image/avatar/avatar-tes-1.jpg" alt=""
-                        class="lazyload">
+                    <div class="image-avatar" style="position:relative;">
+                      @if ($t->avatar)
+                        <img src="{{ asset('storage/' . $t->avatar) }}"
+                             alt="{{ $t->name }}"
+                             style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;">
+                      @else
+                        <img src="{{ asset('image/avatar/avatar-tes-1.jpg') }}"
+                             alt="{{ $t->name }}"
+                             style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;
+                                    filter:brightness(0.3);">
+                        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                                     font-weight:700;font-size:22px;color:#fff;pointer-events:none;">
+                          {{ $t->initial }}
+                        </span>
+                      @endif
                     </div>
                   </div>
                   <div class="text lh-30">
-                    At vero eoset accusamus et iusto
-                    odio dignissimos ducimus quie blanditiis praesentium voluptatum
-                    deleniti atque corrupti dolores
+                    {{ $t->content }}
                   </div>
                   <div class="user-testimonial">
                     <h5 class="fw-5 name-user">
-                      <a href="#">Rodolfo E. Shannon</a>
+                      <a href="#">{{ $t->name }}</a>
                     </h5>
-                    <a href="#" class="position text-medium">CEO & Founder</a>
+                    <a href="#" class="position text-medium">
+                      {{ $t->position }}@if ($t->company) · {{ $t->company }}@endif
+                    </a>
                   </div>
                 </div>
               </div>
-
+              @empty
               <div class="swiper-slide">
                 <div class="testimonial-item style-2">
                   <div class="top-item">
-                    <div class="icon">
-                      <i class="icon-quote-left"></i>
-                    </div>
-                    <div class="image-avatar">
-                      <img src="image/avatar/avatar-tes-2.jpg"
-                        data-src="image/avatar/avatar-tes-2.jpg" alt=""
-                        class="lazyload">
-                    </div>
+                    <div class="icon"><i class="icon-quote2"></i></div>
                   </div>
                   <div class="text lh-30">
-                    Nam libero tempore cumsoluta nobise est eligendi optio cumque
-                    nihil impedit quominus idquod maxime placeat facere possimus
+                    Working with LonStack was the best technology decision we made.
+                    They delivered beyond expectations every step of the way.
                   </div>
                   <div class="user-testimonial">
-                    <h5 class="fw-5 name-user">
-                      <a href="#">Kenneth J. Dutton</a>
-                    </h5>
-                    <a href="#" class="position text-medium">Web Developer</a>
+                    <h5 class="fw-5 name-user"><a href="#">A Happy Client</a></h5>
+                    <a href="#" class="position text-medium">CEO, Tech Company</a>
                   </div>
                 </div>
               </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item style-2">
-                  <div class="top-item">
-                    <div class="icon">
-                      <i class="icon-quote-left"></i>
-                    </div>
-                    <div class="image-avatar">
-                      <img src="image/avatar/avatar-tes-1.jpg"
-                        data-src="image/avatar/avatar-tes-1.jpg" alt=""
-                        class="lazyload">
-                    </div>
-                  </div>
-                  <div class="text lh-30">
-                    At vero eoset accusamus et iusto
-                    odio dignissimos ducimus quie blanditiis praesentium voluptatum
-                    deleniti atque corrupti dolores
-                  </div>
-                  <div class="user-testimonial">
-                    <h5 class="fw-5 name-user">
-                      <a href="#">Rodolfo E. Shannon</a>
-                    </h5>
-                    <a href="#" class="position text-medium">CEO & Founder</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="testimonial-item style-2">
-                  <div class="top-item">
-                    <div class="icon">
-                      <i class="icon-quote-left"></i>
-                    </div>
-                    <div class="image-avatar">
-                      <img src="image/avatar/avatar-tes-2.jpg"
-                        data-src="image/avatar/avatar-tes-2.jpg" alt=""
-                        class="lazyload">
-                    </div>
-                  </div>
-                  <div class="text lh-30">
-                    Nam libero tempore cumsoluta nobise est eligendi optio cumque
-                    nihil impedit quominus idquod maxime placeat facere possimus
-                  </div>
-                  <div class="user-testimonial">
-                    <h5 class="fw-5 name-user">
-                      <a href="#">Kenneth J. Dutton</a>
-                    </h5>
-                    <a href="#" class="position text-medium">Web Developer</a>
-                  </div>
-                </div>
-              </div>
+              @endforelse
 
             </div>
           </div>

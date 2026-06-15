@@ -39,7 +39,20 @@ class PageController extends Controller
 
   public function about()
   {
-    return view('pages.about');
+    $aboutBlogs = \App\Models\Blog::with('category')
+      ->withCount('comments')
+      ->where('status', true)
+      ->latest('published_at')
+      ->take(2)
+      ->get();
+
+    $aboutPortfolios = Portfolio::with('service')
+      ->where('is_active', true)
+      ->latest()
+      ->take(4)
+      ->get();
+
+    return view('pages.about', compact('aboutBlogs', 'aboutPortfolios'));
   }
 
   public function services()
@@ -48,7 +61,11 @@ class PageController extends Controller
       ->active()
       ->get();
 
-    return view('pages.services', compact('categories'));
+    $serviceTestimonials = \App\Models\Testimonial::visible()
+      ->take(6)
+      ->get();
+
+    return view('pages.services', compact('categories', 'serviceTestimonials'));
   }
 
   public function serviceDetail(string $slug)
