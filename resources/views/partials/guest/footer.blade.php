@@ -150,7 +150,7 @@
         </div>
 
         <div class="footer-content footer-col-block">
-          <div class="title-mobile body-2">
+          <div class="title-mobile footer-col-heading">
             Services
             <i class="icon-angle-down"></i>
           </div>
@@ -174,24 +174,23 @@
 
         <div class="locations-contact">
           <div class="locations-footer item mb-30">
-            <div class="title body-2 fw-5">Locations</div>
-            @if($settings->company_email)
+            <div class="title footer-col-heading">Locations</div>
+            @if($settings->company_address)
             <div class="address body-2 lh-30">
               {{ $settings->company_address }}
             </div>
             @endif
           </div>
           <div class="contact-footer item">
-            <div class="title body-2 fw-5">Contact</div>
+            <div class="title footer-col-heading">Contact</div>
             <div>
-               @if($settings->company_email)
+              @if($settings->company_email)
               <h6><a href="mailto:{{ $settings->company_email }}" class="fw-5">{{ $settings->company_email }}</a></h6>
-               @endif
-             --}}
+              @endif
             </div>
           </div>
         </div>
-       
+
       </div>
     </div>
     <div class="tf-container">

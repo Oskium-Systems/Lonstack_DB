@@ -31,9 +31,9 @@
           <div class="sub-title body-2 fw-5 split-text effect-right">
             Welcome to LonStack Software
           </div>
-          <h1 class="title fw-6 lh-85 split-text effect-right">
+          <h1 class="title fw-6 lh-85 hero-headline">
             Building Custom Software That Helps
-            <br><span class="fw-2"><span class="highlight text-uppercase">Businesses</span></span><span class="fw-2">Scale</span>
+            <span class="hero-headline__break"><span class="highlight text-uppercase">Businesses</span> Scale</span>
           </h1>
         </div>
       </div>
@@ -44,7 +44,7 @@
 
           <div class="desc text-animation">
             <p class="fs-18 lh-40">
-             We design and build web / mobile applications, data-driven platforms, and blockchain solutions, while providing experienced engineers to support and extend your teams.
+              We design and build web / mobile applications, data-driven platforms, and blockchain solutions, while providing experienced engineers to support and extend your teams.
             </p>
           </div>
 
@@ -842,7 +842,7 @@
           </div>
           <div class="text">
             <h5>
-             20+ <span class="fw-5">Trusted Clients</span>
+              20+ <span class="fw-5">Trusted Clients</span>
             </h5>
             <div class="img-line tf-animate-1">
               <img src="image/icon/line-2.png" data-src="image/icon/line-2.png" alt=""
@@ -919,19 +919,19 @@
                 <div class="top-item">
                   <a class="image">
                     @if ($member->photo)
-                      <img src="{{ asset('storage/' . $member->photo) }}"
-                           data-src="{{ asset('storage/' . $member->photo) }}"
-                           alt="{{ $member->name }}" class="lazyload"
-                           style="width:100%; height:80%; object-fit:cover; display:block;">
+                    <img src="{{ asset('storage/' . $member->photo) }}"
+                      data-src="{{ asset('storage/' . $member->photo) }}"
+                      alt="{{ $member->name }}" class="lazyload"
+                      style="width:100%; height:80%; object-fit:cover; display:block;">
                     @else
-                      <div class="d-flex align-items-center justify-content-center w-100 h-100"
-                           style="background:rgba(67,186,255,0.12); font-size:52px; font-weight:700;
+                    <div class="d-flex align-items-center justify-content-center w-100 h-100"
+                      style="background:rgba(67,186,255,0.12); font-size:52px; font-weight:700;
                                   color:var(--primary); aspect-ratio:1;">
-                        {{ $member->initial }}
-                      </div>
+                      {{ $member->initial }}
+                    </div>
                     @endif
                   </a>
-                 
+
                   {{-- Social overlay (shows on hover via theme CSS) --}}
                   @if ($member->facebook || $member->twitter || $member->linkedin || $member->youtube)
                   <div class="social-item">
@@ -962,7 +962,7 @@
             {{-- No members yet — shown as a single non-swipeable slide --}}
             <div class="swiper-slide">
               <div class="d-flex flex-column align-items-center justify-content-center text-center"
-                   style="padding:60px 30px; opacity:0.5;">
+                style="padding:60px 30px; opacity:0.5;">
                 <i class="icon-users" style="font-size:48px; display:block; margin-bottom:16px; color:var(--primary);"></i>
                 <p class="body-2 fw-5">Our team profiles are coming soon.</p>
                 <p class="text-medium" style="font-size:13px;">Check back shortly.</p>

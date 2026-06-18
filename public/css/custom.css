@@ -2568,7 +2568,7 @@
     }
 
     .page-title-home .top-page-title {
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
 }
 
@@ -3755,4 +3755,74 @@
     .bl-featured-card__image { height: 220px; }
     .bl-featured-card__body { padding: 16px; }
     .bl-featured-card__title { font-size: 16px; }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   HERO HEADLINE — landing page
+═══════════════════════════════════════════════════ */
+.hero-headline {
+    max-width: 900px;        /* prevents it stretching too wide on large monitors */
+    line-height: 1.25 !important;
+}
+
+/* "Businesses Scale" always stays on ONE line */
+.hero-headline__break {
+    display: block;          /* forces it onto its own line below the first line */
+    white-space: nowrap;     /* keeps BUSINESSES and Scale together, never wraps between them */
+    font-weight: 300;
+}
+/* Ensure the highlight span inside doesn't cause size inflation */
+.hero-headline__break .highlight {
+    font-size: inherit;
+}
+
+/* Mobile: tighten up */
+@media (max-width: 767px) {
+    .hero-headline {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+        max-width: 100%;
+    }
+    /* Keep BUSINESSES Scale on the same line on mobile — DO NOT allow wrap */
+    .hero-headline__break {
+        white-space: nowrap;
+        font-size: 26px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 22px !important;
+        display: flex;
+        flex-wrap: wrap !important;
+    }
+    .hero-headline__break {
+        font-size: 22px !important;
+        white-space: nowrap !important;
+        display: flex !important;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-headline {
+        font-size: 19px !important;
+    }
+    .hero-headline__break {
+        font-size: 19px !important;
+        white-space: nowrap;
+    }
+}
+
+
+/* ── Footer column headings — Services / Locations / Contact ── */
+.footer-col-heading {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px !important;
+    line-height: 1.3;
 }
