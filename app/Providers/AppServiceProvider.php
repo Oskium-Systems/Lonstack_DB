@@ -7,6 +7,7 @@ use App\Models\Technology;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
 
   public function boot(): void
   {
+
+    Schema::defaultStringLength(191);
     Paginator::useBootstrap();
 
     // Share active service categories to all guest layout views.
