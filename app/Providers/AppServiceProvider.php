@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
 
     // Share active service categories to all guest layout views.
     // Powers the nav mega menu without repeating the query per controller.
-    View::composer('layouts.guest', function ($view) {
+    View::composer('*', function ($view) {
       $view->with('navCategories', ServiceCategory::with(['activeServices'])
         ->active()
         ->get());

@@ -253,58 +253,7 @@
                     </div>
                 </div>
                 <div class="right">
-                    <form id="contactform" class="form-contact-us px-md-15" method="post"
-                        action="https://teckko.vercel.app/contact/contact-process.php">
-                        <div class="heading-form text-center">
-                            <h3 class="title">
-                                Need Help For Project!
-                            </h3>
-                            <div class="desc lh-30">We are ready to help your next projects, let’s work together</div>
-                        </div>
-
-                        <div class="cols mb-20 g-20">
-                            <fieldset class="item">
-                                <input type="text" name="name" id="name" placeholder="Name" required>
-                                <i class="icon-user"></i>
-                            </fieldset>
-
-                            <fieldset class="item">
-                                <input type="email" name="mail" id="mail" placeholder="Email" required>
-                                <i class="icon-email"></i>
-                            </fieldset>
-                        </div>
-
-                        <div class="nice-select mb-20">
-                            <span class="current caption-1">Choose Services</span>
-                            <ul class="list">
-                                <li class="option option-all selected focus">
-                                    Choose Services
-                                </li>
-                                <li class="option">
-                                    Machine Learning
-                                </li>
-                                <li class="option">
-                                    Artificial Intelligence
-                                </li>
-                                <li class="option">
-                                    Augmented Reality
-                                </li>
-                                <li class="option">
-                                    Software Development
-                                </li>
-                            </ul>
-                        </div>
-
-                        <fieldset class="mb-20">
-                            <textarea name="message" id="message" placeholder="Message" required></textarea>
-                        </fieldset>
-
-                        <button type="submit" class="tf-btn mx-auto">
-                            <span>Send Message Us</span>
-                            <i class="icon-arrow-right"></i>
-                        </button>
-
-                    </form>
+                    <x-contact-form :categories="$navCategories" />
                 </div>
             </div>
         </section>
@@ -472,4 +421,3 @@
     </div>
     <!-- /.main-content -->
 @endsection
-

@@ -62,75 +62,7 @@
                     </div>
 
                     <div class="right">
-                        <form id="contactform" class="form-contact-us style-bg-dark-2 px-md-15" method="post"
-                            action="./contact/contact-process.php">
-                            <div class="cols mb-37 g-30">
-                                <fieldset class="item">
-                                    <label for="name" class="sub-title body-2 fw-5">Full Name</label>
-                                    <fieldset class="position-relative">
-                                        <i class="icon-user"></i>
-                                        <input type="text" name="name" id="name" placeholder="Name"
-                                            value="Richard D. Hammond" required>
-                                    </fieldset>
-                                </fieldset>
-
-                                <fieldset class="item">
-                                    <label for="mail" class="sub-title body-2 fw-5">Email Address</label>
-                                    <fieldset class="position-relative">
-                                        <i class="icon-email"></i>
-                                        <input type="email" name="mail" id="mail" placeholder="Email"
-                                            value="support@gmail.com" required>
-                                    </fieldset>
-                                </fieldset>
-                            </div>
-                            <div class="cols mb-37 g-30">
-                                <fieldset class="item">
-                                    <label for="phone" class="sub-title body-2 fw-5">Phone Number</label>
-                                    <fieldset class="position-relative">
-                                        <i class="icon-phone"></i>
-                                        <input type="number" name="phone" id="phone" placeholder="+1 (123) 456 889"
-                                            value="" required>
-                                    </fieldset>
-                                </fieldset>
-
-                                <fieldset class="item">
-                                    <div class="sub-title body-2 fw-5">
-                                        Subject
-                                    </div>
-                                    <div class="nice-select">
-                                        <span class="current caption-1">I would like to discussed</span>
-                                        <ul class="list">
-                                            <li class="option option-all selected focus">
-                                                I would like to discussed
-                                            </li>
-                                            <li class="option">
-                                                Machine Learning
-                                            </li>
-                                            <li class="option">
-                                                Artificial Intelligence
-                                            </li>
-                                            <li class="option">
-                                                Augmented Reality
-                                            </li>
-                                            <li class="option">
-                                                Software Development
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                            <fieldset class="mb-40">
-                                <label for="message" class="sub-title body-2 fw-5">Message</label>
-                                <textarea name="message" id="message" placeholder="Write message" required></textarea>
-                            </fieldset>
-
-                            <button type="submit" class="tf-btn">
-                                <span>Send Us Message</span>
-                                <i class="icon-arrow-right"></i>
-                            </button>
-
-                        </form>
+                        <x-contact-form :dark="true" :categories="$navCategories" />
                     </div>
 
                 </div>

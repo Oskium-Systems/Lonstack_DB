@@ -164,7 +164,6 @@
   </script>
 
   <!-- /Javascript -->
-
   @stack('scripts')
 
 </body>
