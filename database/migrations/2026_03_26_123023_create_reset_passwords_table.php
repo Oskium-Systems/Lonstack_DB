@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('code');
-            $table->string('token', 64)->unique();
+            $table->string('token', 40)->unique();
             $table->enum('status', ['pending', 'verified', 'completed'])->default('pending');
             $table->timestamp('expires_at');
             $table->unsignedTinyInteger('attempts')->default(0);
