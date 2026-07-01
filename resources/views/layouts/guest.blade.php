@@ -76,7 +76,7 @@
                 <p class="promo-modal-desc">Refer a client and receive <strong>10% of the total project value</strong>
                     when
                     completed.</p>
-                <div class="promo-modal-dates">📅 Promo Period: 4 July 2026 – 31 August 2026</div>
+                <div class="promo-modal-dates">📅 Promo Period: 4 July 2026 – 5 September 2026</div>
                 <button class="promo-modal-terms" id="openTermsModal">Terms &amp; Conditions Apply</button>
             </div>
         </div>
@@ -95,7 +95,7 @@
 
                     <div class="terms-card">
                         <h4>1. Promotion Overview</h4>
-                        <p>This referral promotion is offered by <strong>Lonstack</strong>. Participants earn a reward
+                        <p>This referral promotion is offered by <strong>Lonstack Software</strong>. following the relaunch of our website and the introduction of our enhanced digital services. Participants earn a reward
                             when
                             they refer a new client who successfully completes a paid project.</p>
                     </div>
@@ -137,7 +137,7 @@
 
                     <div class="terms-card terms-card--highlight">
                         <h4>6. Promotion Period</h4>
-                        <p class="terms-promo-dates">📅 4 July 2026 – 31 August 2026</p>
+                        <p class="terms-promo-dates">📅 4 July 2026 – 5 September 2026</p>
                     </div>
 
                     <div class="terms-card">

@@ -68,7 +68,7 @@
                             <div class="counter-item">
                                 <div class="counter">
                                     <div class="number-counter flex fs-65 fw-6">
-                                        <span class="number odometer color-primary" data-to="3" data-inviewport="yes"> 0
+                                        <span class="number odometer color-primary" data-to="2" data-inviewport="yes"> 0
                                         </span>
                                         <span class="color-primary">+</span>
                                     </div>
