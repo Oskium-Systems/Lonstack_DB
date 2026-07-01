@@ -5111,8 +5111,8 @@ a.mapboxgl-ctrl-logo {
 
 .progress-wrap {
     position: fixed;
-    bottom: 40px;
-    right: 20px;
+    bottom: 30px;
+    left: 20px;
     height: 40px;
     width: 40px;
     cursor: pointer;

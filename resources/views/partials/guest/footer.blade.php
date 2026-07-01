@@ -196,7 +196,7 @@
     <div class="tf-container">
       <div class="footer-bottom">
         <div class="line"></div>
-        <a href="#" class="footer-go-top">
+        <a href="javascript:void(0)" class="footer-go-top">
           <i class="icon-arrow-up"></i>
         </a>
         <div class="list-bottom flex align-items-center justify-content-between flex-wrap rg-15 g-30">

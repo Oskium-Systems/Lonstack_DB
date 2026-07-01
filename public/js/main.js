@@ -122,7 +122,6 @@
             $(".fl-item").slice(0, 8).show();
             $(".fl-item2").slice(0, 3).show();
 
-
             if ($(".scroll-loadmore").length > 0) {
                 $(window).scroll(function () {
                     if (
@@ -180,7 +179,7 @@
                         }
                     });
                 },
-                { threshold: 0.5 }
+                { threshold: 0.5 },
             );
 
             $(".counter .number").each(function () {
@@ -207,7 +206,8 @@
                         success: function (msg) {
                             var result, cls;
                             if (msg === "Success") {
-                                result = "Message Sent Successfully To Email Administrator";
+                                result =
+                                    "Message Sent Successfully To Email Administrator";
                                 cls = "msg-success";
                             } else {
                                 result = "Error sending email.";
@@ -220,9 +220,9 @@
                                     text: result,
                                 }).append(
                                     $(
-                                        '<a class="close mt-0" href="#"><i class="fa fa-close"></i></a>'
-                                    )
-                                )
+                                        '<a class="close mt-0" href="#"><i class="fa fa-close"></i></a>',
+                                    ),
+                                ),
                             );
 
                             $form.find(":input").not(".submit").val("");
@@ -266,13 +266,14 @@
         if ($("div").hasClass("progress-wrap")) {
             var progressPath = document.querySelector(".progress-wrap path");
             var pathLength = progressPath.getTotalLength();
-            progressPath.style.transition = progressPath.style.WebkitTransition =
-                "none";
+            progressPath.style.transition =
+                progressPath.style.WebkitTransition = "none";
             progressPath.style.strokeDasharray = pathLength + " " + pathLength;
             progressPath.style.strokeDashoffset = pathLength;
             progressPath.getBoundingClientRect();
-            progressPath.style.transition = progressPath.style.WebkitTransition =
-                "stroke-dashoffset 10ms linear";
+            progressPath.style.transition =
+                progressPath.style.WebkitTransition =
+                    "stroke-dashoffset 10ms linear";
             var updateprogress = function () {
                 var scroll = $(window).scrollTop();
                 var height = $(document).height() - $(window).height();
@@ -289,7 +290,10 @@
                 var footerOffsetTop = jQuery(".footer-go-top").offset().top;
                 var windowHeight = jQuery(window).height();
 
-                if (scrollTop > offset && scrollTop + windowHeight < footerOffsetTop) {
+                if (
+                    scrollTop > offset &&
+                    scrollTop + windowHeight < footerOffsetTop
+                ) {
                     jQuery(".progress-wrap").addClass("active-progress");
                 } else {
                     jQuery(".progress-wrap").removeClass("active-progress");
@@ -326,55 +330,116 @@
     });
 })(jQuery);
 
-
 // ── Mega Menu Tab Switching ──
 // Handles hover on .mega-cat-item to show the matching .mega-tab panel.
 // Works with both static IDs (web3, software, ai, data) and
 // dynamic IDs (cat-1, cat-2, etc.) generated from the DB.
 (function () {
-    document.addEventListener('DOMContentLoaded', function () {
-
+    document.addEventListener("DOMContentLoaded", function () {
         // ── Position dropdown flush with the bottom of the header ──
         // Uses getBoundingClientRect so it works whether the header is
         // sticky, scrolled, or at its natural position.
         function positionDropdowns() {
-            var header = document.getElementById('header');
+            var header = document.getElementById("header");
             if (!header) return;
             var bottom = header.getBoundingClientRect().bottom;
-            document.querySelectorAll('.sub-menu-large').forEach(function (menu) {
-                menu.style.top = bottom + 'px';
-            });
+            document
+                .querySelectorAll(".sub-menu-large")
+                .forEach(function (menu) {
+                    menu.style.top = bottom + "px";
+                });
         }
 
         // Set on load and on every scroll/resize so it stays accurate
         positionDropdowns();
-        window.addEventListener('scroll', positionDropdowns, { passive: true });
-        window.addEventListener('resize', positionDropdowns, { passive: true });
+        window.addEventListener("scroll", positionDropdowns, { passive: true });
+        window.addEventListener("resize", positionDropdowns, { passive: true });
 
         // ── Tab switching ──
-        var catItems = document.querySelectorAll('.mega-cat-item[data-tab]');
+        var catItems = document.querySelectorAll(".mega-cat-item[data-tab]");
 
         catItems.forEach(function (item) {
-            item.addEventListener('mouseenter', function () {
-                var tabId = this.getAttribute('data-tab');
-                var menu  = this.closest('.mega-menu-inner');
+            item.addEventListener("mouseenter", function () {
+                var tabId = this.getAttribute("data-tab");
+                var menu = this.closest(".mega-menu-inner");
                 if (!menu) return;
 
                 // Deactivate all category items in this menu
-                menu.querySelectorAll('.mega-cat-item').forEach(function (el) {
-                    el.classList.remove('active');
+                menu.querySelectorAll(".mega-cat-item").forEach(function (el) {
+                    el.classList.remove("active");
                 });
 
                 // Deactivate all tab panels in this menu
-                menu.querySelectorAll('.mega-tab').forEach(function (el) {
-                    el.classList.remove('active');
+                menu.querySelectorAll(".mega-tab").forEach(function (el) {
+                    el.classList.remove("active");
                 });
 
                 // Activate the hovered item and its matching panel
-                this.classList.add('active');
-                var panel = menu.querySelector('#' + tabId);
-                if (panel) panel.classList.add('active');
+                this.classList.add("active");
+                var panel = menu.querySelector("#" + tabId);
+                if (panel) panel.classList.add("active");
             });
         });
     });
+
+document.addEventListener("DOMContentLoaded", function () {
+    var promoOverlay = document.getElementById("promoModalOverlay");
+    var termsOverlay = document.getElementById("termsModalOverlay");
+
+    // Modal isn't present on this page — skip entirely
+    if (!promoOverlay || !termsOverlay) {
+        return;
+    }
+
+    var promoClose = document.getElementById("promoModalClose");
+    var openTermsBtn = document.getElementById("openTermsModal");
+    var termsClose = document.getElementById("termsModalClose");
+
+    function lockScroll() {
+        document.body.style.overflow = "hidden";
+    }
+
+    function unlockScroll() {
+        if (
+            !promoOverlay.classList.contains("show") &&
+            !termsOverlay.classList.contains("show")
+        ) {
+            document.body.style.overflow = "";
+        }
+    }
+
+    function openPromoModal() {
+        promoOverlay.classList.add("show");
+        lockScroll();
+    }
+
+    function closePromoModal() {
+        promoOverlay.classList.remove("show");
+        unlockScroll();
+    }
+
+    function openTermsModal() {
+        termsOverlay.classList.add("show");
+        lockScroll();
+    }
+
+    function closeTermsModal() {
+        termsOverlay.classList.remove("show");
+        unlockScroll();
+    }
+
+    // Show promo modal on every page load/refresh
+    setTimeout(openPromoModal, 300);
+
+    promoClose.addEventListener("click", closePromoModal);
+    promoOverlay.addEventListener("click", function (e) {
+        if (e.target === promoOverlay) closePromoModal();
+    });
+
+    openTermsBtn.addEventListener("click", openTermsModal);
+    termsClose.addEventListener("click", closeTermsModal);
+    termsOverlay.addEventListener("click", function (e) {
+        if (e.target === termsOverlay) closeTermsModal();
+    });
+});
 })();
