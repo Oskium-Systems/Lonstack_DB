@@ -13,7 +13,7 @@ class ServiceCategoryController extends Controller
     {
         $categories = ServiceCategory::withCount('services')
             ->orderBy('sort_order')
-            ->paginate(2);
+            ->paginate(20);
 
         return view('admin.services.categories', compact('categories'));
     }

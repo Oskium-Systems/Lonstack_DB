@@ -59,7 +59,7 @@ class TechnologyHeroController extends Controller
    */
   public function update(Request $request, Technology $technology, TechnologyHero $hero)
   {
-    abort_if($hero->technology_id !== $technology->id, 403);
+    abort_if($hero->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'headline'    => 'required|string|max:255',

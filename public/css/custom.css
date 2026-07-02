@@ -4169,3 +4169,11 @@
     object-position: top; /* keep faces in frame */
     display: block;
 }
+
+
+/* ── Testimonial section .right: give the swiper container proper flex width ── */
+.section-testimonial.p-services .section-testimonials-inner .right {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+}
