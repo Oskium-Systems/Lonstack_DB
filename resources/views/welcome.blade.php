@@ -1157,7 +1157,7 @@
                                             </div>
                                             <div class="user-testimonial">
                                                 <a href="javascript:void(0)" class="name-user body-2">{{ $ht->name }}</a>
-                                                <a href="#" class="position text-medium">
+                                                <a href="javascript:void(0)" class="position text-medium">
                                                     {{ $ht->position }}
                                                     @if ($ht->company)
                                                        &middot; {{ $ht->company }}
