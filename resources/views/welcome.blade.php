@@ -1134,8 +1134,8 @@
                                 Clients Feedback
                             </div>
                             <h2 class="title fw-6 title-animation">
-                                20+ People Say
-                                <span class="fw-3">About Us</span>
+                                Real Experiences.
+                                <span class="fw-3">Genuine Feedback.</span>
                             </h2>
                         </div>
                         <div class="swiper tf-swiper sw-testimonial"
@@ -1156,11 +1156,11 @@
                                                 {{ $ht->content }}
                                             </div>
                                             <div class="user-testimonial">
-                                                <a href="#" class="name-user body-2">{{ $ht->name }}</a>
+                                                <a href="javascript:void(0)" class="name-user body-2">{{ $ht->name }}</a>
                                                 <a href="#" class="position text-medium">
                                                     {{ $ht->position }}
                                                     @if ($ht->company)
-                                                        Â· {{ $ht->company }}
+                                                       &middot; {{ $ht->company }}
                                                     @endif
                                                 </a>
                                             </div>

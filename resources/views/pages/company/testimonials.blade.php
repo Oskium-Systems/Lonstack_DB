@@ -195,7 +195,7 @@
                     <div style="border:1px solid var(--stroke-2); border-radius:16px; padding:60px 40px;">
                         <div class="sub-title body-2 fw-7 mb-17">Ready to Work With Us?</div>
                         <h3 class="title fw-6 mb-30">
-                            Join 1250+ Businesses That
+                            Join Businesses That
                             <span class="fw-3">Trust LonStack</span>
                         </h3>
                         <a href="{{ route('contact-us') }}" class="tf-btn">
