@@ -3121,7 +3121,7 @@
 .bd-body {
     font-size: 16px;
     line-height: 1.85;
-    color: rgba(255,255,255,0.75);
+    color: #fff;
     margin-bottom: 40px;
 }
 .bd-body h1,

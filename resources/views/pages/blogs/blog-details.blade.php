@@ -104,7 +104,7 @@
               {{ strtoupper(substr($blog->author->name, 0, 1)) }}
             </div>
             <div class="bd-author-card__info">
-              <div class="bd-author-card__label">Written by</div>
+              <div class="bd-author-card__label">Posted by</div>
               <div class="bd-author-card__name">{{ $blog->author->name }}</div>
             </div>
           </div>
