@@ -86,7 +86,7 @@
       <div class="td-section-head">
         <div>
           <div class="td-label">{{ $technology->advantages->first()->section_heading ?? 'Advantages' }}</div>
-          <h2 class="td-heading">What Are the Advantages of {{ $technology->name }}</h2>
+          <h2 class="td-heading">What Are the Advantages of <br> {{ $technology->name }}</h2>
         </div>
         <a href="{{ route('contact-us') }}" class="tf-btn td-section-head__btn">
           <span>Hire Us</span><i class="icon-arrow-right"></i>
@@ -165,7 +165,7 @@
   <section class="td-section td-section--alt">
     <div class="tf-container">
       <div class="td-label">{{ $technology->processes->first()->section_heading ?? 'Our Process' }}</div>
-      <h2 class="td-heading">Our {{ $technology->name }} Development Process</h2>
+      <h2 class="td-heading">Our {{ $technology->name }} Process</h2>
       <div class="td-proc-grid">
         @foreach($technology->processes as $item)
         <div class="td-proc-card">

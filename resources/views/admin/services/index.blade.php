@@ -81,9 +81,10 @@
                     title="Edit detail sections">
                     <i data-feather="layers" class="feather-14"></i>
                   </a>
-                  
+
                   <a class="me-2 p-2" href="#" data-bs-toggle="modal"
                     data-bs-target="#editServiceModal" data-id="{{ $service->id }}"
+                    data-slug="{{ $service->slug }}"
                     data-category="{{ $service->service_category_id }}"
                     data-name="{{ $service->name }}"
                     data-short="{{ $service->short_description }}"
@@ -259,7 +260,7 @@
     const btn = e.relatedTarget;
     const form = document.getElementById('editServiceForm');
 
-    form.action = `/admin/services/${btn.dataset.id}`;
+    form.action = `/admin/services/${btn.dataset.slug}`;
 
     document.getElementById('edit_category').value = btn.dataset.category;
     document.getElementById('edit_name').value = btn.dataset.name;
