@@ -257,8 +257,9 @@
                                             <a href="{{ route('tech.show', $tech->slug) }}"
                                                 class="mega-service-item mega-service-item--no-icon">
                                                 <div class="mega-service-text">
-                                                    <span class="mega-service-title">{{ $tech->name }}
-                                                        Development</span>
+                                                    <span class="mega-service-title">
+                                                        {{ $tech->name }}
+                                                    </span>
                                                     @if ($tech->short_description)
                                                         <span
                                                             class="mega-service-desc">{{ $tech->short_description }}</span>

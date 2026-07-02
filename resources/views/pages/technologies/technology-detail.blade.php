@@ -27,7 +27,7 @@
 
         <div class="tech-hero__badge">
           @if($technology->icon)<i class="{{ $technology->icon }}"></i>@endif
-          {{ $technology->name }} Development
+          {{ $technology->name }}
         </div>
 
         <h1 class="tech-hero__headline">
@@ -55,13 +55,13 @@
         <div class="tech-hero__visual">
           <div class="tech-hero__center-circle">
             <div class="tech-hero__center-name">
-              {{ $technology->name }}<br>Development<br>Company
+              {{ $technology->name }}
             </div>
           </div>
           @foreach($navTechnologies->where('slug','!=',$technology->slug)->take(6) as $other)
           {{-- Clickable orbit bubble — links to that technology's page --}}
           <a href="{{ route('tech.show', $other->slug) }}" class="tech-hero__orbit-item">
-            {{ $other->name }}<br>Development<br>Company
+            {{ $other->name }}
           </a>
           @endforeach
         </div>
