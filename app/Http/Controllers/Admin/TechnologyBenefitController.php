@@ -33,7 +33,7 @@ class TechnologyBenefitController extends Controller
   /** Update an existing benefit (PATCH) */
   public function update(Request $request, Technology $technology, TechnologyBenefit $benefit)
   {
-    abort_if($benefit->technology_id !== $technology->id, 403);
+    abort_if($benefit->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'section_heading'  => 'nullable|string|max:255',
@@ -55,7 +55,7 @@ class TechnologyBenefitController extends Controller
   /** Delete a benefit */
   public function destroy(Technology $technology, TechnologyBenefit $benefit)
   {
-    abort_if($benefit->technology_id !== $technology->id, 403);
+    abort_if($benefit->technology_id != $technology->id, 403);
 
     try {
       $benefit->delete();

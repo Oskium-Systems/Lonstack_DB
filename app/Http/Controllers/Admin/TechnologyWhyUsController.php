@@ -33,7 +33,7 @@ class TechnologyWhyUsController extends Controller
   /** Update an existing "Why Choose Us" item (PATCH) */
   public function update(Request $request, Technology $technology, TechnologyWhyUs $whyUs)
   {
-    abort_if($whyUs->technology_id !== $technology->id, 403);
+    abort_if($whyUs->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'section_heading'  => 'nullable|string|max:255',
@@ -55,7 +55,7 @@ class TechnologyWhyUsController extends Controller
   /** Delete a "Why Choose Us" item */
   public function destroy(Technology $technology, TechnologyWhyUs $whyUs)
   {
-    abort_if($whyUs->technology_id !== $technology->id, 403);
+    abort_if($whyUs->technology_id != $technology->id, 403);
 
     try {
       $whyUs->delete();

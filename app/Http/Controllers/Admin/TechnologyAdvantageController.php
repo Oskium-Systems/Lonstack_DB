@@ -33,7 +33,7 @@ class TechnologyAdvantageController extends Controller
   /** Update an existing advantage (PATCH) */
   public function update(Request $request, Technology $technology, TechnologyAdvantage $advantage)
   {
-    abort_if($advantage->technology_id !== $technology->id, 403);
+    abort_if($advantage->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'section_heading'  => 'nullable|string|max:255',
@@ -55,7 +55,7 @@ class TechnologyAdvantageController extends Controller
   /** Delete an advantage */
   public function destroy(Technology $technology, TechnologyAdvantage $advantage)
   {
-    abort_if($advantage->technology_id !== $technology->id, 403);
+    abort_if($advantage->technology_id != $technology->id, 403);
 
     try {
       $advantage->delete();

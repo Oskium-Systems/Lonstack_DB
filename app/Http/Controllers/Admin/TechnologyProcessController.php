@@ -33,7 +33,7 @@ class TechnologyProcessController extends Controller
   /** Update an existing process step (PATCH) */
   public function update(Request $request, Technology $technology, TechnologyProcess $process)
   {
-    abort_if($process->technology_id !== $technology->id, 403);
+    abort_if($process->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'section_heading'  => 'nullable|string|max:255',
@@ -55,7 +55,7 @@ class TechnologyProcessController extends Controller
   /** Delete a process step */
   public function destroy(Technology $technology, TechnologyProcess $process)
   {
-    abort_if($process->technology_id !== $technology->id, 403);
+    abort_if($process->technology_id != $technology->id, 403);
 
     try {
       $process->delete();

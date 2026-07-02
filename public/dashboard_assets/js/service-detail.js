@@ -177,6 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var bEditor     = document.getElementById('b_description_editor');
 
         benefitModal.addEventListener('show.bs.modal', function (e) {
+            // Guard: only run if this is the services benefit modal (b_* IDs must exist)
+            if (!document.getElementById('b_section_heading')) return;
+
             // Lazily mount Quill on first open
             if (typeof Quill !== 'undefined') mountQuill(bEditor);
 
@@ -216,6 +219,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var pEditor     = document.getElementById('p_description_editor');
 
         processModal.addEventListener('show.bs.modal', function (e) {
+            // Guard: only run if this is the services process modal (p_* IDs must exist)
+            if (!document.getElementById('p_section_heading')) return;
+
             if (typeof Quill !== 'undefined') mountQuill(pEditor);
 
             var btn  = e.relatedTarget;
@@ -321,6 +327,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var fEditor     = document.getElementById('f_answer_editor');
 
         faqModal.addEventListener('show.bs.modal', function (e) {
+            // Guard: only run if this is the services faq modal (f_* IDs must exist)
+            if (!document.getElementById('f_section_heading')) return;
+
             if (typeof Quill !== 'undefined') mountQuill(fEditor);
 
             var btn  = e.relatedTarget;

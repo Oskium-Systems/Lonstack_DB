@@ -36,7 +36,7 @@ class TechnologyFaqController extends Controller
   /** Update an existing FAQ (PATCH) */
   public function update(Request $request, Technology $technology, TechnologyFaq $faq)
   {
-    abort_if($faq->technology_id !== $technology->id, 403);
+    abort_if($faq->technology_id != $technology->id, 403);
 
     $validated = $request->validate([
       'section_heading'  => 'nullable|string|max:255',
@@ -61,7 +61,7 @@ class TechnologyFaqController extends Controller
   /** Delete a FAQ */
   public function destroy(Technology $technology, TechnologyFaq $faq)
   {
-    abort_if($faq->technology_id !== $technology->id, 403);
+    abort_if($faq->technology_id != $technology->id, 403);
 
     try {
       $faq->delete();
