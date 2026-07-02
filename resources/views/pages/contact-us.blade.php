@@ -38,25 +38,27 @@
                             <div class="title body-2 fw-7 title-animation">Main Office</div>
                             <div class="contact-item location-item align-items-start title-animation">
                                 <i class="icon-location-dot"></i>
-                                <a href="#" class="lh-30">55 Main Street, San
-                                    <br>Francisco, California. USA</a>
+                                <a href="javascript:void(0)" class="lh-30">Plot A/151 Iyiagu Housing Estate,
+                                    <br>Awka, Anambra State. Nigeria</a>
                             </div>
                             <div class="contact-item title-animation">
                                 <i class="icon-email"></i>
-                                <a href="#" class="lh-30">support@gmail.com</a>
+                                <a href="#" class="lh-30">info@lonstack.com</a>
                             </div>
                             <div class="contact-item title-animation">
                                 <i class="icon-phone"></i>
-                                <a href="#" class="lh-30">+1 (123) 456 889</a>
+                                <div class="lh-30" style="display:flex; flex-direction:column; gap:4px;">
+                                    <a href="tel:+2348083976834">+234 (80) 83976834</a>
+                                    <a href="tel:+4407350154933">+44 (07) 350154933</a>
+                                </div>
                             </div>
                         </div>
                         <div class="contact-social">
                             <div class="title body-2 fw-7 title-animation">Follow Me</div>
                             <ul class="post-social style-radius-50 style-bg-white g-10 title-animation">
-                                <li><a href="#" class="icon-social"><i class="icon-fb"></i></a></li>
-                                <li><a href="#" class="icon-social"><i class="icon-X"></i></a></li>
-                                <li><a href="#" class="icon-social"><i class="icon-linkedin"></i></a></li>
-                                <li><a href="#" class="icon-social"><i class="icon-instagram"></i></a></li>
+                                <li><a href="https://x.com/lonstacksoftwar" class="icon-social" target="_blank" rel="noopener noreferrer"><i class="icon-X"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/lonstack-software/" class="icon-social" target="_blank" rel="noopener noreferrer"><i class="icon-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com/lonstacksoftware" class="icon-social" target="_blank" rel="noopener noreferrer"><i class="icon-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

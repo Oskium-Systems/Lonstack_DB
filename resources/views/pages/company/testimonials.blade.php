@@ -26,7 +26,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="text-center" style="border:1px solid var(--stroke-2); border-radius:12px; padding:35px 20px;">
                         <div class="flex justify-content-center fs-65 fw-7" style="color:var(--primary); line-height:1;">
-                            1250<span>+</span>
+                            20<span>+</span>
                         </div>
                         <p class="body-2 fw-5 mt-15">Happy Clients</p>
                     </div>
@@ -34,7 +34,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="text-center" style="border:1px solid var(--stroke-2); border-radius:12px; padding:35px 20px;">
                         <div class="flex justify-content-center fs-65 fw-7" style="color:var(--primary); line-height:1;">
-                            98<span>%</span>
+                            97<span>%</span>
                         </div>
                         <p class="body-2 fw-5 mt-15">Satisfaction Rate</p>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="text-center" style="border:1px solid var(--stroke-2); border-radius:12px; padding:35px 20px;">
                         <div class="flex justify-content-center fs-65 fw-7" style="color:var(--primary); line-height:1;">
-                            850<span>+</span>
+                            20<span>+</span>
                         </div>
                         <p class="body-2 fw-5 mt-15">Projects Delivered</p>
                     </div>
@@ -50,7 +50,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="text-center" style="border:1px solid var(--stroke-2); border-radius:12px; padding:35px 20px;">
                         <div class="flex justify-content-center fs-65 fw-7" style="color:var(--primary); line-height:1;">
-                            9<span>+</span>
+                            2<span>+</span>
                         </div>
                         <p class="body-2 fw-5 mt-15">Years Experience</p>
                     </div>
