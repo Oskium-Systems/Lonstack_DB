@@ -4162,7 +4162,7 @@
 }
 
 .team-item .image img {
-    aspect-ratio: 3 / 4;  /* portrait ratio — same on every card */
+    aspect-ratio: 4 / 3;  /* landscape-ish ratio — shorter cards */
     width: 100%;          /* fills the marginned wrapper exactly */
     height: auto;         /* let aspect-ratio drive the height */
     object-fit: cover;    /* crop to fill without stretching */
