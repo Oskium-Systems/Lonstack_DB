@@ -68,7 +68,7 @@ class BlogController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title),
             'excerpt'          => $request->excerpt,
-            'description'      => $request->description,
+            'description' => $this->cleanDescription($request->description),
             'image'            => $imagePath,
             'tags'             => $request->tags,
             'status'           => $request->has('status') ? 1 : 0,
@@ -107,7 +107,7 @@ class BlogController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title),
             'excerpt'          => $request->excerpt,
-            'description'      => $request->description,
+            'description' => $this->cleanDescription($request->description),
             'image'            => $imagePath,
             'tags'             => $request->tags,
             'status'           => $request->has('status') ? 1 : 0,
@@ -154,4 +154,15 @@ class BlogController extends Controller
             'created_at'       => $blog->created_at->format('d M Y'),
         ];
     }
+
+    private function cleanDescription($html)
+{
+    // Remove all inline color styles
+    $html = preg_replace('/color\s*:\s*[^;"]+;?/i', '', $html);
+
+    // Remove empty style="" attributes
+    $html = preg_replace('/style="\s*"/i', '', $html);
+
+    return $html;
+}
 }
